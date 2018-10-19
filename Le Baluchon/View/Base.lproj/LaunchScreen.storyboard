@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="PlayfairDisplay-Regular.otf">
-            <string>PlayfairDisplay-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -23,24 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Baluchon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woc-bZ-qW4">
-                                <rect key="frame" x="34.5" y="166" width="306" height="74"/>
-                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="55"/>
-                                <color key="textColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_Travel_1382834" translatesAutoresizingMaskIntoConstraints="NO" id="Jkx-bt-Jgc">
+                                <rect key="frame" x="67.5" y="91" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="hJB-cD-jzk"/>
+                                    <constraint firstAttribute="width" secondItem="Jkx-bt-Jgc" secondAttribute="height" multiplier="1:1" id="woh-UJ-U0Q"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.21816638983948722" green="0.2830368336158311" blue="0.3618187804299493" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="woc-bZ-qW4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pyZ-PD-ejB"/>
-                            <constraint firstItem="woc-bZ-qW4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="146" id="sor-0n-X11"/>
+                            <constraint firstItem="Jkx-bt-Jgc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="71" id="0Dp-tI-GfL"/>
+                            <constraint firstItem="Jkx-bt-Jgc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="t2R-Mf-T80"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="noun_Travel_1382834" width="1024" height="1024"/>
+    </resources>
 </document>
