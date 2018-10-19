@@ -46,37 +46,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paris" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="fXP-M8-6KY">
-                                <rect key="frame" x="20" y="84" width="152" height="67"/>
+                                <rect key="frame" x="20" y="84" width="152" height="58.333333333333343"/>
                                 <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-Ci-g9U">
-                                <rect key="frame" x="179" y="148" width="219" height="219"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-Ci-g9U" userLabel="Paris Image">
+                                <rect key="frame" x="173.66666666666663" y="148" width="224.33333333333337" height="224.33333333333337"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jkf-Ci-g9U" secondAttribute="height" multiplier="1:1" id="0t2-f2-Fb0"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1q-kh-A1v">
-                                <rect key="frame" x="20" y="258" width="81" height="70"/>
+                                <rect key="frame" x="20" y="249.33333333333334" width="75.666666666666671" height="58.333333333333343"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New-York" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="dTk-YQ-OmX">
-                                <rect key="frame" x="20" y="396" width="264" height="67"/>
+                                <rect key="frame" x="20" y="401.33333333333331" width="264" height="58.333333333333314"/>
                                 <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yw4-RS-uOK">
-                                <rect key="frame" x="179" y="460" width="219" height="219"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yw4-RS-uOK" userLabel="New-York Image">
+                                <rect key="frame" x="173.66666666666663" y="465.33333333333331" width="224.33333333333337" height="224.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yw4-RS-uOK" secondAttribute="height" multiplier="1:1" id="aC2-G1-ULj"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1n7-zw-ulj">
-                                <rect key="frame" x="20" y="570" width="81" height="70"/>
+                                <rect key="frame" x="20" y="566.66666666666663" width="75.666666666666671" height="58.333333333333371"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -118,13 +118,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traduire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQy-XD-YU3">
-                                <rect key="frame" x="20" y="84" width="237" height="67"/>
+                                <rect key="frame" x="20" y="84" width="237" height="58.333333333333343"/>
                                 <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rz8-rc-FqN">
-                                <rect key="frame" x="20" y="171" width="374" height="74"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rz8-rc-FqN" userLabel="Translate Text Field">
+                                <rect key="frame" x="20" y="162.33333333333334" width="374" height="63"/>
                                 <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
@@ -157,13 +157,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convertir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Co-pQ-yEk">
-                                <rect key="frame" x="20" y="84" width="257" height="67"/>
+                                <rect key="frame" x="20" y="84" width="257" height="58.333333333333343"/>
                                 <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ld-NWe">
-                                <rect key="frame" x="20" y="171" width="374" height="74"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ld-NWe" userLabel="Convert Text Field">
+                                <rect key="frame" x="20" y="162.33333333333334" width="374" height="63"/>
                                 <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
