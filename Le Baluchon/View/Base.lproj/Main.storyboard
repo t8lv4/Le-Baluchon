@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ki5-yy-bUf">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PlayfairDisplay-Regular.otf">
+            <string>PlayfairDisplay-Regular</string>
+        </array>
+        <array key="mplus-1c-light.ttf">
+            <string>mplus-1c-light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="m2q-tx-NOA">
+            <objects>
+                <tabBarController id="Ki5-yy-bUf" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sta-j3-wFK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Eb1-DX-c5W" kind="relationship" relationship="viewControllers" id="y87-fg-ef4"/>
+                        <segue destination="0ay-Hz-vNr" kind="relationship" relationship="viewControllers" id="CuS-BX-5xj"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="IeF-0d-R7u"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byD-a9-jW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1607" y="-227"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="p79-Zw-cw0">
+            <objects>
+                <viewController id="0ay-Hz-vNr" userLabel="Weather" customClass="ViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ufd-gp-Kq2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paris" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXP-M8-6KY">
+                                <rect key="frame" x="26" y="31" width="113" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="qBP-2H-Jaq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="tabWeather" id="wh0-Kc-AjJ" userLabel="Weather"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIB-lk-8yC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-658" y="-227"/>
+        </scene>
+        <!--Translate-->
+        <scene sceneID="oE6-mV-eSR">
+            <objects>
+                <viewController id="Eb1-DX-c5W" userLabel="Translate" customClass="ViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bfj-J1-Dff">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traduire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQy-XD-YU3">
+                                <rect key="frame" x="20" y="60" width="197.5" height="67"/>
+                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rz8-rc-FqN">
+                                <rect key="frame" x="20" y="147" width="280" height="74"/>
+                                <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="9V9-dK-rXb" firstAttribute="trailing" secondItem="rz8-rc-FqN" secondAttribute="trailing" constant="20" id="3ry-sy-CY8"/>
+                            <constraint firstItem="PQy-XD-YU3" firstAttribute="leading" secondItem="9V9-dK-rXb" secondAttribute="leading" constant="20" id="Bq2-TL-9y0"/>
+                            <constraint firstItem="9V9-dK-rXb" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="PQy-XD-YU3" secondAttribute="trailing" constant="157" id="dMQ-9q-1lk"/>
+                            <constraint firstItem="PQy-XD-YU3" firstAttribute="top" secondItem="9V9-dK-rXb" secondAttribute="top" constant="40" id="eSz-p5-hSf"/>
+                            <constraint firstItem="rz8-rc-FqN" firstAttribute="top" secondItem="PQy-XD-YU3" secondAttribute="bottom" constant="20" id="h7n-yw-1Z4"/>
+                            <constraint firstItem="rz8-rc-FqN" firstAttribute="leading" secondItem="9V9-dK-rXb" secondAttribute="leading" constant="20" id="qAC-is-wV6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9V9-dK-rXb"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="tabTranslate" id="nhC-mD-g8U" userLabel="Translate"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P2k-Xm-z4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-658" y="-1093"/>
+        </scene>
+        <!--Convert-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="Convert" customClass="ViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convertir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Co-pQ-yEk">
+                                <rect key="frame" x="20" y="60" width="217.5" height="67"/>
+                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ld-NWe">
+                                <rect key="frame" x="20" y="147" width="280" height="74"/>
+                                <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="light"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="dAH-Ld-NWe" firstAttribute="top" secondItem="6Co-pQ-yEk" secondAttribute="bottom" constant="20" id="0vQ-AM-e1g"/>
+                            <constraint firstItem="dAH-Ld-NWe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BEt-uF-eip"/>
+                            <constraint firstItem="6Co-pQ-yEk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Gc5-BE-PY9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6Co-pQ-yEk" secondAttribute="trailing" constant="137" id="XXq-9X-ZMl"/>
+                            <constraint firstItem="6Co-pQ-yEk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="fz4-gf-miq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dAH-Ld-NWe" secondAttribute="trailing" constant="20" id="xIN-lC-qW9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="tabConvert" id="MmK-rH-UP7" userLabel="Convert"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-658.39999999999998" y="724.58770614692662"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabConvert" width="25" height="25"/>
+        <image name="tabTranslate" width="25" height="25"/>
+        <image name="tabWeather" width="25" height="19"/>
+    </resources>
+</document>

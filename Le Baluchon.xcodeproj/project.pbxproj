@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		903084922179D4EE008C6853 /* mplus-1c-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 903084902179D4EE008C6853 /* mplus-1c-light.ttf */; };
+		903084932179D4EE008C6853 /* PlayfairDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */; };
 		90D3A41C2179B9F80096C895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D3A41B2179B9F80096C895 /* AppDelegate.swift */; };
 		90D3A41E2179B9F80096C895 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D3A41D2179B9F80096C895 /* ViewController.swift */; };
 		90D3A4212179B9F80096C895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D3A41F2179B9F80096C895 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		903084902179D4EE008C6853 /* mplus-1c-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-light.ttf"; sourceTree = "<group>"; };
+		903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.otf"; sourceTree = "<group>"; };
 		90D3A4182179B9F80096C895 /* Le Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D3A41B2179B9F80096C895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90D3A41D2179B9F80096C895 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,14 +58,32 @@
 		90D3A41A2179B9F80096C895 /* Le Baluchon */ = {
 			isa = PBXGroup;
 			children = (
+				90D3A4272179B9F90096C895 /* Info.plist */,
+				90D3A4322179C7650096C895 /* View */,
 				90D3A41B2179B9F80096C895 /* AppDelegate.swift */,
 				90D3A41D2179B9F80096C895 /* ViewController.swift */,
-				90D3A41F2179B9F80096C895 /* Main.storyboard */,
-				90D3A4222179B9F90096C895 /* Assets.xcassets */,
-				90D3A4242179B9F90096C895 /* LaunchScreen.storyboard */,
-				90D3A4272179B9F90096C895 /* Info.plist */,
+				90D3A42D2179C58A0096C895 /* Supporting Files */,
 			);
 			path = "Le Baluchon";
+			sourceTree = "<group>";
+		};
+		90D3A42D2179C58A0096C895 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				903084902179D4EE008C6853 /* mplus-1c-light.ttf */,
+				903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */,
+				90D3A4222179B9F90096C895 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90D3A4322179C7650096C895 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90D3A41F2179B9F80096C895 /* Main.storyboard */,
+				90D3A4242179B9F90096C895 /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +144,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903084932179D4EE008C6853 /* PlayfairDisplay-Regular.otf in Resources */,
 				90D3A4262179B9F90096C895 /* LaunchScreen.storyboard in Resources */,
+				903084922179D4EE008C6853 /* mplus-1c-light.ttf in Resources */,
 				90D3A4232179B9F90096C895 /* Assets.xcassets in Resources */,
 				90D3A4212179B9F80096C895 /* Main.storyboard in Resources */,
 			);
