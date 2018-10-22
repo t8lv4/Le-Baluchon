@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		903084922179D4EE008C6853 /* mplus-1c-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 903084902179D4EE008C6853 /* mplus-1c-light.ttf */; };
 		903084932179D4EE008C6853 /* PlayfairDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */; };
+		903AB414217DAD49004683DF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB413217DAD49004683DF /* Weather.swift */; };
+		903AB416217DADFB004683DF /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB415217DADFB004683DF /* CurrencyConverter.swift */; };
+		903AB418217DAEE8004683DF /* WordTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB417217DAEE8004683DF /* WordTranslator.swift */; };
+		903AB41B217DB789004683DF /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB41A217DB789004683DF /* WebServices.swift */; };
+		90502A00217E1ADA00C04702 /* ResourceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905029FF217E1ADA00C04702 /* ResourceLocator.swift */; };
 		90D3A41C2179B9F80096C895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D3A41B2179B9F80096C895 /* AppDelegate.swift */; };
 		90D3A41E2179B9F80096C895 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D3A41D2179B9F80096C895 /* ViewController.swift */; };
 		90D3A4212179B9F80096C895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D3A41F2179B9F80096C895 /* Main.storyboard */; };
@@ -19,6 +24,11 @@
 /* Begin PBXFileReference section */
 		903084902179D4EE008C6853 /* mplus-1c-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-light.ttf"; sourceTree = "<group>"; };
 		903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.otf"; sourceTree = "<group>"; };
+		903AB413217DAD49004683DF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		903AB415217DADFB004683DF /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
+		903AB417217DAEE8004683DF /* WordTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTranslator.swift; sourceTree = "<group>"; };
+		903AB41A217DB789004683DF /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		905029FF217E1ADA00C04702 /* ResourceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLocator.swift; sourceTree = "<group>"; };
 		90D3A4182179B9F80096C895 /* Le Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D3A41B2179B9F80096C895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90D3A41D2179B9F80096C895 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +49,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		903AB412217DAD2D004683DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				903AB415217DADFB004683DF /* CurrencyConverter.swift */,
+				903AB413217DAD49004683DF /* Weather.swift */,
+				903AB417217DAEE8004683DF /* WordTranslator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		903AB419217DAEFA004683DF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				903AB41A217DB789004683DF /* WebServices.swift */,
+				905029FF217E1ADA00C04702 /* ResourceLocator.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		90D3A40F2179B9F80096C895 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +87,8 @@
 		90D3A41A2179B9F80096C895 /* Le Baluchon */ = {
 			isa = PBXGroup;
 			children = (
+				903AB419217DAEFA004683DF /* Networking */,
+				903AB412217DAD2D004683DF /* Model */,
 				90D3A4272179B9F90096C895 /* Info.plist */,
 				90D3A4322179C7650096C895 /* View */,
 				90D3A41B2179B9F80096C895 /* AppDelegate.swift */,
@@ -160,6 +191,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				90D3A41E2179B9F80096C895 /* ViewController.swift in Sources */,
+				903AB416217DADFB004683DF /* CurrencyConverter.swift in Sources */,
+				90502A00217E1ADA00C04702 /* ResourceLocator.swift in Sources */,
+				903AB41B217DB789004683DF /* WebServices.swift in Sources */,
+				903AB418217DAEE8004683DF /* WordTranslator.swift in Sources */,
+				903AB414217DAD49004683DF /* Weather.swift in Sources */,
 				90D3A41C2179B9F80096C895 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
