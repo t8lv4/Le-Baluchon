@@ -159,17 +159,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convertir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Co-pQ-yEk">
-                                <rect key="frame" x="20" y="60" width="218" height="58.5"/>
+                                <rect key="frame" x="20" y="60" width="218" height="67"/>
                                 <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ld-NWe" userLabel="Convert Text Field">
-                                <rect key="frame" x="20" y="138.5" width="335" height="63"/>
+                                <rect key="frame" x="20" y="147" width="335" height="74"/>
                                 <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="light"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="done"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
