@@ -15,15 +15,15 @@ class CurrencyConverterViewController: UIViewController {
     /// Link to Convert TextField
     @IBOutlet weak var convertTextField: UITextField!
 
+}
+
+extension CurrencyConverterViewController: UITextFieldDelegate {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.convertTextField.delegate = self
     }
-
-}
-
-extension CurrencyConverterViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         convertTextField.text = ""
@@ -32,10 +32,22 @@ extension CurrencyConverterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         convertTextField.becomeFirstResponder()
 
-        guard let convert = convertTextField.text else { return false }
-        // call conversion task
+        guard let amount = convertTextField.text else { return false }
+        conversionRequest(for: amount)
         convertTextField.resignFirstResponder()
         return true
     }
 
+}
+
+// MARK: - request Conversion
+
+extension CurrencyConverterViewController {
+    
+    func conversionRequest(for amount: String) {
+        // pass values and method
+        QueryService.shared.queryService(url: Fixer.url)
+        // get rate and calculate
+        // return value
+    }
 }
