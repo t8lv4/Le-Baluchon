@@ -10,5 +10,5 @@ import Foundation
 
 /// Translate from french to english
 class WordTranslator {
-    let text = String()
+    var text: String?
 }

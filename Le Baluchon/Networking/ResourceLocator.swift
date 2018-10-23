@@ -8,15 +8,15 @@
 
 import Foundation
 
-/// Build URLs according to web services
+/// Build URLs
 struct ResourceLocator {
     var url: String
 
-    init(with FixerURL: String) {
-        url = FixerURL
+    init(with URL: String) {
+        url = URL
     }
 
-    init(with GoogleURL: String, text: String) {
-        url = String(GoogleURL + text)
+    init(with URL: String, query: String) {
+        url = String(URL + query)
     }
 }

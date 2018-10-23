@@ -10,5 +10,5 @@ import Foundation
 
 /// Convert from Euro to US Dollar
 class CurrencyConverter {
-    let rate = Int()
+    var rate: Int?
 }
