@@ -10,14 +10,17 @@ import Foundation
 
 class QueryService {
 
+    typealias Callback = (Bool, Any?) -> Void
+
     static var shared = QueryService()
     private init() {}
 
-    var data = Data()
+    private var data = Data()
     private var task: URLSessionDataTask?
+    private var callback: Callback?
     
 
-    func queryService(url: String, values: String = "", method: HTTPMethod = .get) -> Data? {
+    func query(url: String, values: String = "", method: HTTPMethod = .get, callback: @escaping Callback) {
         // créer url: URL
         let url = URL(string: url + values)!
         print(url)
@@ -26,32 +29,27 @@ class QueryService {
 
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: urlRequest) {(data, response, error) in
-            print(data)
-        }
+            print(data as Any)
+
+            guard let data = data, error == nil else {
+                callback(false, nil)
+                return
+            }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                callback(false, nil)
+                return
+            }
+
+            let decoder = JSONDecoder()
+            guard let resource = try? decoder.decode(CurrencyConverter.self, from: data) else {
+                callback(false, nil)
+                return
+            }
+            print("===========")
+            print(resource)
+            }
         task.resume()
-
-
-        return data
     }
-
-    func parseData(data: Data) {
-    }
-
-    
-
-//    private static func createQuoteRequest() -> URLRequest {
-//        //create request
-//        var request = URLRequest(url: quoteURL)
-//        //attach http method
-//        request.httpMethod = "POST"
-//
-//        //create body
-//        let body = "method=getQuote&format=json&lang=en"
-//        //encode body using utf8 and attach it to request
-//        request.httpBody = body.data(using: .utf8)
-//
-//        return request
-//    }
 
 }
 

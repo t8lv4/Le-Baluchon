@@ -14,11 +14,11 @@
 		903AB418217DAEE8004683DF /* WordTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB417217DAEE8004683DF /* WordTranslator.swift */; };
 		903AB41B217DB789004683DF /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB41A217DB789004683DF /* WebServices.swift */; };
 		90502A00217E1ADA00C04702 /* ResourceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905029FF217E1ADA00C04702 /* ResourceLocator.swift */; };
-		90A14C1C217EE85A005F26B6 /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A14C1B217EE85A005F26B6 /* CurrencyConverterViewController.swift */; };
 		90D3A41C2179B9F80096C895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D3A41B2179B9F80096C895 /* AppDelegate.swift */; };
 		90D3A4212179B9F80096C895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D3A41F2179B9F80096C895 /* Main.storyboard */; };
 		90D3A4232179B9F90096C895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90D3A4222179B9F90096C895 /* Assets.xcassets */; };
 		90D3A4262179B9F90096C895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D3A4242179B9F90096C895 /* LaunchScreen.storyboard */; };
+		90F1F444217F8A6000ABFFC6 /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A14C1B217EE85A005F26B6 /* CurrencyConverterViewController.swift */; };
 		90F7E67F217F2EA4002904F5 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F7E67E217F2EA4002904F5 /* QueryService.swift */; };
 /* End PBXBuildFile section */
 
@@ -203,8 +203,8 @@
 			files = (
 				903AB416217DADFB004683DF /* CurrencyConverter.swift in Sources */,
 				903AB414217DAD49004683DF /* Weather.swift in Sources */,
+				90F1F444217F8A6000ABFFC6 /* CurrencyConverterViewController.swift in Sources */,
 				903AB418217DAEE8004683DF /* WordTranslator.swift in Sources */,
-				90A14C1C217EE85A005F26B6 /* CurrencyConverterViewController.swift in Sources */,
 				90502A00217E1ADA00C04702 /* ResourceLocator.swift in Sources */,
 				90F7E67F217F2EA4002904F5 /* QueryService.swift in Sources */,
 				903AB41B217DB789004683DF /* WebServices.swift in Sources */,

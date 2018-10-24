@@ -46,7 +46,9 @@ extension CurrencyConverterViewController {
     
     func conversionRequest(for amount: String) {
         // pass values and method
-        QueryService.shared.queryService(url: Fixer.url)
+        QueryService.shared.query(url: Fixer.url) { (success, resource) in
+            print(resource as Any)
+        }
         // get rate and calculate
         // return value
     }
