@@ -9,6 +9,6 @@
 import Foundation
 
 /// Convert from Euro to US Dollar
-class CurrencyConverter: Decodable {
+struct CurrencyConverter: Decodable {
     let rate: [String : Double]?
 }
