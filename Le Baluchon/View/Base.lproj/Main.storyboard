@@ -40,7 +40,7 @@
         <!--Weather-->
         <scene sceneID="p79-Zw-cw0">
             <objects>
-                <viewController id="0ay-Hz-vNr" userLabel="Weather" customClass="ViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0ay-Hz-vNr" userLabel="Weather" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ufd-gp-Kq2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +114,7 @@
         <!--Translate-->
         <scene sceneID="oE6-mV-eSR">
             <objects>
-                <viewController id="Eb1-DX-c5W" userLabel="Translate" customClass="ViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Eb1-DX-c5W" userLabel="Translate" customClass="WordTranslatorViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bfj-J1-Dff">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
