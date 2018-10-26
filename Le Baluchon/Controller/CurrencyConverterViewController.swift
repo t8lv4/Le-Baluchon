@@ -48,7 +48,7 @@ extension CurrencyConverterViewController {
      - get conversion rate from Fixer
      - display an alert if the resource is not available
      - get the value to display
- */
+     */
     func conversionRequest(for amount: String) {
         CurrencyConverterService.shared.query(url: Fixer.url) { (success, rate) in
             if success, let rate = rate {

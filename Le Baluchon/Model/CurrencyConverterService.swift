@@ -25,17 +25,15 @@ class CurrencyConverterService {
 
      - Parameters:
         - url: The location of the resources.
-        - values: Append these values to the url if needed, default is empty string.
-        - method: HTTP methods, default is "GET".
         - callback: A closure to provide the state of a network call.
      */
-    func query(url: String, values: String = "", method: HTTPMethod = .get, callback: @escaping Callback) {
+    func query(url: String, callback: @escaping Callback) {
         task?.cancel()
 
-        let url = URL(string: url + values)!
+        let url = URL(string: url)!
         print(url)
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = method.rawValue
+        urlRequest.httpMethod = HTTPMethod.get.rawValue
 
         let session = URLSession(configuration: .default)
         task = session.dataTask(with: urlRequest) {(data, response, error) in
