@@ -12,6 +12,7 @@
 		903AB414217DAD49004683DF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB413217DAD49004683DF /* Weather.swift */; };
 		903AB416217DADFB004683DF /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB415217DADFB004683DF /* CurrencyConverter.swift */; };
 		903AB41B217DB789004683DF /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB41A217DB789004683DF /* WebServices.swift */; };
+		908DFEF621830DF6001E88EC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908DFEF521830DF6001E88EC /* HTTPMethod.swift */; };
 		909B85252181EF4C00A09F57 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85242181EF4C00A09F57 /* WeatherViewController.swift */; };
 		909B85272181EF6F00A09F57 /* WordTranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85262181EF6F00A09F57 /* WordTranslatorViewController.swift */; };
 		909B85292181F0AD00A09F57 /* WordTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85282181F0AD00A09F57 /* WordTranslator.swift */; };
@@ -30,6 +31,7 @@
 		903AB413217DAD49004683DF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		903AB415217DADFB004683DF /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
 		903AB41A217DB789004683DF /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		908DFEF521830DF6001E88EC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		909B85242181EF4C00A09F57 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		909B85262181EF6F00A09F57 /* WordTranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTranslatorViewController.swift; sourceTree = "<group>"; };
 		909B85282181F0AD00A09F57 /* WordTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTranslator.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				90F7E67E217F2EA4002904F5 /* CurrencyConverterService.swift */,
 				903AB413217DAD49004683DF /* Weather.swift */,
 				909B85282181F0AD00A09F57 /* WordTranslator.swift */,
+				908DFEF521830DF6001E88EC /* HTTPMethod.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				903AB416217DADFB004683DF /* CurrencyConverter.swift in Sources */,
 				909B85252181EF4C00A09F57 /* WeatherViewController.swift in Sources */,
 				903AB414217DAD49004683DF /* Weather.swift in Sources */,
+				908DFEF621830DF6001E88EC /* HTTPMethod.swift in Sources */,
 				90F1F444217F8A6000ABFFC6 /* CurrencyConverterViewController.swift in Sources */,
 				90F7E67F217F2EA4002904F5 /* CurrencyConverterService.swift in Sources */,
 				903AB41B217DB789004683DF /* WebServices.swift in Sources */,

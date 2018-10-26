@@ -52,10 +52,25 @@ extension CurrencyConverterViewController {
                 print(rate)
                 // call math
             } else {
-                // present alert
+                self.presentVCAlert(with: "Les données ne sont pas diponibles")
             }
         }
-        // get rate and calculate
-        // return value
     }
+}
+
+/// Extend the ViewController with a UIAlertController display
+extension CurrencyConverterViewController {
+    /**
+     Define a UIAlertController called by the ViewController
+     - A message is displayed according to the input
+     - The user dismiss the alert by clicking a "OK" button
+
+     - Parameter message: The error message to be displayed
+     */
+    func presentVCAlert(with message: String) {
+        let alertVC = UIAlertController(title: "😕", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+    }
+
 }

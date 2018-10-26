@@ -58,8 +58,3 @@ class QueryService {
     }
 
 }
-
-/// List HTTP method
-enum HTTPMethod: String {
-    case post = "POST", get = "GET"
-}
