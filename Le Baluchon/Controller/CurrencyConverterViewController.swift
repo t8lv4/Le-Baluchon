@@ -43,10 +43,14 @@ extension CurrencyConverterViewController: UITextFieldDelegate {
 // MARK: - request Conversion
 
 extension CurrencyConverterViewController {
-    
+    /**
+     Call several methods to display a converted currency.
+     - get conversion rate from Fixer
+     - display an alert if the resource is not available
+     - get the value to display
+ */
     func conversionRequest(for amount: String) {
-        // pass values and method
-        QueryService.shared.query(url: Fixer.url) { (success, rate) in
+        CurrencyConverterService.shared.query(url: Fixer.url) { (success, rate) in
             if success, let rate = rate {
                 print("+++++++++++")
                 print(rate)
