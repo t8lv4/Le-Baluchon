@@ -202,6 +202,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KV4-d8-4l6" firstAttribute="height" secondItem="dAH-Ld-NWe" secondAttribute="height" id="CbQ-oC-cu0"/>
                             <constraint firstItem="6Co-pQ-yEk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Gc5-BE-PY9"/>
@@ -218,6 +219,9 @@
                             <constraint firstItem="O9c-67-fjA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="raO-wp-2zh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qpX-0k-hlM" appends="YES" id="P0c-1v-7ss"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabConvert" id="MmK-rH-UP7" userLabel="Convert"/>
                     <connections>
@@ -229,6 +233,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qpX-0k-hlM">
+                    <connections>
+                        <action selector="dismissKeybord:" destination="BYZ-38-t0r" id="FT5-RR-CoO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-658.39999999999998" y="724.58770614692662"/>
         </scene>

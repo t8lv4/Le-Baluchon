@@ -36,6 +36,12 @@ class CurrencyConverterViewController: UIViewController {
 //        calculerButton.isHidden = true
     }
 
+    @IBAction func dismissKeybord(_ sender: UIGestureRecognizer) {
+        convertTextField.resignFirstResponder()
+        convertLabel.isEnabled = true
+        calculerButton.isHidden = true
+    }
+
 }
 
 ///
