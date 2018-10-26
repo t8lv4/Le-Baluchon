@@ -71,14 +71,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yw4-RS-uOK" userLabel="New-York Image">
-                                <rect key="frame" x="178.5" y="397.5" width="180.5" height="180.5"/>
+                                <rect key="frame" x="178.5" y="397.5" width="180.5" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yw4-RS-uOK" secondAttribute="height" multiplier="1:1" id="67g-aT-81y"/>
                                     <constraint firstAttribute="width" secondItem="yw4-RS-uOK" secondAttribute="height" multiplier="1:1" id="aC2-G1-ULj"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1n7-zw-ulj">
-                                <rect key="frame" x="20" y="508" width="80.5" height="70"/>
+                                <rect key="frame" x="20" y="507.5" width="80.5" height="70"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -164,28 +164,55 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ld-NWe" userLabel="Convert Text Field">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O9c-67-fjA">
                                 <rect key="frame" x="20" y="147" width="335" height="74"/>
-                                <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="done"/>
-                            </textField>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ld-NWe" userLabel="Convert Text Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="261.5" height="74"/>
+                                        <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="done"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxg-IH-Lrc">
+                                        <rect key="frame" x="269.5" y="0.0" width="65.5" height="74"/>
+                                        <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Yxg-IH-Lrc" firstAttribute="width" secondItem="dAH-Ld-NWe" secondAttribute="width" multiplier="1:4" id="WVI-qb-OgC"/>
+                                </constraints>
+                            </stackView>
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9hg-Vy-rcj">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="dAH-Ld-NWe" firstAttribute="top" secondItem="6Co-pQ-yEk" secondAttribute="bottom" constant="20" id="0vQ-AM-e1g"/>
-                            <constraint firstItem="dAH-Ld-NWe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BEt-uF-eip"/>
+                            <constraint firstItem="9hg-Vy-rcj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7CE-gn-37p"/>
+                            <constraint firstItem="9hg-Vy-rcj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FPE-XX-qty"/>
                             <constraint firstItem="6Co-pQ-yEk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Gc5-BE-PY9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6Co-pQ-yEk" secondAttribute="trailing" constant="137" id="XXq-9X-ZMl"/>
+                            <constraint firstItem="O9c-67-fjA" firstAttribute="top" secondItem="6Co-pQ-yEk" secondAttribute="bottom" constant="20" id="Yk0-Ab-lAo"/>
                             <constraint firstItem="6Co-pQ-yEk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="fz4-gf-miq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dAH-Ld-NWe" secondAttribute="trailing" constant="20" id="xIN-lC-qW9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O9c-67-fjA" secondAttribute="trailing" constant="20" id="qgU-kw-p34"/>
+                            <constraint firstItem="O9c-67-fjA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="raO-wp-2zh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabConvert" id="MmK-rH-UP7" userLabel="Convert"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="9hg-Vy-rcj" id="Ubr-jb-un3"/>
                         <outlet property="convertTextField" destination="dAH-Ld-NWe" id="mCb-So-JTv"/>
+                        <outlet property="currencyLabel" destination="Yxg-IH-Lrc" id="zw8-mI-XxJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

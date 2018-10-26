@@ -14,6 +14,8 @@ class CurrencyConverterViewController: UIViewController {
     
     /// Link to Convert TextField
     @IBOutlet weak var convertTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var currencyLabel: UILabel!
 
 }
 
@@ -25,6 +27,7 @@ extension CurrencyConverterViewController: UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.convertTextField.delegate = self
+        toggleActivityIndicator(shown: false)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
