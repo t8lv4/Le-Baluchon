@@ -14,11 +14,11 @@ import Foundation
 struct Fixer {
 
     static private let endpoint = "http://data.fixer.io/api/latest"
-    static private let accessKey = APIKeys.Fixer
+    static private let accessKey = "?access_key=\(APIKeys.Fixer)"
     static private let parameters = "&symbols=USD"
 
     /// return Fixer resources location
-    static var url: String { return String(Fixer.endpoint + Fixer.accessKey + Fixer.parameters)}
+    static var url: String { return String(Fixer.endpoint + Fixer.accessKey + Fixer.parameters) }
 
 }
 

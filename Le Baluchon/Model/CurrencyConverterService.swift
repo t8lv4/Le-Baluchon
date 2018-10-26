@@ -41,13 +41,19 @@ class QueryService {
             }
 
             let decoder = JSONDecoder()
-            guard let resource = try? decoder.decode([String: Double].self, from: data) else {
+            guard let resource = try? decoder.decode(CurrencyConverter.self, from: data) else {
                 callback(false, nil)
                 return
             }
-            print("===========")
-            print(resource)
+
+            guard let rate = resource.rates["USD"] else {
+                callback(false, nil)
+                return
             }
+            DispatchQueue.main.async {
+                callback(true, rate)
+            }
+        }
         task.resume()
     }
 

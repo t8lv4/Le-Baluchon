@@ -10,5 +10,5 @@ import Foundation
 
 /// Convert from Euro to US Dollar
 struct CurrencyConverter: Decodable {
-    let rate: [String : Double]?
+    let rates: [String: Double]
 }
