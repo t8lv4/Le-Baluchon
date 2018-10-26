@@ -28,6 +28,8 @@ extension CurrencyConverterViewController: UITextFieldDelegate {
         super.viewDidLoad()
         self.convertTextField.delegate = self
         toggleActivityIndicator(shown: false)
+
+        self.currencyLabel.layer.cornerRadius = 5
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
