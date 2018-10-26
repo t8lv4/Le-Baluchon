@@ -12,14 +12,31 @@ class CurrencyConverterViewController: UIViewController {
 
     // MARK: - Outlets
     
-    /// Link to Convert TextField
+    /// Link to "Convertir" label
+    @IBOutlet weak var convertLabel: UILabel!
+    /// Link to user input text
     @IBOutlet weak var convertTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    /// Link to currency icon
     @IBOutlet weak var currencyLabel: UILabel!
+    /// Link to calculer button
+    @IBOutlet weak var calculerButton: UIButton!
+
+    // MARK: - Methods
+
+    @IBAction func tappedCalculerButton(_ sender: UIButton) {
+        launchRequest()
+//        convertTextField.becomeFirstResponder()
+//
+//        guard let amount = convertTextField.text else { return }
+//        checkInputValidity(input: amount)
+//
+//        convertTextField.resignFirstResponder()
+//        convertLabel.isEnabled = true
+//        calculerButton.isHidden = true
+    }
 
 }
-
-// MARK: - Methods
 
 ///
 extension CurrencyConverterViewController: UITextFieldDelegate {
@@ -30,27 +47,47 @@ extension CurrencyConverterViewController: UITextFieldDelegate {
         toggleActivityIndicator(shown: false)
 
         self.currencyLabel.layer.cornerRadius = 5
+        self.calculerButton.layer.cornerRadius = 5
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        // dim convertir label
-        // toggle terminer button
+        convertLabel.isEnabled = false
+        calculerButton.isHidden = false
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        convertTextField.becomeFirstResponder()
-
-        guard let amount = convertTextField.text else { return false }
-        checkInputValidity(input: amount)
-        convertTextField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        convertTextField.becomeFirstResponder()
+//
+//        guard let amount = convertTextField.text else { return false }
+//        checkInputValidity(input: amount)
+//        convertTextField.resignFirstResponder()
+//        convertLabel.isEnabled = true
+//        calculerButton.isHidden = true
+//        return true
+//    }
 
 }
 
 // MARK: - Request service
 
 extension CurrencyConverterViewController {
+
+    /**
+     Launch the request process.
+     - enable keyboard
+     - call `checkInputValidity(input:)`
+     - update the state of UI objects
+     */
+    private func launchRequest() {
+        convertTextField.becomeFirstResponder()
+
+        guard let amount = convertTextField.text else { return }
+        checkInputValidity(input: amount)
+
+        convertTextField.resignFirstResponder()
+        convertLabel.isEnabled = true
+        calculerButton.isHidden = true
+    }
 
     /**
      Check if the user input a number (Double) to convert.
@@ -60,7 +97,7 @@ extension CurrencyConverterViewController {
      If valid, call `conversionRequest(for:)`.
      If not, present an alert.
      */
-    func checkInputValidity(input: String) {
+    private func checkInputValidity(input: String) {
         let number = Double(input)
         if number != nil {
             conversionRequest(for: input)
@@ -75,7 +112,7 @@ extension CurrencyConverterViewController {
      - display an alert if the resource is not available
      - get the value to display
      */
-    func conversionRequest(for amount: String) {
+    private func conversionRequest(for amount: String) {
         toggleActivityIndicator(shown: true)
         CurrencyConverterService.shared.query(url: Fixer.url) { (success, rate) in
             self.toggleActivityIndicator(shown: false)

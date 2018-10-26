@@ -172,7 +172,7 @@
                                         <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABI-x9-fve" userLabel="Currency Label">
                                         <rect key="frame" x="269.5" y="0.0" width="65.5" height="74"/>
@@ -186,18 +186,34 @@
                                     <constraint firstItem="ABI-x9-fve" firstAttribute="width" secondItem="dAH-Ld-NWe" secondAttribute="width" multiplier="1:4" id="a8x-Bn-4VX"/>
                                 </constraints>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-d8-4l6">
+                                <rect key="frame" x="20" y="241" width="335" height="74"/>
+                                <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="20"/>
+                                <state key="normal" title="Calculer">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedCalculerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pEt-fk-nqx"/>
+                                </connections>
+                            </button>
                             <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9hg-Vy-rcj">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <rect key="frame" x="169" y="335" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="9hg-Vy-rcj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7CE-gn-37p"/>
-                            <constraint firstItem="9hg-Vy-rcj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FPE-XX-qty"/>
+                            <constraint firstItem="KV4-d8-4l6" firstAttribute="height" secondItem="dAH-Ld-NWe" secondAttribute="height" id="CbQ-oC-cu0"/>
                             <constraint firstItem="6Co-pQ-yEk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Gc5-BE-PY9"/>
+                            <constraint firstItem="9hg-Vy-rcj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U2H-BE-29e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6Co-pQ-yEk" secondAttribute="trailing" constant="137" id="XXq-9X-ZMl"/>
                             <constraint firstItem="O9c-67-fjA" firstAttribute="top" secondItem="6Co-pQ-yEk" secondAttribute="bottom" constant="20" id="Yk0-Ab-lAo"/>
                             <constraint firstItem="6Co-pQ-yEk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="fz4-gf-miq"/>
+                            <constraint firstItem="KV4-d8-4l6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hZo-eM-dwP"/>
+                            <constraint firstItem="9hg-Vy-rcj" firstAttribute="top" secondItem="KV4-d8-4l6" secondAttribute="bottom" constant="20" id="iTQ-CG-qfM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KV4-d8-4l6" secondAttribute="trailing" constant="20" id="k3k-Uq-xPj"/>
+                            <constraint firstItem="KV4-d8-4l6" firstAttribute="width" secondItem="O9c-67-fjA" secondAttribute="height" multiplier="335:74" id="n6d-bW-Dha"/>
+                            <constraint firstItem="KV4-d8-4l6" firstAttribute="top" secondItem="O9c-67-fjA" secondAttribute="bottom" constant="20" id="oWR-y0-OPZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O9c-67-fjA" secondAttribute="trailing" constant="20" id="qgU-kw-p34"/>
                             <constraint firstItem="O9c-67-fjA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="raO-wp-2zh"/>
                         </constraints>
@@ -206,6 +222,8 @@
                     <tabBarItem key="tabBarItem" title="" image="tabConvert" id="MmK-rH-UP7" userLabel="Convert"/>
                     <connections>
                         <outlet property="activityIndicator" destination="9hg-Vy-rcj" id="Ubr-jb-un3"/>
+                        <outlet property="calculerButton" destination="KV4-d8-4l6" id="qR3-0u-Bnl"/>
+                        <outlet property="convertLabel" destination="6Co-pQ-yEk" id="g3a-Qv-rur"/>
                         <outlet property="convertTextField" destination="dAH-Ld-NWe" id="mCb-So-JTv"/>
                         <outlet property="currencyLabel" destination="ABI-x9-fve" id="G4D-yc-4k6"/>
                     </connections>
