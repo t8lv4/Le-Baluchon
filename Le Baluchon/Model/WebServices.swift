@@ -18,7 +18,7 @@ struct Fixer {
     static private let parameters = "&symbols=USD"
 
     /// return Fixer resources location
-    static var url: String { return String(Fixer.endpoint + Fixer.accessKey.rawValue + Fixer.parameters)}
+    static var url: String { return String(Fixer.endpoint + Fixer.accessKey + Fixer.parameters)}
 
 }
 
@@ -33,7 +33,7 @@ struct GoogleTranslation {
 
     /// return Google Translation service location
     static var url: String {
-        return String(GoogleTranslation.endpoint + GoogleTranslation.accessKey.rawValue + GoogleTranslation.parameters)
+        return String(GoogleTranslation.endpoint + GoogleTranslation.accessKey + GoogleTranslation.parameters)
     }
 
 }
