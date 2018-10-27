@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct WordTranslator: Decodable {
+    let translations: [String: String]
+}

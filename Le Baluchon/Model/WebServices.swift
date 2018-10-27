@@ -28,7 +28,7 @@ struct Fixer {
 struct GoogleTranslation {
 
     static private let endpoint = "https://translation.googleapis.com/language/translate/v2"
-    static private let accessKey = APIKeys.GoogleTranslation
+    static private let accessKey = "?key=\(APIKeys.GoogleTranslation)"
     static private let parameters = "&source=fr&target=en&format=text&q="
 
     /// return Google Translation service location

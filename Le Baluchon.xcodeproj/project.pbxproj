@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900454D22184A86900D2ACFA /* WordTranslatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900454D12184A86900D2ACFA /* WordTranslatorService.swift */; };
 		903084922179D4EE008C6853 /* mplus-1c-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 903084902179D4EE008C6853 /* mplus-1c-light.ttf */; };
 		903084932179D4EE008C6853 /* PlayfairDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */; };
 		903AB414217DAD49004683DF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB413217DAD49004683DF /* Weather.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		900454D12184A86900D2ACFA /* WordTranslatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTranslatorService.swift; sourceTree = "<group>"; };
 		903084902179D4EE008C6853 /* mplus-1c-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-light.ttf"; sourceTree = "<group>"; };
 		903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.otf"; sourceTree = "<group>"; };
 		903AB413217DAD49004683DF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -63,8 +65,9 @@
 				903AB41A217DB789004683DF /* WebServices.swift */,
 				903AB415217DADFB004683DF /* CurrencyConverter.swift */,
 				90F7E67E217F2EA4002904F5 /* CurrencyConverterService.swift */,
-				903AB413217DAD49004683DF /* Weather.swift */,
+				900454D12184A86900D2ACFA /* WordTranslatorService.swift */,
 				909B85282181F0AD00A09F57 /* WordTranslator.swift */,
+				903AB413217DAD49004683DF /* Weather.swift */,
 				908DFEF521830DF6001E88EC /* HTTPMethod.swift */,
 			);
 			path = Model;
@@ -74,8 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				90A14C1B217EE85A005F26B6 /* CurrencyConverterViewController.swift */,
-				909B85242181EF4C00A09F57 /* WeatherViewController.swift */,
 				909B85262181EF6F00A09F57 /* WordTranslatorViewController.swift */,
+				909B85242181EF4C00A09F57 /* WeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				903AB416217DADFB004683DF /* CurrencyConverter.swift in Sources */,
+				900454D22184A86900D2ACFA /* WordTranslatorService.swift in Sources */,
 				909B85252181EF4C00A09F57 /* WeatherViewController.swift in Sources */,
 				903AB414217DAD49004683DF /* Weather.swift in Sources */,
 				908DFEF621830DF6001E88EC /* HTTPMethod.swift in Sources */,

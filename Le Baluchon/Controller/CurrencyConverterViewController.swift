@@ -28,7 +28,7 @@ class CurrencyConverterViewController: UIViewController {
         launchRequest()
     }
 
-    @IBAction func dismissKeybord(_ sender: UIGestureRecognizer) {
+    @IBAction func dismissKeyboard(_ sender: UIGestureRecognizer) {
         convertTextField.resignFirstResponder()
 
         convertLabel.isEnabled = true
@@ -37,6 +37,7 @@ class CurrencyConverterViewController: UIViewController {
 
 }
 
+/// Set up UITextFieldDelegate
 extension CurrencyConverterViewController: UITextFieldDelegate {
 
     override func viewDidLoad() {

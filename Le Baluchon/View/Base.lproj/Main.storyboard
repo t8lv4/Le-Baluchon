@@ -130,23 +130,42 @@
                                 <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="send"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="z91-kK-6E3">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="z91-kK-6E3" firstAttribute="centerX" secondItem="bfj-J1-Dff" secondAttribute="centerX" id="0bO-9B-rIw"/>
                             <constraint firstItem="9V9-dK-rXb" firstAttribute="trailing" secondItem="rz8-rc-FqN" secondAttribute="trailing" constant="20" id="3ry-sy-CY8"/>
                             <constraint firstItem="PQy-XD-YU3" firstAttribute="leading" secondItem="9V9-dK-rXb" secondAttribute="leading" constant="20" id="Bq2-TL-9y0"/>
                             <constraint firstItem="9V9-dK-rXb" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="PQy-XD-YU3" secondAttribute="trailing" constant="157" id="dMQ-9q-1lk"/>
+                            <constraint firstItem="z91-kK-6E3" firstAttribute="centerY" secondItem="bfj-J1-Dff" secondAttribute="centerY" id="dsD-aY-85O"/>
                             <constraint firstItem="PQy-XD-YU3" firstAttribute="top" secondItem="9V9-dK-rXb" secondAttribute="top" constant="40" id="eSz-p5-hSf"/>
                             <constraint firstItem="rz8-rc-FqN" firstAttribute="top" secondItem="PQy-XD-YU3" secondAttribute="bottom" constant="20" id="h7n-yw-1Z4"/>
                             <constraint firstItem="rz8-rc-FqN" firstAttribute="leading" secondItem="9V9-dK-rXb" secondAttribute="leading" constant="20" id="qAC-is-wV6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9V9-dK-rXb"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="H7h-ON-UJa" appends="YES" id="ytV-UF-EbG"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabTranslate" id="nhC-mD-g8U" userLabel="Translate"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="z91-kK-6E3" id="p7O-N5-IwQ"/>
+                        <outlet property="traduireLabel" destination="PQy-XD-YU3" id="ZpS-j2-p16"/>
+                        <outlet property="translateTextField" destination="rz8-rc-FqN" id="ndA-zL-ENr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2k-Xm-z4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="H7h-ON-UJa">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="Eb1-DX-c5W" id="suk-0w-WVR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-658" y="-1093"/>
         </scene>
