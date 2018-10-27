@@ -24,14 +24,14 @@ class CurrencyConverterService {
      Call an API to provide a resource.
 
      - Parameters:
+     - value: The resource to process.
         - url: The location of the resources.
         - callback: A closure to provide the state of a network call.
      */
-    func query(url: String, callback: @escaping Callback) {
+    func query(for value: String, to url: String,  callback: @escaping Callback) {
         task?.cancel()
 
         let url = URL(string: url)!
-        print(url)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = HTTPMethod.get.rawValue
 
@@ -58,11 +58,30 @@ class CurrencyConverterService {
                 return
             }
 
+            guard let value = Double(value) else {
+                callback(false, nil)
+                return
+            }
+
+            let convertedCurrency = self.convert(value, with: rate)
+
             DispatchQueue.main.async {
-                callback(true, rate)
+                callback(true, convertedCurrency)
             }
         }
         task?.resume()
     }
 
+}
+
+extension CurrencyConverterService {
+
+    /**
+     Convert a value according to a given rate. Return a String rounded to 2 decimal places.
+     */
+    private func convert(_ value: Double, with rate: Double) -> String {
+        let convertedValue = (value / rate)
+
+        return String(format: "%.2f", convertedValue)
+    }
 }

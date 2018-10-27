@@ -26,25 +26,17 @@ class CurrencyConverterViewController: UIViewController {
 
     @IBAction func tappedCalculerButton(_ sender: UIButton) {
         launchRequest()
-//        convertTextField.becomeFirstResponder()
-//
-//        guard let amount = convertTextField.text else { return }
-//        checkInputValidity(input: amount)
-//
-//        convertTextField.resignFirstResponder()
-//        convertLabel.isEnabled = true
-//        calculerButton.isHidden = true
     }
 
     @IBAction func dismissKeybord(_ sender: UIGestureRecognizer) {
         convertTextField.resignFirstResponder()
+
         convertLabel.isEnabled = true
         calculerButton.isHidden = true
     }
 
 }
 
-///
 extension CurrencyConverterViewController: UITextFieldDelegate {
 
     override func viewDidLoad() {
@@ -57,20 +49,10 @@ extension CurrencyConverterViewController: UITextFieldDelegate {
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        currencyLabel.text = "€"
         convertLabel.isEnabled = false
         calculerButton.isHidden = false
     }
-
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        convertTextField.becomeFirstResponder()
-//
-//        guard let amount = convertTextField.text else { return false }
-//        checkInputValidity(input: amount)
-//        convertTextField.resignFirstResponder()
-//        convertLabel.isEnabled = true
-//        calculerButton.isHidden = true
-//        return true
-//    }
 
 }
 
@@ -96,7 +78,7 @@ extension CurrencyConverterViewController {
     }
 
     /**
-     Check if the user input a number (Double) to convert.
+     Check if the user input a number to convert.
 
      - parameter input: the input to validate
 
@@ -108,7 +90,7 @@ extension CurrencyConverterViewController {
         if number != nil {
             conversionRequest(for: input)
         } else {
-            presentVCAlert(with: "🧐", and: "Ceci n'es pas convertible en $...")
+            presentVCAlert(with: "🤓", and: "Ceci n'est pas convertible en $...")
         }
     }
 
@@ -116,18 +98,17 @@ extension CurrencyConverterViewController {
      Call several methods to display a converted currency.
      - get conversion rate from Fixer
      - display an alert if the resource is not available
-     - get the value to display
      */
     private func conversionRequest(for amount: String) {
         toggleActivityIndicator(shown: true)
-        CurrencyConverterService.shared.query(url: Fixer.url) { (success, rate) in
+
+        CurrencyConverterService.shared.query(for: amount, to: Fixer.url) { (success, convertedCurrency) in
             self.toggleActivityIndicator(shown: false)
-            if success, let rate = rate {
-                print("+++++++++++")
-                print(rate)
-                // call math
+            if success, let convertedCurrency = convertedCurrency {
+                self.convertTextField.text = convertedCurrency as? String
+                self.currencyLabel.text = "$"
             } else {
-                self.presentVCAlert(with: "😕", and: "Les données ne sont pas diponibles.")
+                self.presentVCAlert(with: "😕", and: "Les données ne sont pas disponibles.")
             }
         }
     }
