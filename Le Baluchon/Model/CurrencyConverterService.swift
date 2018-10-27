@@ -12,7 +12,7 @@ import Foundation
 class CurrencyConverterService {
 
     /// A closure to provide the state of a network call to the ViewController.
-    typealias Callback = (Bool, Any?) -> Void
+    typealias Callback = (Bool, Double?) -> Void
 
     /// A singleton to call CurrencyConverterService's methods and properties.
     static var shared = CurrencyConverterService()
@@ -20,15 +20,19 @@ class CurrencyConverterService {
 
     private var task: URLSessionDataTask?
 
+}
+
+extension CurrencyConverterService {
+    
     /**
      Call an API to provide a resource.
 
      - Parameters:
-     - value: The resource to process.
+        - value: The resource to process.
         - url: The location of the resources.
         - callback: A closure to provide the state of a network call.
      */
-    func query(for value: String, to url: String,  callback: @escaping Callback) {
+    func query(to url: String,  callback: @escaping Callback) {
         task?.cancel()
 
         let url = URL(string: url)!
@@ -58,30 +62,11 @@ class CurrencyConverterService {
                 return
             }
 
-            guard let value = Double(value) else {
-                callback(false, nil)
-                return
-            }
-
-            let convertedCurrency = self.convert(value, with: rate)
-
             DispatchQueue.main.async {
-                callback(true, convertedCurrency)
+                callback(true, rate)
             }
         }
         task?.resume()
     }
 
-}
-
-extension CurrencyConverterService {
-
-    /**
-     Convert a value according to a given rate. Return a String rounded to 2 decimal places.
-     */
-    private func convert(_ value: Double, with rate: Double) -> String {
-        let convertedValue = (value / rate)
-
-        return String(format: "%.2f", convertedValue)
-    }
 }

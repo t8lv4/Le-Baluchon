@@ -12,3 +12,16 @@ import Foundation
 struct CurrencyConverter: Decodable {
     let rates: [String: Double]
 }
+
+extension CurrencyConverter {
+
+    /**
+     Convert a value according to a given rate. Return a String rounded to 2 decimal places.
+     */
+    static func convert(_ value: Double, with rate: Double) -> String {
+        let convertedValue = (value / rate)
+
+        return String(format: "%.2f", convertedValue)
+    }
+    
+}

@@ -86,9 +86,8 @@ extension CurrencyConverterViewController {
      If not, present an alert.
      */
     private func checkInputValidity(input: String) {
-        let number = Double(input)
-        if number != nil {
-            conversionRequest(for: input)
+        if let number = Double(input) {
+            conversionRequest(for: number)
         } else {
             presentVCAlert(with: "🤓", and: "Ceci n'est pas convertible en $...")
         }
@@ -99,18 +98,30 @@ extension CurrencyConverterViewController {
      - get conversion rate from Fixer
      - display an alert if the resource is not available
      */
-    private func conversionRequest(for amount: String) {
+    private func conversionRequest(for amount: Double) {
         toggleActivityIndicator(shown: true)
 
-        CurrencyConverterService.shared.query(for: amount, to: Fixer.url) { (success, convertedCurrency) in
+        CurrencyConverterService.shared.query(to: Fixer.url) { (success, rate) in
             self.toggleActivityIndicator(shown: false)
-            if success, let convertedCurrency = convertedCurrency {
-                self.convertTextField.text = convertedCurrency as? String
-                self.currencyLabel.text = "$"
+
+            if success, let rate = rate {
+                self.updateDisplay(with: amount, and: rate)
             } else {
                 self.presentVCAlert(with: "😕", and: "Les données ne sont pas disponibles.")
             }
         }
+    }
+
+    /**
+     Use the rate value from the API request to display a converted currency
+     - Parameters:
+        - amount: The user input value
+        - rate: The rate provided by Fixer.io
+     */
+    private func updateDisplay(with amount: Double, and rate: Double) {
+        let convertedCurrency = CurrencyConverter.convert(amount, with: rate)
+        self.convertTextField.text = convertedCurrency
+        self.currencyLabel.text = "$"
     }
 }
 
