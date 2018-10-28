@@ -8,10 +8,15 @@
 
 import Foundation
 
-struct Translate: Codable {
-    var translatedText: String?
-}
+struct Translate: Decodable {
+    
+    var data: Translations
 
+    struct Translations: Decodable {
+        var translations: [String: String]
+    }
+
+}
 
 
 //{

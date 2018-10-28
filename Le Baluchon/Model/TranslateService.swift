@@ -8,12 +8,13 @@
 
 import Foundation
 
+/// Request a word translation and return a translated text
 class TranslateService {
 
     /// A closure to provide the state of a network call to the ViewController.
-    typealias Callback = (Bool, String?) -> Void
+    typealias Callback = (Bool, Translate?) -> Void
 
-    /// A singleton to call WordTranslatorService's methods and properties.
+    /// A singleton to call TranslateService's methods and properties.
     static var shared = TranslateService()
     private init() {}
 
@@ -33,6 +34,7 @@ extension TranslateService {
         task?.cancel()
 
         let request = createRequest(with: url, for: text)
+        print("this is a request URL: \(request)")
 
         let session = URLSession(configuration: .default)
         task = session.dataTask(with: request) {(data, response, error) in
@@ -55,15 +57,17 @@ extension TranslateService {
                 return
             }
 
-            guard let translatedText = resource.translatedText else {
-                print("+++++++++")
+//            var t = resource.data.translations[0]
 
-                callback(false, nil)
-                return
-            }
+//            guard var translatedText = resource.data.translations[0] else {
+//                print("+++++++++")
+//
+//                callback(false, nil)
+//                return
+//            }
 
             DispatchQueue.main.async {
-                callback(true, translatedText)
+                callback(true, resource)
             }
         }
         task?.resume()
@@ -73,11 +77,20 @@ extension TranslateService {
 
 extension TranslateService {
 
+    /**
+     Create request with a URL and a user input text
+     - Parameters:
+        - url: The resource location
+        - text: The text input by the user
+     - Returns: a request
+     */
     func createRequest(with url: String, for text: String) -> URLRequest {
-        let url = URL(string: url)!
-        var request = URLRequest(url: url)
+        let encodedText = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let completeURL = url + encodedText!
+
+        let url = URL(string: completeURL)
+        var request = URLRequest(url: url!)
         request.httpMethod = "POST"
-        request.httpBody = text.data(using: .utf8)
 
         return request
     }
