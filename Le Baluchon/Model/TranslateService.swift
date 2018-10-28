@@ -8,53 +8,56 @@
 
 import Foundation
 
-class WordTranslatorService {
+class TranslateService {
 
     /// A closure to provide the state of a network call to the ViewController.
     typealias Callback = (Bool, String?) -> Void
 
     /// A singleton to call WordTranslatorService's methods and properties.
-    static var shared = WordTranslatorService()
+    static var shared = TranslateService()
     private init() {}
 
     private var task: URLSessionDataTask?
 }
 
-extension WordTranslatorService {
+extension TranslateService {
     /**
      Call an API to provide a resource.
 
      - Parameters:
-        - value: The resource to process.
+        - text: The text to translate.
         - url: The location of the resources.
         - callback: A closure to provide the state of a network call.
      */
-    func query(with value: String, to url: String,  callback: @escaping Callback) {
+    func query(to url: String, with text: String,  callback: @escaping Callback) {
         task?.cancel()
 
-        let url = URL(string: url + value)!
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = HTTPMethod.post.rawValue
+        let request = createRequest(with: url, for: text)
 
         let session = URLSession(configuration: .default)
-        task = session.dataTask(with: urlRequest) {(data, response, error) in
+        task = session.dataTask(with: request) {(data, response, error) in
             guard let data = data, error == nil else {
+                print("//////////")
                 callback(false, nil)
                 return
             }
 
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                print("''''''''''''''''''''")
                 callback(false, nil)
                 return
             }
 
             let decoder = JSONDecoder()
-            guard let resource = try? decoder.decode(WordTranslator.self, from: data) else {
+            guard let resource = try? decoder.decode(Translate.self, from: data) else {
+                print("---------")
                 callback(false, nil)
                 return
             }
 
-            guard let translatedText = resource.translations["TranslatedText"] else {
+            guard let translatedText = resource.translatedText else {
+                print("+++++++++")
+
                 callback(false, nil)
                 return
             }
@@ -67,3 +70,17 @@ extension WordTranslatorService {
     }
 
 }
+
+extension TranslateService {
+
+    func createRequest(with url: String, for text: String) -> URLRequest {
+        let url = URL(string: url)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = text.data(using: .utf8)
+
+        return request
+    }
+
+}
+

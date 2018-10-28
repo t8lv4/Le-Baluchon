@@ -10,7 +10,7 @@ import UIKit
 
 class CurrencyConverterViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: Outlets
     
     /// Link to "Convertir" label
     @IBOutlet weak var convertLabel: UILabel!
@@ -22,7 +22,7 @@ class CurrencyConverterViewController: UIViewController {
     /// Link to calculer button
     @IBOutlet weak var calculerButton: UIButton!
 
-    // MARK: - Methods
+    // MARK: Methods
 
     @IBAction func tappedCalculerButton(_ sender: UIButton) {
         launchRequest()
@@ -36,6 +36,8 @@ class CurrencyConverterViewController: UIViewController {
     }
 
 }
+
+// MARK: -
 
 /// Set up UITextFieldDelegate
 extension CurrencyConverterViewController: UITextFieldDelegate {

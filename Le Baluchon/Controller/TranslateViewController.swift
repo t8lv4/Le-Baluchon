@@ -1,5 +1,5 @@
 //
-//  WordTranslatorViewController.swift
+//  TranslateViewController.swift
 //  Le Baluchon
 //
 //  Created by Morgan on 25/10/2018.
@@ -8,21 +8,24 @@
 
 import UIKit
 
-class WordTranslatorViewController: UIViewController {
+class TranslateViewController: UIViewController {
 
-    // MARK: - Properties
+    // MARK: Properties
     @IBOutlet weak var traduireLabel: UILabel!
     @IBOutlet weak var translateTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    // MARK: - Methods
+    // MARK: Methods
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         translateTextField.resignFirstResponder()
+        traduireLabel.isEnabled = true
     }
 }
 
+// MARK: -
+
 /// Set up UITextFieldDelegate
-extension WordTranslatorViewController: UITextFieldDelegate {
+extension TranslateViewController: UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +41,36 @@ extension WordTranslatorViewController: UITextFieldDelegate {
 
 }
 
+// MARK: - Request
+
+extension TranslateViewController {
+
+    func launchRequest() {
+
+
+
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        translateTextField.becomeFirstResponder()
+
+        guard let text = translateTextField.text else { return false }
+//        let url = GoogleTranslation.url + text
+        TranslateService.shared.query(to: GoogleTranslation.url, with: text) { (success, translatedText) in
+//            print("r::::::::::::")
+            print(translatedText as Any)
+        }
+
+        return true
+    }
+
+}
+
 
 
 // MARK: Activity Indicator
 
-extension WordTranslatorViewController {
+extension TranslateViewController {
 
     /// Toggle an activity indicator
     private func toggleActivityIndicator(shown: Bool) {
