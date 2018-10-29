@@ -37,38 +37,38 @@ extension TranslateService {
         let session = URLSession(configuration: .default)
 
         task = session.dataTask(with: request) {(data, response, error) in
-            guard let data = data, error == nil else {
-                callback(false, nil)
-                return
-            }
-
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                callback(false, nil)
-                return
-            }
-
-//            do {
-//                resource = try JSONDecoder().decode(Translate.self, from: data)
-//            } catch DecodingError.dataCorrupted(let context) {
-//                print(context.debugDescription)
-//            } catch DecodingError.keyNotFound(let key, let context) {
-//                print("\(key.stringValue) was not found, \(context.debugDescription)")
-//            } catch DecodingError.typeMismatch(let type, let context) {
-//                print("\(type) was expected, \(context.debugDescription)")
-//            } catch DecodingError.valueNotFound(let type, let context) {
-//                print("no value was found for \(type), \(context.debugDescription)")
-//            } catch {
-//                print("I know not this error")
-//            }
-
-            let decoder = JSONDecoder()
-            guard let resource = try? decoder.decode(Translate.self, from: data) else {
-                callback(false, nil)
-                return
-            }
-            let translatedText = resource.data.translations[0].translatedText
-
             DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    callback(false, nil)
+                    return
+                }
+
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(false, nil)
+                    return
+                }
+
+                //            do {
+                //                resource = try JSONDecoder().decode(Translate.self, from: data)
+                //            } catch DecodingError.dataCorrupted(let context) {
+                //                print(context.debugDescription)
+                //            } catch DecodingError.keyNotFound(let key, let context) {
+                //                print("\(key.stringValue) was not found, \(context.debugDescription)")
+                //            } catch DecodingError.typeMismatch(let type, let context) {
+                //                print("\(type) was expected, \(context.debugDescription)")
+                //            } catch DecodingError.valueNotFound(let type, let context) {
+                //                print("no value was found for \(type), \(context.debugDescription)")
+                //            } catch {
+                //                print("I know not this error")
+                //            }
+
+                let decoder = JSONDecoder()
+                guard let resource = try? decoder.decode(Translate.self, from: data) else {
+                    callback(false, nil)
+                    return
+                }
+                let translatedText = resource.data.translations[0].translatedText
+
                 callback(true, translatedText)
             }
         }

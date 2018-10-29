@@ -41,28 +41,28 @@ extension CurrencyConverterService {
 
         let session = URLSession(configuration: .default)
         task = session.dataTask(with: urlRequest) {(data, response, error) in
-            guard let data = data, error == nil else {
-                callback(false, nil)
-                return
-            }
-
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                callback(false, nil)
-                return
-            }
-
-            let decoder = JSONDecoder()
-            guard let resource = try? decoder.decode(CurrencyConverter.self, from: data) else {
-                callback(false, nil)
-                return
-            }
-
-            guard let rate = resource.rates["USD"] else {
-                callback(false, nil)
-                return
-            }
-
             DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    callback(false, nil)
+                    return
+                }
+
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(false, nil)
+                    return
+                }
+
+                let decoder = JSONDecoder()
+                guard let resource = try? decoder.decode(CurrencyConverter.self, from: data) else {
+                    callback(false, nil)
+                    return
+                }
+
+                guard let rate = resource.rates["USD"] else {
+                    callback(false, nil)
+                    return
+                }
+                
                 callback(true, rate)
             }
         }
