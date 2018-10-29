@@ -11,11 +11,14 @@ import UIKit
 class TranslateViewController: UIViewController {
 
     // MARK: Properties
+    /// Link to Traduire label.
     @IBOutlet weak var traduireLabel: UILabel!
+    /// Hold the words to be translated.
     @IBOutlet weak var translateTextField: UITextField!
     @IBOutlet weak public var activityIndicator: UIActivityIndicatorView!
 
     // MARK: Methods
+    /// Dismiss keyboard and update UI after tapping the view.
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         translateTextField.resignFirstResponder()
         traduireLabel.isEnabled = true
@@ -57,8 +60,8 @@ extension TranslateViewController {
 
     /**
      Check if the text input is an empty string.
-     - if so: present an alert
-     - if not: perform a translate request
+        - if so: Present an alert
+        - if not: Perform a translate request
      */
     private func checkInputValidity(input: String) {
         if translateTextField.text == "" {
@@ -68,6 +71,13 @@ extension TranslateViewController {
         }
     }
 
+    /**
+     Perform a translate request. If it succeed, update UI.
+     - Parameters:
+        - text: The user input
+
+     If the request fail, present an alert
+     */
     private func translateRequest(for text: String) {
         self.toggleActivityIndicator(activityIndicator,shown: true)
 

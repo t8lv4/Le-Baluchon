@@ -28,9 +28,9 @@ extension ConvertService {
      Call an API to provide a resource.
 
      - Parameters:
-        - value: The resource to process.
-        - url: The location of the resources.
-        - callback: A closure to provide the state of a network call.
+        - value: The resource to process
+        - url: The location of the resources
+        - callback: A closure to provide the state of a network call
      */
     func query(to url: String,  callback: @escaping Callback) {
         task?.cancel()

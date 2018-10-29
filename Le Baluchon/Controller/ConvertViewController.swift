@@ -12,14 +12,14 @@ class ConvertViewController: UIViewController {
 
     // MARK: Outlets
     
-    /// Link to "Convertir" label
+    /// Link to "Convertir" label.
     @IBOutlet weak var convertLabel: UILabel!
-    /// Link to user input text
+    /// Link to user input text.
     @IBOutlet weak var convertTextField: UITextField!
     @IBOutlet weak public var activityIndicator: UIActivityIndicatorView!
-    /// Link to currency icon
+    /// Link to currency icon.
     @IBOutlet weak var currencyLabel: UILabel!
-    /// Link to calculer button
+    /// Link to calculer button.
     @IBOutlet weak var calculerButton: UIButton!
 
     // MARK: Methods
@@ -37,9 +37,8 @@ class ConvertViewController: UIViewController {
 
 }
 
-// MARK: -
+// MARK: - Set up delegate
 
-/// Set up UITextFieldDelegate
 extension ConvertViewController: UITextFieldDelegate {
 
     override func viewDidLoad() {
@@ -57,6 +56,16 @@ extension ConvertViewController: UITextFieldDelegate {
         calculerButton.isHidden = false
     }
 
+}
+
+// MARK: - Clear text field
+
+extension ConvertViewController {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+
+        self.convertTextField.text = ""
+    }
 }
 
 // MARK: - Request service
@@ -85,8 +94,8 @@ extension ConvertViewController {
 
      - parameter input: the input to validate
 
-     If valid, call `conversionRequest(for:)`.
-     If not, present an alert.
+     - If valid, call `conversionRequest(for:)`
+     - If not, present an alert
      */
     private func checkInputValidity(input: String) {
         if let number = Double(input) {
@@ -116,7 +125,7 @@ extension ConvertViewController {
     }
 
     /**
-     Use the rate value from the API request to display a converted currency
+     Use the rate value from the API request to display a converted currency.
      - Parameters:
         - amount: The user input value
         - rate: The rate provided by Fixer.io
