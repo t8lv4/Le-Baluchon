@@ -1,5 +1,5 @@
 //
-//  CurrencyConverterViewController.swift
+//  ConvertViewController.swift
 //  Le Baluchon
 //
 //  Created by Morgan on 23/10/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyConverterViewController: UIViewController {
+class ConvertViewController: UIViewController {
 
     // MARK: Outlets
     
@@ -16,7 +16,7 @@ class CurrencyConverterViewController: UIViewController {
     @IBOutlet weak var convertLabel: UILabel!
     /// Link to user input text
     @IBOutlet weak var convertTextField: UITextField!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak public var activityIndicator: UIActivityIndicatorView!
     /// Link to currency icon
     @IBOutlet weak var currencyLabel: UILabel!
     /// Link to calculer button
@@ -40,12 +40,12 @@ class CurrencyConverterViewController: UIViewController {
 // MARK: -
 
 /// Set up UITextFieldDelegate
-extension CurrencyConverterViewController: UITextFieldDelegate {
+extension ConvertViewController: UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.convertTextField.delegate = self
-        toggleActivityIndicator(shown: false)
+        toggleActivityIndicator(activityIndicator, shown: false)
 
         self.currencyLabel.layer.cornerRadius = 5
         self.calculerButton.layer.cornerRadius = 5
@@ -61,7 +61,7 @@ extension CurrencyConverterViewController: UITextFieldDelegate {
 
 // MARK: - Request service
 
-extension CurrencyConverterViewController {
+extension ConvertViewController {
 
     /**
      Launch the request process.
@@ -102,10 +102,10 @@ extension CurrencyConverterViewController {
      - display an alert if the resource is not available
      */
     private func conversionRequest(for amount: Double) {
-        toggleActivityIndicator(shown: true)
+        toggleActivityIndicator(activityIndicator,shown: true)
 
         ConvertService.shared.query(to: Fixer.url) { (success, rate) in
-            self.toggleActivityIndicator(shown: false)
+            self.toggleActivityIndicator(self.activityIndicator,shown: false)
 
             if success, let rate = rate {
                 self.updateDisplay(with: amount, and: rate)
@@ -126,36 +126,4 @@ extension CurrencyConverterViewController {
         self.convertTextField.text = convertedCurrency
         self.currencyLabel.text = "$"
     }
-}
-
-// MARK: - Pop-up alert
-
-/// Extend the ViewController with a UIAlertController display
-extension CurrencyConverterViewController {
-    /**
-     Define a UIAlertController called by the ViewController
-     - A message is displayed according to the input
-     - The user dismiss the alert by clicking a "OK" button
-
-     - Parameters:
-        - title: The alert's title
-        - message: The error message to be displayed
-     */
-    func presentVCAlert(with title: String, and message: String) {
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
-    }
-
-}
-
-// MARK: Activity Indicator
-
-extension CurrencyConverterViewController {
-
-    /// Toggle an activity indicator
-    private func toggleActivityIndicator(shown: Bool) {
-        activityIndicator.isHidden = !shown
-    }
-
 }

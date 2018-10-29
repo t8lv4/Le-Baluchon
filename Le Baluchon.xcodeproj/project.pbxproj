@@ -13,6 +13,8 @@
 		903AB414217DAD49004683DF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB413217DAD49004683DF /* Weather.swift */; };
 		903AB416217DADFB004683DF /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB415217DADFB004683DF /* Convert.swift */; };
 		903AB41B217DB789004683DF /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB41A217DB789004683DF /* WebServices.swift */; };
+		904C77B821872AD4000762A6 /* UIViewController+AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904C77B721872AD4000762A6 /* UIViewController+AlertVC.swift */; };
+		904C77BA21872D1D000762A6 /* UIViewController+ToggleAvtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904C77B921872D1D000762A6 /* UIViewController+ToggleAvtivityIndicator.swift */; };
 		908DFEF621830DF6001E88EC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908DFEF521830DF6001E88EC /* HTTPMethod.swift */; };
 		909B85252181EF4C00A09F57 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85242181EF4C00A09F57 /* WeatherViewController.swift */; };
 		909B85272181EF6F00A09F57 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85262181EF6F00A09F57 /* TranslateViewController.swift */; };
@@ -22,7 +24,7 @@
 		90D3A4212179B9F80096C895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D3A41F2179B9F80096C895 /* Main.storyboard */; };
 		90D3A4232179B9F90096C895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90D3A4222179B9F90096C895 /* Assets.xcassets */; };
 		90D3A4262179B9F90096C895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D3A4242179B9F90096C895 /* LaunchScreen.storyboard */; };
-		90F1F444217F8A6000ABFFC6 /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A14C1B217EE85A005F26B6 /* CurrencyConverterViewController.swift */; };
+		90F1F444217F8A6000ABFFC6 /* ConvertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A14C1B217EE85A005F26B6 /* ConvertViewController.swift */; };
 		90F7E67F217F2EA4002904F5 /* ConvertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F7E67E217F2EA4002904F5 /* ConvertService.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,12 +35,14 @@
 		903AB413217DAD49004683DF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		903AB415217DADFB004683DF /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		903AB41A217DB789004683DF /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		904C77B721872AD4000762A6 /* UIViewController+AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertVC.swift"; sourceTree = "<group>"; };
+		904C77B921872D1D000762A6 /* UIViewController+ToggleAvtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ToggleAvtivityIndicator.swift"; sourceTree = "<group>"; };
 		908DFEF521830DF6001E88EC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		909B85242181EF4C00A09F57 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		909B85262181EF6F00A09F57 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		909B85282181F0AD00A09F57 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		909B852E2181F9DB00A09F57 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
-		90A14C1B217EE85A005F26B6 /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
+		90A14C1B217EE85A005F26B6 /* ConvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertViewController.swift; sourceTree = "<group>"; };
 		90D3A4182179B9F80096C895 /* Le Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D3A41B2179B9F80096C895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90D3A4202179B9F80096C895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,10 +77,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		904C77BB21873000000762A6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				904C77B721872AD4000762A6 /* UIViewController+AlertVC.swift */,
+				904C77B921872D1D000762A6 /* UIViewController+ToggleAvtivityIndicator.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		90A14C14217EE7B7005F26B6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				90A14C1B217EE85A005F26B6 /* CurrencyConverterViewController.swift */,
+				90A14C1B217EE85A005F26B6 /* ConvertViewController.swift */,
 				909B85262181EF6F00A09F57 /* TranslateViewController.swift */,
 				909B85242181EF4C00A09F57 /* WeatherViewController.swift */,
 			);
@@ -107,6 +120,7 @@
 				90D3A4322179C7650096C895 /* View */,
 				90A14C14217EE7B7005F26B6 /* Controller */,
 				90D3A42D2179C58A0096C895 /* Supporting Files */,
+				904C77BB21873000000762A6 /* Extensions */,
 			);
 			path = "Le Baluchon";
 			sourceTree = "<group>";
@@ -210,12 +224,14 @@
 				909B85252181EF4C00A09F57 /* WeatherViewController.swift in Sources */,
 				903AB414217DAD49004683DF /* Weather.swift in Sources */,
 				908DFEF621830DF6001E88EC /* HTTPMethod.swift in Sources */,
-				90F1F444217F8A6000ABFFC6 /* CurrencyConverterViewController.swift in Sources */,
+				90F1F444217F8A6000ABFFC6 /* ConvertViewController.swift in Sources */,
+				904C77BA21872D1D000762A6 /* UIViewController+ToggleAvtivityIndicator.swift in Sources */,
 				90F7E67F217F2EA4002904F5 /* ConvertService.swift in Sources */,
 				903AB41B217DB789004683DF /* WebServices.swift in Sources */,
 				909B852F2181F9DB00A09F57 /* APIKeys.swift in Sources */,
 				909B85292181F0AD00A09F57 /* Translate.swift in Sources */,
 				909B85272181EF6F00A09F57 /* TranslateViewController.swift in Sources */,
+				904C77B821872AD4000762A6 /* UIViewController+AlertVC.swift in Sources */,
 				90D3A41C2179B9F80096C895 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

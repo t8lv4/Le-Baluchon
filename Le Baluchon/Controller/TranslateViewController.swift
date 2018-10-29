@@ -13,7 +13,7 @@ class TranslateViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var traduireLabel: UILabel!
     @IBOutlet weak var translateTextField: UITextField!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak public var activityIndicator: UIActivityIndicatorView!
 
     // MARK: Methods
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -32,7 +32,7 @@ extension TranslateViewController: UITextFieldDelegate {
         super.viewDidLoad()
 
         self.translateTextField.delegate = self
-        toggleActivityIndicator(shown: false)
+        toggleActivityIndicator(activityIndicator,shown: false)
 
     }
 
@@ -50,55 +50,36 @@ extension TranslateViewController {
         translateTextField.becomeFirstResponder()
 
         guard let text = translateTextField.text else { return false }
-        translateRequest(for: text)
-
+        checkInputValidity(input: text)
+        
         return true
     }
 
-    private func translateRequest(for text: String) {
-        self.toggleActivityIndicator(shown: true)
-
-        TranslateService.shared.query(to: GoogleTranslation.url, with: text) { (success, translatedText) in
-            if success, let translatedText = translatedText {
-                self.toggleActivityIndicator(shown: false)
-                self.translateTextField.text = translatedText
-            } else {
-                self.toggleActivityIndicator(shown: false)
-                self.presentVCAlert(with: "😕", and: "La traduction n'est pas disponible")
-            }
+    /**
+     Check if the text input is an empty string.
+     - if so: present an alert
+     - if not: perform a translate request
+     */
+    private func checkInputValidity(input: String) {
+        if translateTextField.text == "" {
+            presentVCAlert(with: "😉", and: "Le traducteur demande un texte !")
+        } else {
+            translateRequest(for: input)
         }
     }
 
-}
+    private func translateRequest(for text: String) {
+        self.toggleActivityIndicator(activityIndicator,shown: true)
 
-// MARK: Activity Indicator
-
-extension TranslateViewController {
-
-    /// Toggle an activity indicator
-    private func toggleActivityIndicator(shown: Bool) {
-        activityIndicator.isHidden = !shown
-    }
-
-}
-
-// MARK: - Pop-up alert
-
-/// Extend the ViewController with a UIAlertController display
-extension TranslateViewController {
-    /**
-     Define a UIAlertController called by the ViewController
-     - A message is displayed according to the input
-     - The user dismiss the alert by clicking a "OK" button
-
-     - Parameters:
-     - title: The alert's title
-     - message: The error message to be displayed
-     */
-    func presentVCAlert(with title: String, and message: String) {
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
+        TranslateService.shared.query(to: GoogleTranslation.url, with: text) { (success, translatedText) in
+            if success, let translatedText = translatedText {
+                self.toggleActivityIndicator(self.activityIndicator,shown: false)
+                self.translateTextField.text = translatedText
+            } else {
+                self.toggleActivityIndicator(self.activityIndicator,shown: false)
+                self.presentVCAlert(with: "😕", and: "La traduction n'est pas disponible")
+            }
+        }
     }
 
 }
