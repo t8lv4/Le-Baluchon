@@ -55,10 +55,16 @@ extension TranslateViewController {
         translateTextField.becomeFirstResponder()
 
         guard let text = translateTextField.text else { return false }
-//        let url = GoogleTranslation.url + text
         TranslateService.shared.query(to: GoogleTranslation.url, with: text) { (success, translatedText) in
-//            print("r::::::::::::")
+            print("r::::::::::::")
             print(translatedText as Any)
+
+            if success, let translatedText = translatedText {
+                // update display
+                self.translateTextField.text = translatedText
+            } else {
+                // alert
+            }
         }
 
         return true

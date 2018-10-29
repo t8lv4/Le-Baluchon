@@ -12,7 +12,7 @@ import Foundation
 class TranslateService {
 
     /// A closure to provide the state of a network call to the ViewController.
-    typealias Callback = (Bool, Translate?) -> Void
+    typealias Callback = (Bool, String?) -> Void
 
     /// A singleton to call TranslateService's methods and properties.
     static var shared = TranslateService()
@@ -26,48 +26,50 @@ extension TranslateService {
      Call an API to provide a resource.
 
      - Parameters:
-        - text: The text to translate.
         - url: The location of the resources.
+        - text: The text to translate.
         - callback: A closure to provide the state of a network call.
      */
     func query(to url: String, with text: String,  callback: @escaping Callback) {
         task?.cancel()
 
         let request = createRequest(with: url, for: text)
-        print("this is a request URL: \(request)")
-
         let session = URLSession(configuration: .default)
+
         task = session.dataTask(with: request) {(data, response, error) in
             guard let data = data, error == nil else {
-                print("//////////")
                 callback(false, nil)
                 return
             }
 
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                print("''''''''''''''''''''")
                 callback(false, nil)
                 return
             }
+
+//            do {
+//                resource = try JSONDecoder().decode(Translate.self, from: data)
+//            } catch DecodingError.dataCorrupted(let context) {
+//                print(context.debugDescription)
+//            } catch DecodingError.keyNotFound(let key, let context) {
+//                print("\(key.stringValue) was not found, \(context.debugDescription)")
+//            } catch DecodingError.typeMismatch(let type, let context) {
+//                print("\(type) was expected, \(context.debugDescription)")
+//            } catch DecodingError.valueNotFound(let type, let context) {
+//                print("no value was found for \(type), \(context.debugDescription)")
+//            } catch {
+//                print("I know not this error")
+//            }
 
             let decoder = JSONDecoder()
             guard let resource = try? decoder.decode(Translate.self, from: data) else {
-                print("---------")
                 callback(false, nil)
                 return
             }
-
-//            var t = resource.data.translations[0]
-
-//            guard var translatedText = resource.data.translations[0] else {
-//                print("+++++++++")
-//
-//                callback(false, nil)
-//                return
-//            }
+            let translatedText = resource.data.translations[0].translatedText
 
             DispatchQueue.main.async {
-                callback(true, resource)
+                callback(true, translatedText)
             }
         }
         task?.resume()

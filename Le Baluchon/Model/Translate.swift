@@ -8,23 +8,31 @@
 
 import Foundation
 
-struct Translate: Decodable {
-    
-    var data: Translations
+/*
+JSON structure from Google Translate
 
-    struct Translations: Decodable {
-        var translations: [String: String]
+{
+    "data": {
+        "translations": [
+        {
+        "translatedText": "Bonjour Monde!"
+        }
+        ]
     }
-
 }
+ */
 
+/**
+ Reflect the Google Translate JSON structure to decode Google response.
+*/
+struct Translate: Codable {
+    let data: Translations
 
-//{
-//    "data": {
-//        "translations": [
-//        {
-//        "translatedText": "Bonjour Monde!"
-//        }
-//        ]
-//    }
-//}
+    struct Translations: Codable {
+        var translations: [TranslatedText]
+
+        struct TranslatedText: Codable {
+            var translatedText: String
+        }
+    }
+}
