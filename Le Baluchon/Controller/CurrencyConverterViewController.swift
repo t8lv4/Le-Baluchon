@@ -104,7 +104,7 @@ extension CurrencyConverterViewController {
     private func conversionRequest(for amount: Double) {
         toggleActivityIndicator(shown: true)
 
-        CurrencyConverterService.shared.query(to: Fixer.url) { (success, rate) in
+        ConvertService.shared.query(to: Fixer.url) { (success, rate) in
             self.toggleActivityIndicator(shown: false)
 
             if success, let rate = rate {
@@ -122,7 +122,7 @@ extension CurrencyConverterViewController {
         - rate: The rate provided by Fixer.io
      */
     private func updateDisplay(with amount: Double, and rate: Double) {
-        let convertedCurrency = CurrencyConverter.convert(amount, with: rate)
+        let convertedCurrency = Convert.convert(amount, with: rate)
         self.convertTextField.text = convertedCurrency
         self.currencyLabel.text = "$"
     }

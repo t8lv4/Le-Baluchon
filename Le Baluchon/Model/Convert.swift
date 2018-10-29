@@ -9,11 +9,11 @@
 import Foundation
 
 /// Convert from Euro to US Dollar
-struct CurrencyConverter: Decodable {
+struct Convert: Decodable {
     let rates: [String: Double]
 }
 
-extension CurrencyConverter {
+extension Convert {
 
     /**
      Convert a value according to a given rate. Return a String rounded to 2 decimal places.

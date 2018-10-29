@@ -178,13 +178,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convertir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Co-pQ-yEk">
-                                <rect key="frame" x="20" y="60" width="218" height="67"/>
+                                <rect key="frame" x="20" y="60" width="218" height="58.5"/>
                                 <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O9c-67-fjA">
-                                <rect key="frame" x="20" y="147" width="335" height="74"/>
+                                <rect key="frame" x="20" y="138.5" width="335" height="74"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ld-NWe" userLabel="Convert Text Field">
                                         <rect key="frame" x="0.0" y="0.0" width="261.5" height="74"/>
@@ -206,7 +206,7 @@
                                 </constraints>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-d8-4l6">
-                                <rect key="frame" x="20" y="241" width="335" height="74"/>
+                                <rect key="frame" x="20" y="232.5" width="335" height="74"/>
                                 <color key="backgroundColor" red="0.64299935100000005" green="0.66739433999999997" blue="0.3826896548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="20"/>
                                 <state key="normal" title="Calculer">
@@ -217,7 +217,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9hg-Vy-rcj">
-                                <rect key="frame" x="169" y="335" width="37" height="37"/>
+                                <rect key="frame" x="169" y="326.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1936278045" green="0.24919566509999999" blue="0.31787842509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

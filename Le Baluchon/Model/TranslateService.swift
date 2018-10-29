@@ -59,7 +59,7 @@ extension TranslateService {
                 //            } catch DecodingError.valueNotFound(let type, let context) {
                 //                print("no value was found for \(type), \(context.debugDescription)")
                 //            } catch {
-                //                print("I know not this error")
+                //                print("Unknown error")
                 //            }
 
                 let decoder = JSONDecoder()

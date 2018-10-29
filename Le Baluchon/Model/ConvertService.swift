@@ -9,20 +9,20 @@
 import Foundation
 
 /// Convert currency.
-class CurrencyConverterService {
+class ConvertService {
 
     /// A closure to provide the state of a network call to the ViewController.
     typealias Callback = (Bool, Double?) -> Void
 
     /// A singleton to call CurrencyConverterService's methods and properties.
-    static var shared = CurrencyConverterService()
+    static var shared = ConvertService()
     private init() {}
 
     private var task: URLSessionDataTask?
 
 }
 
-extension CurrencyConverterService {
+extension ConvertService {
     
     /**
      Call an API to provide a resource.
@@ -53,7 +53,7 @@ extension CurrencyConverterService {
                 }
 
                 let decoder = JSONDecoder()
-                guard let resource = try? decoder.decode(CurrencyConverter.self, from: data) else {
+                guard let resource = try? decoder.decode(Convert.self, from: data) else {
                     callback(false, nil)
                     return
                 }
