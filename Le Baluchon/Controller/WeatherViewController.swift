@@ -10,4 +10,15 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        print("view did appear")
+
+        //let place = Places.Paris
+        print(YahooWeather.url)
+        
+        WeatherService.shared.request(YahooWeather.url) { (success, resource) in
+            print(resource as Any)
+        }
+    }
 }

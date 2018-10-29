@@ -8,10 +8,10 @@
 
 import Foundation
 
-/// Request a word translation and return a translated text
+/// Request a word translation
 class TranslateService {
 
-    /// A closure to provide the state of a network call to the ViewController.
+    /// A closure to provide the state of a network call to the TranslateViewController.
     typealias Callback = (Bool, String?) -> Void
 
     /// A singleton to call TranslateService's methods and properties.

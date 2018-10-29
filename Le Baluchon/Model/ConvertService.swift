@@ -11,7 +11,7 @@ import Foundation
 /// Convert currency.
 class ConvertService {
 
-    /// A closure to provide the state of a network call to the ViewController.
+    /// A closure to provide the state of a network call to the ConvertViewController.
     typealias Callback = (Bool, Double?) -> Void
 
     /// A singleton to call CurrencyConverterService's methods and properties.
