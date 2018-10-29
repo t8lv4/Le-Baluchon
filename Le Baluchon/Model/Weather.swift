@@ -42,8 +42,12 @@ struct Weather: Codable {
             let channel: Location
 
             struct Location: Codable {
-                let city: String
+                let location: City
                 let item: Item
+
+                struct City: Codable {
+                    let city: String
+                }
 
                 struct Item: Codable {
                     let condition: Condition

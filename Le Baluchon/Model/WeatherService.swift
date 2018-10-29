@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Request weather condition.
+/// Request weather conditions.
 class WeatherService {
 
     /// A closure to provide the state of a network call to the WeatherViewController.
@@ -30,7 +30,6 @@ extension WeatherService {
         task?.cancel()
 
         let request = createRequest(with: body)
-//        let request = URL(string: body)!
         print("<<<<<")
         print(request)
         let session = URLSession(configuration: .default)
@@ -47,28 +46,28 @@ extension WeatherService {
                     return
                 }
 
-                            do {
-                                let resource = try JSONDecoder().decode(Weather.self, from: data)
-                                print(resource)
-                            } catch DecodingError.dataCorrupted(let context) {
-                                print(context.debugDescription)
-                            } catch DecodingError.keyNotFound(let key, let context) {
-                                print("\(key.stringValue) was not found, \(context.debugDescription)")
-                            } catch DecodingError.typeMismatch(let type, let context) {
-                                print("\(type) was expected, \(context.debugDescription)")
-                            } catch DecodingError.valueNotFound(let type, let context) {
-                                print("no value was found for \(type), \(context.debugDescription)")
-                            } catch {
-                                print("Unknown error")
-                            }
+//                            do {
+//                                let resource = try JSONDecoder().decode(Weather.self, from: data)
+//                                print(resource)
+//                            } catch DecodingError.dataCorrupted(let context) {
+//                                print(context.debugDescription)
+//                            } catch DecodingError.keyNotFound(let key, let context) {
+//                                print("\(key.stringValue) was not found, \(context.debugDescription)")
+//                            } catch DecodingError.typeMismatch(let type, let context) {
+//                                print("\(type) was expected, \(context.debugDescription)")
+//                            } catch DecodingError.valueNotFound(let type, let context) {
+//                                print("no value was found for \(type), \(context.debugDescription)")
+//                            } catch {
+//                                print("Unknown error")
+//                            }
 
-//                let decoder = JSONDecoder()
-//                guard let resource = try? decoder.decode(Weather.self, from: data) else {
-//                    callback(false, nil)
-//                    return
-//                }
+                let decoder = JSONDecoder()
+                guard let resource = try? decoder.decode(Weather.self, from: data) else {
+                    callback(false, nil)
+                    return
+                }
 
-//                callback(true, resource)
+                callback(true, resource)
             }
         }
         task?.resume()
@@ -79,12 +78,13 @@ extension WeatherService {
 
 extension WeatherService {
 
+    /**
+     Build a URL to access weather conditions
+     */
     private func createRequest(with body: String) -> URLRequest {
 
         let encodedQuery = body.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let query = YahooWeather.endpoint + encodedQuery
-        print(":::::::::")
-        print(query)
 
         let url = URL(string: query)!
         var request = URLRequest(url: url)
