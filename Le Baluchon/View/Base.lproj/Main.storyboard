@@ -51,7 +51,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Soleil" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-Ci-g9U" userLabel="Paris Image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="couvert" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-Ci-g9U" userLabel="Paris Image">
                                 <rect key="frame" x="189" y="124" width="125.5" height="125.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jkf-Ci-g9U" secondAttribute="height" multiplier="1:1" id="QL1-64-9Xy"/>
@@ -76,7 +76,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Soleil" translatesAutoresizingMaskIntoConstraints="NO" id="yw4-RS-uOK" userLabel="New-York Image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nuitClaire" translatesAutoresizingMaskIntoConstraints="NO" id="yw4-RS-uOK" userLabel="New-York Image">
                                 <rect key="frame" x="183" y="355" width="125.5" height="125.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125.5" id="2hl-Dn-Q0U"/>
@@ -268,7 +268,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Soleil" width="180" height="180"/>
+        <image name="couvert" width="180" height="180"/>
+        <image name="nuitClaire" width="180" height="180"/>
         <image name="tabConvert" width="25" height="25"/>
         <image name="tabTranslate" width="25" height="25"/>
         <image name="tabWeather" width="25" height="19"/>

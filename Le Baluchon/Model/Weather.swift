@@ -99,21 +99,18 @@ extension Weather {
      - returns: The name of a weather icon
      - note: As of October 2018, YahooWeather code are provided at `https://developer.yahoo.com/weather/documentation.html`.
      */
-    func weatherIcon(condition: Int) -> String {
+    func getWeatherIcon(condition: Int) -> String {
         switch condition {
         case 0...2, 19:
             return "tornade"
 
-        case 3, 4:
-            return "tonerre"
+        case 3, 4, 45, 47:
+            return "orage"
 
         case 5...7, 13, 14, 18, 41...43:
             return "averseNeige"
 
-        case 8...9:
-            return "bruine"
-
-        case 10, 17:
+        case 8...10, 17:
             return "pluie"
 
         case 11, 12, 35, 40:
@@ -143,8 +140,8 @@ extension Weather {
         case 32, 34:
             return "jourClair"
 
-        case 37...39, 45, 46:
-            return "orage"
+        case 37...39:
+            return "orageux"
 
         case 3200:
             return "?"
