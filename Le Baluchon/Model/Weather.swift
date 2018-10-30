@@ -32,9 +32,11 @@ JSON structure from YahooWeather
 }
 */
 
+// MARK: Intermediate type
+
 /**
  Mirror the YahooWeather JSON response.
- Serve as an intermediate structure to further get the resources.
+ Intermediate structure to further get the resources.
  */
 struct WeatherJSON: Decodable {
     let query: Query
@@ -66,19 +68,92 @@ struct WeatherJSON: Decodable {
     }
 }
 
+// MARK: - Model
+
 /**
  Define the weather model data structure
  */
 struct Weather {
+
     var city: String
     var code: String
     var temp: String
+
 }
 
 extension Weather {
+
     init(from service: WeatherJSON) {
         city = service.query.results.channel.location.city
         code = service.query.results.channel.item.condition.code
         temp = service.query.results.channel.item.condition.temp
     }
+
+}
+
+extension Weather {
+    /**
+     Return a weatherIcon name according to a YahooWeather condition code.
+     - parameters:
+        - condition: The code provided by YahooWeather
+     - returns: The name of a weather icon
+     - note: As of October 2018, YahooWeather code are provided at `https://developer.yahoo.com/weather/documentation.html`.
+     */
+    func weatherIcon(condition: Int) -> String {
+        switch condition {
+        case 0...2, 19:
+            return "tornade"
+
+        case 3, 4:
+            return "tonerre"
+
+        case 5...7, 13, 14, 18, 41...43:
+            return "averseNeige"
+
+        case 8...9:
+            return "bruine"
+
+        case 10, 17:
+            return "pluie"
+
+        case 11, 12, 35, 40:
+            return "averse"
+
+        case 15, 16:
+            return "neige"
+
+        case 20...22:
+            return "brouillard"
+
+        case 23, 24:
+            return "ventFort"
+
+        case 26:
+            return "couvert"
+
+        case 27, 29:
+            return "nuageuxNuit"
+
+        case 28, 30, 44:
+            return "nuageuxJour"
+
+        case 31, 33:
+            return "nuitClaire"
+
+        case 32, 34:
+            return "jourClair"
+
+        case 37...39, 45, 46:
+            return "orage"
+
+        case 3200:
+            return "?"
+
+        default:
+            return "?"
+
+
+        }
+    }
+
 }
