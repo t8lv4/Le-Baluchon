@@ -12,13 +12,34 @@ class WeatherViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
-        print("view did appear")
 
-        //let place = Places.Paris
-        print(YahooWeather.url)
-        
-        WeatherService.shared.request(YahooWeather.url) { (success, resource) in
-            print(resource as Any)
+        requestService()
+
+    }
+}
+
+// MARK: - Request Weather resources
+extension WeatherViewController {
+
+    func requestService() {
+        WeatherService.shared.request(YahooWeather.url) { (success, weatherCondition) in
+            if success, let weatherCondition = weatherCondition {
+                self.display(weatherCondition)
+            } else {
+                // alert
+            }
         }
+    }
+
+}
+
+// MARK: - Update display
+
+extension WeatherViewController {
+
+    func display(_ weatherCondition: Weather) {
+        print(weatherCondition.city)
+        print(weatherCondition.temp)
+        print(weatherCondition.code)
     }
 }

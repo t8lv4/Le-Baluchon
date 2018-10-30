@@ -32,32 +32,53 @@ JSON structure from YahooWeather
 }
 */
 
-struct Weather: Codable {
+/**
+ Mirror the YahooWeather JSON response.
+ Serve as an intermediate structure to further get the resources.
+ */
+struct WeatherJSON: Decodable {
     let query: Query
 
-    struct Query: Codable {
+    struct Query: Decodable {
         let results: Channel
 
-        struct Channel: Codable {
+        struct Channel: Decodable {
             let channel: Location
 
-            struct Location: Codable {
+            struct Location: Decodable {
                 let location: City
                 let item: Item
 
-                struct City: Codable {
+                struct City: Decodable {
                     let city: String
                 }
 
-                struct Item: Codable {
+                struct Item: Decodable {
                     let condition: Condition
 
-                    struct Condition: Codable {
+                    struct Condition: Decodable {
                         let code: String
                         let temp: String
                     }
                 }
             }
         }
+    }
+}
+
+/**
+ Define the weather model data structure
+ */
+struct Weather {
+    var city: String
+    var code: String
+    var temp: String
+}
+
+extension Weather {
+    init(from service: WeatherJSON) {
+        city = service.query.results.channel.location.city
+        code = service.query.results.channel.item.condition.code
+        temp = service.query.results.channel.item.condition.temp
     }
 }

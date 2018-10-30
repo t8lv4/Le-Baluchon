@@ -26,12 +26,16 @@ class WeatherService {
 
 extension WeatherService {
 
+    /**
+     Request weather condition from YAHOOWeather service.
+     - Parameters:
+     - body: A query in a YQL query format
+     - callback: A closure to provide the state of a network call
+     */
     func request(_ body: String, callback: @escaping Callback) {
         task?.cancel()
 
         let request = createRequest(with: body)
-        print("<<<<<")
-        print(request)
         let session = URLSession(configuration: .default)
 
         task = session.dataTask(with: request) {(data, response, error) in
@@ -62,12 +66,14 @@ extension WeatherService {
 //                            }
 
                 let decoder = JSONDecoder()
-                guard let resource = try? decoder.decode(Weather.self, from: data) else {
+                guard let resource = try? decoder.decode(WeatherJSON.self, from: data) else {
                     callback(false, nil)
                     return
                 }
 
-                callback(true, resource)
+                let weatherCondition = Weather(from: resource)
+
+                callback(true, weatherCondition)
             }
         }
         task?.resume()
@@ -79,7 +85,7 @@ extension WeatherService {
 extension WeatherService {
 
     /**
-     Build a URL to access weather conditions
+     Build a URL to access YahooWeather conditions
      */
     private func createRequest(with body: String) -> URLRequest {
 
