@@ -76,7 +76,14 @@ struct WeatherJSON: Decodable {
 struct Weather {
 
     var city: String
+    /**
+     Weather condition code
+     - Note:
+        - This code is provided by YahooWeather
+        - Mapped in `getWeatherIcon(condition:) -> String`
+     */
     var code: String
+    /// Temperature in °C (cf YahooWeather request parameters)
     var temp: String
 
 }
@@ -99,7 +106,7 @@ extension Weather {
      - returns: The name of a weather icon
      - note: As of October 2018, YahooWeather code are provided at `https://developer.yahoo.com/weather/documentation.html`.
      */
-    func getWeatherIcon(condition: Int) -> String {
+    static func getWeatherIcon(condition: Int) -> String {
         switch condition {
         case 0...2, 19:
             return "tornade"

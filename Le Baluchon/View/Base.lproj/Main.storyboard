@@ -111,6 +111,8 @@
                         <outlet property="currentPlaceLabel" destination="fXP-M8-6KY" id="qvS-yO-fby"/>
                         <outletCollection property="tempLabels" destination="n1q-kh-A1v" collectionClass="NSMutableArray" id="fTx-Z2-LPF"/>
                         <outletCollection property="weatherIconViews" destination="Jkf-Ci-g9U" collectionClass="NSMutableArray" id="5wJ-M8-fJN"/>
+                        <outletCollection property="tempLabels" destination="1n7-zw-ulj" collectionClass="NSMutableArray" id="Cgo-fT-a4k"/>
+                        <outletCollection property="weatherIconViews" destination="yw4-RS-uOK" collectionClass="NSMutableArray" id="fjF-4y-TKF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIB-lk-8yC" userLabel="First Responder" sceneMemberID="firstResponder"/>

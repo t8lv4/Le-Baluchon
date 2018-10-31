@@ -29,10 +29,8 @@ extension WeatherService {
     /**
      Request weather condition from YahooWeather service.
      - Parameters:
-        - city: A forecast query for the city in a YQL query format
+        - city: A YQL query format to get the weather forecast for said city
         - callback: A closure to provide the state of a network call
-     - Note:
-        `body` is a query, a city and parameters; cf struct WebServices
      */
     func request(for city: String, callback: @escaping Callback) {
         task?.cancel()

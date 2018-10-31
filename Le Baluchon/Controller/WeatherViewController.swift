@@ -16,9 +16,17 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var currentPlaceLabel: UILabel!
     /// Link to New-York Label
     @IBOutlet weak var NYLabel: UILabel!
-    /// Link to temperatures labels (outlet collection)
+    /**
+     Link to temperatures labels (outlet collection)
+        - [0] = display current user location temperature
+        - [1] = display NY temperature
+     */
     @IBOutlet var tempLabels: [UILabel]!
-    /// Link to weather condition icons (outlet collection)
+    /**
+     Link to weather condition icons (outlet collection)
+        - [0] = display current user location weather condition icon
+        - [1] = display NY weather condition icon
+     */
     @IBOutlet var weatherIconViews: [UIImageView]!
 
 }
@@ -47,10 +55,12 @@ extension WeatherViewController {
      */
     func requestService(for city: String) {
         WeatherService.shared.request(for: city) { (success, weatherCondition) in
-            if success, let weatherCondition = weatherCondition {
+            guard let weatherCondition = weatherCondition else { return }
+
+            if success {
                 self.display(weatherCondition)
             } else {
-                self.handleRequestFailure()
+                self.handleRequestFailure(for: weatherCondition)
             }
         }
     }
@@ -60,16 +70,34 @@ extension WeatherViewController {
 // MARK: - Update display
 
 extension WeatherViewController {
-
+    /**
+     Update UI with the WeatherService response
+     */
     func display(_ weatherCondition: Weather) {
         print(weatherCondition.city)
         print(weatherCondition.temp)
         print(weatherCondition.code)
+
+        let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
+
+        tempLabels[1].text = weatherCondition.temp + "°"
+        weatherIconViews[1].image = UIImage(named: iconName)
+
     }
 
-    func handleRequestFailure() {
+    /**
+     Present an alert and empty UI.
+     */
+    func handleRequestFailure(for weatherCondition: Weather) {
         presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
         // mod labels
+        if weatherCondition.city != "New York" {
+            NYLabel.text = "-"
+            tempLabels[0].text = ""
+            weatherIconViews[1].image = nil
+        }
+
+
     }
 
 }
