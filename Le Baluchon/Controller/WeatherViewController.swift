@@ -35,12 +35,46 @@ class WeatherViewController: UIViewController {
 
 extension WeatherViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
 
-        let forecast = YahooWeather(city: Places.NewYork)
-        let city = forecast.place
-        requestService(for: city)
+//        let currentCoordinates = (48.856614, 2.3522219)
+//        Places.addCurrentLocation(currentCoordinates)
+//        let currentLocation = Places.cities["currentLocation"]
+//        print(currentLocation!)
+//
+//        let f = YahooWeather(city: Places.cities["currentLocation"]!)
+//        print("=========")
+//        print(Places.cities["currentLocation"]!)
+//        let c = f.place
+//        print(c)
+//        requestService(for: c)
+//
+//        let currentCoordinates = (48.856614, 2.3522219)
+//        let forecastW = YahooWeather(city: currentCoordinates)
+//        let currentPlace = forecastW.place
+//        print(currentPlace)
+//        requestService(for: currentPlace)
+//
+//        let forecast = YahooWeather(city: Places.cities["New-York"]!)
+//        print("--------")
+//        print(Places.cities["New-York"]!)
+//        let city = forecast.place
+//        print(city)
+//        requestService(for: city)
+
+        for cities in Places.cities.values {
+            let forecast = YahooWeather(city: cities)
+            let city = forecast.place
+            requestService(for: city)
+            print(city)
+        }
     }
 
 }
@@ -55,12 +89,10 @@ extension WeatherViewController {
      */
     func requestService(for city: String) {
         WeatherService.shared.request(for: city) { (success, weatherCondition) in
-            guard let weatherCondition = weatherCondition else { return }
-
-            if success {
+            if success, let weatherCondition = weatherCondition {
                 self.display(weatherCondition)
             } else {
-                self.handleRequestFailure(for: weatherCondition)
+                self.handleRequestFailure()
             }
         }
     }
@@ -74,6 +106,7 @@ extension WeatherViewController {
      Update UI with the WeatherService response
      */
     func display(_ weatherCondition: Weather) {
+        // switch sur .city pout update UI
         print(weatherCondition.city)
         print(weatherCondition.temp)
         print(weatherCondition.code)
@@ -88,14 +121,11 @@ extension WeatherViewController {
     /**
      Present an alert and empty UI.
      */
-    func handleRequestFailure(for weatherCondition: Weather) {
+    func handleRequestFailure() {
         presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
-        // mod labels
-        if weatherCondition.city != "New York" {
             NYLabel.text = "-"
-            tempLabels[0].text = ""
+            tempLabels[1].text = ""
             weatherIconViews[1].image = nil
-        }
 
 
     }
