@@ -27,15 +27,17 @@ class WeatherService {
 extension WeatherService {
 
     /**
-     Request weather condition from YAHOOWeather service.
+     Request weather condition from YahooWeather service.
      - Parameters:
-     - body: A query in a YQL query format
-     - callback: A closure to provide the state of a network call
+        - city: A forecast query for the city in a YQL query format
+        - callback: A closure to provide the state of a network call
+     - Note:
+        `body` is a query, a city and parameters; cf struct WebServices
      */
-    func request(_ body: String, callback: @escaping Callback) {
+    func request(for city: String, callback: @escaping Callback) {
         task?.cancel()
 
-        let request = createRequest(with: body)
+        let request = createRequest(for: city)
         let session = URLSession(configuration: .default)
 
         task = session.dataTask(with: request) {(data, response, error) in
@@ -72,12 +74,13 @@ extension WeatherService {
     /**
      Build a URL to access YahooWeather conditions
      */
-    private func createRequest(with body: String) -> URLRequest {
+    private func createRequest(for city: String) -> URLRequest {
+        let query = YahooWeather.query + city + YahooWeather.parameters
 
-        let encodedQuery = body.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        let query = YahooWeather.endpoint + encodedQuery
+        let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let stringURL = YahooWeather.endpoint + encodedQuery
 
-        let url = URL(string: query)!
+        let url = URL(string: stringURL)!
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
 

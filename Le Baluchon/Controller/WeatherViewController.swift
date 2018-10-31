@@ -30,7 +30,9 @@ extension WeatherViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
 
-        requestService()
+        let forecast = YahooWeather(city: Places.NewYork)
+        let city = forecast.place
+        requestService(for: city)
     }
 
 }
@@ -43,8 +45,8 @@ extension WeatherViewController {
      - If available, call `display(_:)` to update UI
      - If not, call `presentVCAlert(with title:and message:)`
      */
-    func requestService() {
-        WeatherService.shared.request(YahooWeather.url) { (success, weatherCondition) in
+    func requestService(for city: String) {
+        WeatherService.shared.request(for: city) { (success, weatherCondition) in
             if success, let weatherCondition = weatherCondition {
                 self.display(weatherCondition)
             } else {

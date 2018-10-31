@@ -51,7 +51,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="couvert" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-Ci-g9U" userLabel="Paris Image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nuageuxJour" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-Ci-g9U" userLabel="Paris Image">
                                 <rect key="frame" x="189" y="124" width="125.5" height="125.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jkf-Ci-g9U" secondAttribute="height" multiplier="1:1" id="QL1-64-9Xy"/>
@@ -268,7 +268,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="couvert" width="180" height="180"/>
+        <image name="nuageuxJour" width="180" height="180"/>
         <image name="nuitClaire" width="180" height="180"/>
         <image name="tabConvert" width="25" height="25"/>
         <image name="tabTranslate" width="25" height="25"/>

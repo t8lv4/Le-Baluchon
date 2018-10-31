@@ -10,7 +10,7 @@ import Foundation
 
 /// Define places to query wheather conditions
 struct Places {
-    let currentPlace: (Double, Double)
+    // let currentPlace: (Double, Double)
 
     static let Paris = (48.862725, 2.287592)
     static let NewYork = "new-york, ny"

@@ -1,5 +1,5 @@
 //
-//  UIViewController+ToggleAvtivityIndicator.swift
+//  UIViewController+ActivityIndicator.swift
 //  Le Baluchon
 //
 //  Created by Morgan on 29/10/2018.
