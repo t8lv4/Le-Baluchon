@@ -48,20 +48,6 @@ extension TranslateService {
                     return
                 }
 
-                //            do {
-                //                resource = try JSONDecoder().decode(Translate.self, from: data)
-                //            } catch DecodingError.dataCorrupted(let context) {
-                //                print(context.debugDescription)
-                //            } catch DecodingError.keyNotFound(let key, let context) {
-                //                print("\(key.stringValue) was not found, \(context.debugDescription)")
-                //            } catch DecodingError.typeMismatch(let type, let context) {
-                //                print("\(type) was expected, \(context.debugDescription)")
-                //            } catch DecodingError.valueNotFound(let type, let context) {
-                //                print("no value was found for \(type), \(context.debugDescription)")
-                //            } catch {
-                //                print("Unknown error")
-                //            }
-
                 let decoder = JSONDecoder()
                 guard let resource = try? decoder.decode(Translate.self, from: data) else {
                     callback(false, nil)
@@ -98,4 +84,3 @@ extension TranslateService {
     }
 
 }
-

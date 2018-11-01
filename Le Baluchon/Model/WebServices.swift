@@ -54,6 +54,7 @@ struct YahooWeather {
     static let parameters = "and u='c'&format=json"
 
 }
+
 extension YahooWeather {
     /// Construct a query for a city (YQL format)
     init(city: Any) {

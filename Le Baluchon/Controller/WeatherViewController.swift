@@ -42,12 +42,6 @@ extension WeatherViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for index in 0...1 {
-            placeLabels[index].text = "-"
-            tempLabels[index].text = ""
-            weatherIconViews[index].image = nil
-
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +71,13 @@ extension WeatherViewController {
 //        let city = forecast.place
 //        print(city)
 //        requestService(for: city)
+
+        for index in 0...1 {
+            placeLabels[index].text = "-"
+            tempLabels[index].text = ""
+            weatherIconViews[index].image = nil
+
+        }
 
         for cities in Places.cities.values {
             let forecast = YahooWeather(city: cities)
