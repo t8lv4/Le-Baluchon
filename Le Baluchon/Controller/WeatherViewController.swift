@@ -44,6 +44,24 @@ extension WeatherViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+
+        for index in 0...1 {
+            placeLabels[index].text = ""
+            tempLabels[index].text = ""
+            weatherIconViews[index].image = nil
+
+        }
+
+        for cities in Places.cities.values {
+            let forecast = YahooWeather(city: cities)
+            let city = forecast.place
+            requestService(for: city)
+            print(city)
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
 
@@ -72,19 +90,6 @@ extension WeatherViewController {
 //        print(city)
 //        requestService(for: city)
 
-        for index in 0...1 {
-            placeLabels[index].text = "-"
-            tempLabels[index].text = ""
-            weatherIconViews[index].image = nil
-
-        }
-
-        for cities in Places.cities.values {
-            let forecast = YahooWeather(city: cities)
-            let city = forecast.place
-            requestService(for: city)
-            print(city)
-        }
     }
 
 }
@@ -132,7 +137,7 @@ extension WeatherViewController {
         case "New York":
             toggleActivityIndicator(activityIndicators[1], shown: false)
 
-            placeLabels[1].text = "New-York"
+            placeLabels[1].text = "New York"
             tempLabels[1].text = weatherCondition.temp + "°"
             let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
             weatherIconViews[1].image = UIImage(named: iconName)
@@ -147,7 +152,7 @@ extension WeatherViewController {
      */
     func handleRequestFailure() {
         presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
-            placeLabels[1].text = "-"
+            placeLabels[1].text = ""
             tempLabels[1].text = ""
             weatherIconViews[1].image = nil
     }
