@@ -43,24 +43,19 @@ struct GoogleTranslation {
 /// Hold access to Yahoo Weather API resources.
 struct YahooWeather {
 
-    static let endpoint = "https://query.yahooapis.com/v1/public/yql?"
-    static let query = "q=select location.city, item.condition.temp, item.condition.code from weather.forecast "
-    /// The city where we want weather forecast resources
+    /// The place where we want weather forecast resources, express in a YQL format
     var place: String
+
+    /// YahooWeather APIs URL
+    static let endpoint = "https://query.yahooapis.com/v1/public/yql?"
+    /// Query city name, temperature and weather condition code
+    static let query = "q=select location.city, item.condition.temp, item.condition.code from weather.forecast "
     /// Get temperature value in Celsius and response as JSON
     static let parameters = "and u='c'&format=json"
-    
-    static let plainURL = "https://query.yahooapis.com/v1/public/yql?q=select%20location.city%2C%20item.condition.temp%2C%20item.condition.code%20from%20weather.forecast%20where%20woeid%20in%20(SELECT%20woeid%20FROM%20geo.places%20WHERE%20text%3D%22(48.862725%2C%202.287592)%22)%20and%20u%3D'c'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
-
-//    static var url: String {
-//        return YahooWeather.query
-//            + YahooWeather.places
-//            + YahooWeather.parameters
-//
-//    }
 
 }
 extension YahooWeather {
+    /// Construct a query for a city (YQL format)
     init(city: Any) {
         place = "where woeid in (SELECT woeid FROM geo.places WHERE text=\"\(city)\")"
     }

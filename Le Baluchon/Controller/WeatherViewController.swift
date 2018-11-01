@@ -12,10 +12,11 @@ class WeatherViewController: UIViewController {
 
     // MARK: Properties
 
-    /// Link to user current place label
-    @IBOutlet weak var currentPlaceLabel: UILabel!
-    /// Link to New-York Label
-    @IBOutlet weak var NYLabel: UILabel!
+    /** Link to place labels (outlet collection)
+    - [0] = display current user location temperature
+    - [1] = display NY temperature
+     */
+    @IBOutlet var placeLabels: [UILabel]!
     /**
      Link to temperatures labels (outlet collection)
         - [0] = display current user location temperature
@@ -29,6 +30,9 @@ class WeatherViewController: UIViewController {
      */
     @IBOutlet var weatherIconViews: [UIImageView]!
 
+    /// Link to activity indicators (outlet collection)
+    @IBOutlet var activityIndicators: [UIActivityIndicatorView]!
+
 }
 
 // MARK: - Methods
@@ -38,7 +42,12 @@ extension WeatherViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        for index in 0...1 {
+            placeLabels[index].text = "-"
+            tempLabels[index].text = ""
+            weatherIconViews[index].image = nil
+
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -88,6 +97,10 @@ extension WeatherViewController {
      - If not, call `presentVCAlert(with title:and message:)`
      */
     func requestService(for city: String) {
+        for activityIndicator in activityIndicators {
+            toggleActivityIndicator(activityIndicator, shown: true)
+        }
+
         WeatherService.shared.request(for: city) { (success, weatherCondition) in
             if success, let weatherCondition = weatherCondition {
                 self.display(weatherCondition)
@@ -106,16 +119,26 @@ extension WeatherViewController {
      Update UI with the WeatherService response
      */
     func display(_ weatherCondition: Weather) {
-        // switch sur .city pout update UI
-        print(weatherCondition.city)
-        print(weatherCondition.temp)
-        print(weatherCondition.code)
+        switch weatherCondition.city {
+        case "Paris":
+            toggleActivityIndicator(activityIndicators[0], shown: false)
 
-        let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
+            placeLabels[0].text = "Paris"
+            tempLabels[0].text = weatherCondition.temp + "°"
+            let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
+            weatherIconViews[0].image = UIImage(named: iconName)
 
-        tempLabels[1].text = weatherCondition.temp + "°"
-        weatherIconViews[1].image = UIImage(named: iconName)
+        case "New York":
+            toggleActivityIndicator(activityIndicators[1], shown: false)
 
+            placeLabels[1].text = "New-York"
+            tempLabels[1].text = weatherCondition.temp + "°"
+            let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
+            weatherIconViews[1].image = UIImage(named: iconName)
+
+        default:
+            return
+        }
     }
 
     /**
@@ -123,11 +146,9 @@ extension WeatherViewController {
      */
     func handleRequestFailure() {
         presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
-            NYLabel.text = "-"
+            placeLabels[1].text = "-"
             tempLabels[1].text = ""
             weatherIconViews[1].image = nil
-
-
     }
 
 }

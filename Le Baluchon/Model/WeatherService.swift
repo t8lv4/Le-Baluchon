@@ -33,7 +33,7 @@ extension WeatherService {
         - callback: A closure to provide the state of a network call
      */
     func request(for city: String, callback: @escaping Callback) {
-        task?.cancel()
+        // task?.cancel()
 
         let request = createRequest(for: city)
         let session = URLSession(configuration: .default)
