@@ -52,9 +52,12 @@ extension WeatherViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
 
-        setUpDisplay()
-        if Places.cities.count != 1 { callService() }
-
+        if CLLocationManager.authorizationStatus() != .denied {
+            setUpDisplay()
+            if Places.cities.count != 1 { callService() }
+        } else {
+            locationAuthorizationAlert()
+        }
     }
 
 }
@@ -88,7 +91,7 @@ extension WeatherViewController {
             if success, let weatherCondition = weatherCondition {
                 self.display(weatherCondition)
             } else {
-                self.handleRequestFailure()
+                self.handleRequestFailure(weatherCondition)
             }
         }
     }
@@ -100,9 +103,9 @@ extension WeatherViewController {
 extension WeatherViewController {
 
     /**
-     Set up display
+     Set up UI for a blank state
 
-     Called inside viewWillAppear()
+     Called inside viewWillAppear().
      */
     private func setUpDisplay() {
         for index in 0...1 {
@@ -140,15 +143,27 @@ extension WeatherViewController {
     /**
      Present an alert and empty UI.
      */
-    private func handleRequestFailure() {
+    func handleRequestFailure(_ weatherCondition: Weather?) {
+        for activityIndicator in activityIndicators {
+            toggleActivityIndicator(activityIndicator, shown: false)
+        }
         presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
-        // switch !!
-//        for index in 0...1 {
-//            placeLabels[index].font = UIFont(name: "mplus-1-c-light.ttf", size: 20.0)
-//            placeLabels[index].text = "Indisponible"
-//            tempLabels[index].text = ""
-//            weatherIconViews[index].image = nil
-//        }
+        setUpDisplay()
+    }
+
+    /**
+     Present an alert if the user didn't grant access to location
+     */
+    func locationAuthorizationAlert() {
+        setUpDisplay()
+        for activityIndicator in activityIndicators {
+            toggleActivityIndicator(activityIndicator, shown: false)
+        }
+        presentVCAlert(with: "✅",
+                       and: """
+                            Autorisez le Baluchon à vous localiser :
+                            vous recevrez les prévisions météo pour votre ville !
+                            """)
     }
 
 }
@@ -158,26 +173,6 @@ extension WeatherViewController {
 extension WeatherViewController {
 
     private func startReceivingLocationChanges() {
-        let authorizationStatus = CLLocationManager.authorizationStatus()
-        if authorizationStatus != .authorizedWhenInUse {
-            print("not authorized")
-            // empty current loc. UI and "Météo indisponible" -> change typo ?
-//            placeLabels[0].text = "Météo Indisponible"
-//            weatherIconViews[0].image = nil
-//            presentVCAlert(with: "✅",
-//                           and: """
-//                                Autorisez le Baluchon à vous localiser :
-//                                vous recevrez les prévisions météo pour votre ville !
-//                                """)
-            return
-        }
-        // Do not start services that aren't available.
-        if !CLLocationManager.locationServicesEnabled() {
-            print("not enabled")
-            // Location services is not available.
-            return
-        }
-        // Configure and start the service.
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.distanceFilter = 1000.0  // In meters.
         locationManager.delegate = self
@@ -192,5 +187,28 @@ extension WeatherViewController {
 
         callService()
         }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            break
+        case .authorizedWhenInUse:
+            // If authorized when in use
+            manager.startUpdatingLocation()
+            break
+        case .authorizedAlways:
+            // If always authorized
+            manager.startUpdatingLocation()
+            break
+        case .restricted:
+            // If restricted by e.g. parental controls. User can't enable Location Services
+            break
+        case .denied:
+            locationAuthorizationAlert()
+            break
+        default:
+            break
+        }
+    }
 
 }

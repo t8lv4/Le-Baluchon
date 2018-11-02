@@ -83,10 +83,10 @@ extension TranslateViewController {
 
         TranslateService.shared.query(to: GoogleTranslation.url, with: text) { (success, translatedText) in
             if success, let translatedText = translatedText {
-                self.toggleActivityIndicator(self.activityIndicator,shown: false)
+                self.toggleActivityIndicator(self.activityIndicator, shown: false)
                 self.translateTextField.text = translatedText
             } else {
-                self.toggleActivityIndicator(self.activityIndicator,shown: false)
+                self.toggleActivityIndicator(self.activityIndicator, shown: false)
                 self.presentVCAlert(with: "😕", and: "La traduction n'est pas disponible")
             }
         }
