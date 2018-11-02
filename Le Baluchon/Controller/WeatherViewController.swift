@@ -53,36 +53,7 @@ extension WeatherViewController {
         super.viewWillAppear(false)
 
         setUpDisplay()
-        callService()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
-
-//        let currentCoordinates = (48.856614, 2.3522219)
-//        Places.addCurrentLocation(currentCoordinates)
-//        let currentLocation = Places.cities["currentLocation"]
-//        print(currentLocation!)
-//
-//        let f = YahooWeather(city: Places.cities["currentLocation"]!)
-//        print("=========")
-//        print(Places.cities["currentLocation"]!)
-//        let c = f.place
-//        print(c)
-//        requestService(for: c)
-//
-//        let currentCoordinates = (48.856614, 2.3522219)
-//        let forecastW = YahooWeather(city: currentCoordinates)
-//        let currentPlace = forecastW.place
-//        print(currentPlace)
-//        requestService(for: currentPlace)
-//
-//        let forecast = YahooWeather(city: Places.cities["New-York"]!)
-//        print("--------")
-//        print(Places.cities["New-York"]!)
-//        let city = forecast.place
-//        print(city)
-//        requestService(for: city)
+        if Places.cities.count != 1 { callService() }
 
     }
 
@@ -100,7 +71,6 @@ extension WeatherViewController {
             let forecast = YahooWeather(city: cities)
             let city = forecast.place
             requestService(for: city)
-            print(city)
         }
     }
 
@@ -148,15 +118,6 @@ extension WeatherViewController {
      */
     private func display(_ weatherCondition: Weather) {
         switch weatherCondition.city {
-        case "Paris":
-            toggleActivityIndicator(activityIndicators[0], shown: false)
-
-            placeLabels[0].text = "Paris"
-            tempLabels[0].text = weatherCondition.temp + "°"
-            print(Weather.getWeatherIcon(condition: Int(weatherCondition.code)!))
-            let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
-            weatherIconViews[0].image = UIImage(named: iconName)
-
         case "New York":
             toggleActivityIndicator(activityIndicators[1], shown: false)
 
@@ -165,8 +126,14 @@ extension WeatherViewController {
             let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
             weatherIconViews[1].image = UIImage(named: iconName)
 
+        // user current location
         default:
-            return
+            toggleActivityIndicator(activityIndicators[0], shown: false)
+
+            placeLabels[0].text = weatherCondition.city
+            tempLabels[0].text = weatherCondition.temp + "°"
+            let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
+            weatherIconViews[0].image = UIImage(named: iconName)
         }
     }
 
@@ -175,9 +142,13 @@ extension WeatherViewController {
      */
     private func handleRequestFailure() {
         presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
-            placeLabels[1].text = ""
-            tempLabels[1].text = ""
-            weatherIconViews[1].image = nil
+        // switch !!
+//        for index in 0...1 {
+//            placeLabels[index].font = UIFont(name: "mplus-1-c-light.ttf", size: 20.0)
+//            placeLabels[index].text = "Indisponible"
+//            tempLabels[index].text = ""
+//            weatherIconViews[index].image = nil
+//        }
     }
 
 }
@@ -187,11 +158,9 @@ extension WeatherViewController {
 extension WeatherViewController {
 
     private func startReceivingLocationChanges() {
-        print("-------")
-
         let authorizationStatus = CLLocationManager.authorizationStatus()
         if authorizationStatus != .authorizedWhenInUse {
-            print("++++++++++")
+            print("not authorized")
             // empty current loc. UI and "Météo indisponible" -> change typo ?
 //            placeLabels[0].text = "Météo Indisponible"
 //            weatherIconViews[0].image = nil
@@ -204,6 +173,7 @@ extension WeatherViewController {
         }
         // Do not start services that aren't available.
         if !CLLocationManager.locationServicesEnabled() {
+            print("not enabled")
             // Location services is not available.
             return
         }
@@ -215,18 +185,12 @@ extension WeatherViewController {
     }
 
     func locationManager(_ manager: CLLocationManager,  didUpdateLocations locations: [CLLocation]) {
-        print("===========")
         let lastLocation = locations.last!
-        // Do something with the location.
-            locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
 
-            print("latitude = \(lastLocation.coordinate.latitude), longitude = \(lastLocation.coordinate.longitude)")
+        Places.addCurrentLocation((lastLocation.coordinate.latitude, lastLocation.coordinate.longitude))
 
-            let longitude = lastLocation.coordinate.longitude
-            let latitude = lastLocation.coordinate.latitude
-            let params = (latitude, longitude)
-
-//            getWeatherData(url: WEATHER_URL, parameters: params)
+        callService()
         }
 
 }

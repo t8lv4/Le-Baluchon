@@ -17,7 +17,7 @@ struct Places {
      - Note:
      If using a litteral name, it must conform to the YahooWeather YQL query format
     */
-    static var cities: [String: Any] = ["Paris": (48.862725, 2.287592), "New-York": "new-york, ny"]
+    static var cities: [String: Any] = ["New-York": "new-york, ny"]
 
 }
 
