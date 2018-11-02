@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: Properties
+
+    let locationManager = CLLocationManager()
 
     /** Link to place labels (outlet collection)
     - [0] = display the name of the current user location
@@ -42,12 +45,15 @@ extension WeatherViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        locationManager.requestWhenInUseAuthorization()
+        startReceivingLocationChanges()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
 
         setUpDisplay()
+        callService()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -85,6 +91,19 @@ extension WeatherViewController {
 // MARK: - Request Weather resources
 
 extension WeatherViewController {
+
+    /**
+     Call `requestService` for each city in `Places.cities[String: Any]`
+     */
+    private func callService() {
+        for cities in Places.cities.values {
+            let forecast = YahooWeather(city: cities)
+            let city = forecast.place
+            requestService(for: city)
+            print(city)
+        }
+    }
+
     /**
      Request weather data from YahooWeather.
      - If available, call `display(_:)` to update UI
@@ -122,13 +141,6 @@ extension WeatherViewController {
             weatherIconViews[index].image = nil
 
         }
-
-        for cities in Places.cities.values {
-            let forecast = YahooWeather(city: cities)
-            let city = forecast.place
-            requestService(for: city)
-            print(city)
-        }
     }
 
     /**
@@ -141,6 +153,7 @@ extension WeatherViewController {
 
             placeLabels[0].text = "Paris"
             tempLabels[0].text = weatherCondition.temp + "°"
+            print(Weather.getWeatherIcon(condition: Int(weatherCondition.code)!))
             let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
             weatherIconViews[0].image = UIImage(named: iconName)
 
@@ -166,5 +179,54 @@ extension WeatherViewController {
             tempLabels[1].text = ""
             weatherIconViews[1].image = nil
     }
+
+}
+
+// MARK: User Location
+
+extension WeatherViewController {
+
+    private func startReceivingLocationChanges() {
+        print("-------")
+
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        if authorizationStatus != .authorizedWhenInUse {
+            print("++++++++++")
+            // empty current loc. UI and "Météo indisponible" -> change typo ?
+//            placeLabels[0].text = "Météo Indisponible"
+//            weatherIconViews[0].image = nil
+//            presentVCAlert(with: "✅",
+//                           and: """
+//                                Autorisez le Baluchon à vous localiser :
+//                                vous recevrez les prévisions météo pour votre ville !
+//                                """)
+            return
+        }
+        // Do not start services that aren't available.
+        if !CLLocationManager.locationServicesEnabled() {
+            // Location services is not available.
+            return
+        }
+        // Configure and start the service.
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.distanceFilter = 1000.0  // In meters.
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager,  didUpdateLocations locations: [CLLocation]) {
+        print("===========")
+        let lastLocation = locations.last!
+        // Do something with the location.
+            locationManager.stopUpdatingLocation()
+
+            print("latitude = \(lastLocation.coordinate.latitude), longitude = \(lastLocation.coordinate.longitude)")
+
+            let longitude = lastLocation.coordinate.longitude
+            let latitude = lastLocation.coordinate.latitude
+            let params = (latitude, longitude)
+
+//            getWeatherData(url: WEATHER_URL, parameters: params)
+        }
 
 }
