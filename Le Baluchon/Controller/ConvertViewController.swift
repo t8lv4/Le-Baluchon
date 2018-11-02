@@ -32,6 +32,7 @@ class ConvertViewController: UIViewController {
         convertTextField.resignFirstResponder()
 
         convertLabel.isEnabled = true
+        currencyLabel.isEnabled = false
         calculerButton.isHidden = true
     }
 
@@ -43,16 +44,26 @@ extension ConvertViewController: UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.convertTextField.delegate = self
-        toggleActivityIndicator(activityIndicator, shown: false)
 
         self.currencyLabel.layer.cornerRadius = 5
         self.calculerButton.layer.cornerRadius = 5
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+
+        toggleActivityIndicator(activityIndicator, shown: false)
+        currencyLabel.isEnabled = false
+        currencyLabel.text = "€"
+
+    }
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         currencyLabel.text = "€"
         convertLabel.isEnabled = false
+        currencyLabel.isEnabled = true
         calculerButton.isHidden = false
     }
 
@@ -108,13 +119,14 @@ extension ConvertViewController {
     /**
      Call several methods to display a converted currency.
      - get conversion rate from Fixer
+     - update display
      - display an alert if the resource is not available
      */
     private func conversionRequest(for amount: Double) {
         toggleActivityIndicator(activityIndicator,shown: true)
 
         ConvertService.shared.query(to: Fixer.url) { (success, rate) in
-            self.toggleActivityIndicator(self.activityIndicator,shown: false)
+            self.toggleActivityIndicator(self.activityIndicator, shown: false)
 
             if success, let rate = rate {
                 self.updateDisplay(with: amount, and: rate)
@@ -131,8 +143,7 @@ extension ConvertViewController {
         - rate: The rate provided by Fixer.io
      */
     private func updateDisplay(with amount: Double, and rate: Double) {
-        let convertedCurrency = Convert.convert(amount, with: rate)
-        self.convertTextField.text = convertedCurrency
+        self.convertTextField.text = Convert.convert(amount, with: rate)
         self.currencyLabel.text = "$"
     }
 }
