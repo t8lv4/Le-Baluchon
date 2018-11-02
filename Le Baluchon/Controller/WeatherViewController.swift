@@ -13,19 +13,19 @@ class WeatherViewController: UIViewController {
     // MARK: Properties
 
     /** Link to place labels (outlet collection)
-    - [0] = display current user location temperature
-    - [1] = display NY temperature
+    - [0] = display the name of the current user location
+    - [1] = display NY name
      */
     @IBOutlet var placeLabels: [UILabel]!
     /**
      Link to temperatures labels (outlet collection)
-        - [0] = display current user location temperature
+        - [0] = display the current user location temperature
         - [1] = display NY temperature
      */
     @IBOutlet var tempLabels: [UILabel]!
     /**
      Link to weather condition icons (outlet collection)
-        - [0] = display current user location weather condition icon
+        - [0] = display the current user location's weather condition icon
         - [1] = display NY weather condition icon
      */
     @IBOutlet var weatherIconViews: [UIImageView]!
@@ -47,19 +47,7 @@ extension WeatherViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
 
-        for index in 0...1 {
-            placeLabels[index].text = ""
-            tempLabels[index].text = ""
-            weatherIconViews[index].image = nil
-
-        }
-
-        for cities in Places.cities.values {
-            let forecast = YahooWeather(city: cities)
-            let city = forecast.place
-            requestService(for: city)
-            print(city)
-        }
+        setUpDisplay()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -102,7 +90,7 @@ extension WeatherViewController {
      - If available, call `display(_:)` to update UI
      - If not, call `presentVCAlert(with title:and message:)`
      */
-    func requestService(for city: String) {
+    private func requestService(for city: String) {
         for activityIndicator in activityIndicators {
             toggleActivityIndicator(activityIndicator, shown: true)
         }
@@ -121,10 +109,32 @@ extension WeatherViewController {
 // MARK: - Update display
 
 extension WeatherViewController {
+
+    /**
+     Set up display
+
+     Called inside viewWillAppear()
+     */
+    private func setUpDisplay() {
+        for index in 0...1 {
+            placeLabels[index].text = ""
+            tempLabels[index].text = ""
+            weatherIconViews[index].image = nil
+
+        }
+
+        for cities in Places.cities.values {
+            let forecast = YahooWeather(city: cities)
+            let city = forecast.place
+            requestService(for: city)
+            print(city)
+        }
+    }
+
     /**
      Update UI with the WeatherService response
      */
-    func display(_ weatherCondition: Weather) {
+    private func display(_ weatherCondition: Weather) {
         switch weatherCondition.city {
         case "Paris":
             toggleActivityIndicator(activityIndicators[0], shown: false)
@@ -150,7 +160,7 @@ extension WeatherViewController {
     /**
      Present an alert and empty UI.
      */
-    func handleRequestFailure() {
+    private func handleRequestFailure() {
         presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
             placeLabels[1].text = ""
             tempLabels[1].text = ""

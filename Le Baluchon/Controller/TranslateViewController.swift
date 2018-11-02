@@ -35,7 +35,7 @@ extension TranslateViewController: UITextFieldDelegate {
         super.viewDidLoad()
 
         self.translateTextField.delegate = self
-        toggleActivityIndicator(activityIndicator,shown: false)
+        toggleActivityIndicator(activityIndicator, shown: false)
 
     }
 
