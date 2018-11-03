@@ -47,6 +47,9 @@ extension WeatherViewController {
 
         locationManager.requestWhenInUseAuthorization()
         startReceivingLocationChanges()
+
+        placeLabels[0].minimumScaleFactor = 0.5
+        placeLabels[0].adjustsFontSizeToFitWidth = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -148,6 +151,7 @@ extension WeatherViewController {
             toggleActivityIndicator(activityIndicator, shown: false)
         }
         presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
+
         setUpDisplay()
     }
 

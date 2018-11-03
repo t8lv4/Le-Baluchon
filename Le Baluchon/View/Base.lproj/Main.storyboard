@@ -45,9 +45,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paris" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="fXP-M8-6KY">
-                                <rect key="frame" x="20" y="60" width="113" height="67"/>
-                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Paris" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="fXP-M8-6KY">
+                                <rect key="frame" x="20" y="60" width="102" height="60"/>
+                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -58,19 +58,19 @@
                                     <constraint firstAttribute="width" constant="125.5" id="nAz-YA-sOA"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1q-kh-A1v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1q-kh-A1v">
                                 <rect key="frame" x="20" y="151" width="135.5" height="70"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New-York" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="dTk-YQ-OmX">
-                                <rect key="frame" x="16" y="291" width="225" height="67"/>
-                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dTk-YQ-OmX" userLabel="New York">
+                                <rect key="frame" x="16" y="291" width="225" height="60"/>
+                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1n7-zw-ulj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1n7-zw-ulj">
                                 <rect key="frame" x="16" y="382" width="135.5" height="70"/>
                                 <fontDescription key="fontDescription" name="mplus-1c-light" family="M+ 1c" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -114,7 +114,7 @@
                             <constraint firstItem="Jkf-Ci-g9U" firstAttribute="top" secondItem="qBP-2H-Jaq" secondAttribute="top" constant="104" id="h6J-Ne-lzf"/>
                             <constraint firstItem="qBP-2H-Jaq" firstAttribute="trailing" secondItem="yw4-RS-uOK" secondAttribute="trailing" constant="66.5" id="i0X-2e-Lhh"/>
                             <constraint firstItem="1n7-zw-ulj" firstAttribute="leading" secondItem="qBP-2H-Jaq" secondAttribute="leading" constant="16" id="kcA-tm-e37"/>
-                            <constraint firstItem="qBP-2H-Jaq" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="fXP-M8-6KY" secondAttribute="trailing" constant="242" id="ldF-QW-vfE"/>
+                            <constraint firstItem="qBP-2H-Jaq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fXP-M8-6KY" secondAttribute="trailing" constant="20" id="ldF-QW-vfE"/>
                             <constraint firstItem="qBP-2H-Jaq" firstAttribute="bottom" secondItem="0It-jZ-rIE" secondAttribute="bottom" constant="182" id="m6s-pj-xwr"/>
                             <constraint firstItem="jxy-6V-Hdu" firstAttribute="top" secondItem="qBP-2H-Jaq" secondAttribute="top" constant="148" id="rk7-Dn-nWP"/>
                             <constraint firstItem="dTk-YQ-OmX" firstAttribute="top" secondItem="Jkf-Ci-g9U" secondAttribute="bottom" priority="999" constant="41.5" id="vut-Ke-2E7"/>

@@ -45,10 +45,10 @@ extension ConvertViewController: UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.convertTextField.delegate = self
+        convertTextField.delegate = self
 
-        self.currencyLabel.layer.cornerRadius = 5
-        self.calculerButton.layer.cornerRadius = 5
+        currencyLabel.layer.cornerRadius = 5
+        calculerButton.layer.cornerRadius = 5
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +75,7 @@ extension ConvertViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
 
-        self.convertTextField.text = ""
+        convertTextField.text = ""
     }
 }
 
@@ -143,7 +143,8 @@ extension ConvertViewController {
         - rate: The rate provided by Fixer.io
      */
     private func updateDisplay(with amount: Double, and rate: Double) {
-        self.convertTextField.text = Convert.convert(amount, with: rate)
-        self.currencyLabel.text = "$"
+        convertTextField.text = Convert.convert(amount, with: rate)
+        currencyLabel.text = "$"
     }
+
 }
