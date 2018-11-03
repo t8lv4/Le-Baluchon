@@ -150,9 +150,7 @@ extension WeatherViewController {
         for activityIndicator in activityIndicators {
             toggleActivityIndicator(activityIndicator, shown: false)
         }
-        presentVCAlert(with: "🙁", and: "La météo n'est pas disponible")
-
-        setUpDisplay()
+        presentVCAlert(with: "🙃", and: "Un problème est survenu...")
     }
 
     /**
