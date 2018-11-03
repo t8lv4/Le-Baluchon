@@ -69,7 +69,7 @@ extension WeatherService {
 extension WeatherService {
 
     /**
-     Build a URL to access YahooWeather conditions
+     Build a URL to access YahooWeather API
      */
     private func createRequest(for city: String) -> URLRequest {
         let query = YahooWeather.query + city + YahooWeather.parameters

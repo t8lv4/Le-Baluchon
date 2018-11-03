@@ -35,12 +35,10 @@ extension ConvertService {
     func query(to url: String,  callback: @escaping Callback) {
         task?.cancel()
 
-        let url = URL(string: url)!
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = HTTPMethod.get.rawValue
-
+        let request = createRequest(with: url)
         let session = URLSession(configuration: .default)
-        task = session.dataTask(with: urlRequest) {(data, response, error) in
+        
+        task = session.dataTask(with: request) {(data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
@@ -69,4 +67,19 @@ extension ConvertService {
         task?.resume()
     }
 
+}
+
+extension ConvertService {
+    /**
+     Create request with a URL.
+     - Parameters:
+        - url: The resource location
+     */
+    private func createRequest(with url: String) -> URLRequest {
+        let url = URL(string: url)!
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = HTTPMethod.get.rawValue
+
+        return urlRequest
+    }
 }
