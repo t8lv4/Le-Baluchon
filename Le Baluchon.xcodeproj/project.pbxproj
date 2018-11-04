@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		900454D22184A86900D2ACFA /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900454D12184A86900D2ACFA /* TranslateService.swift */; };
+		901335E4218F40F7004F6599 /* ConvertTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335E3218F40F7004F6599 /* ConvertTestCase.swift */; };
+		901335E6218F4208004F6599 /* fixer.json in Resources */ = {isa = PBXBuildFile; fileRef = 901335E5218F4208004F6599 /* fixer.json */; };
+		901335E8218F4A3E004F6599 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335E7218F4A3E004F6599 /* FakeResponseData.swift */; };
+		901335EA218F4D8C004F6599 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335E9218F4D8C004F6599 /* URLSessionFake.swift */; };
 		903084922179D4EE008C6853 /* mplus-1c-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 903084902179D4EE008C6853 /* mplus-1c-light.ttf */; };
 		903084932179D4EE008C6853 /* PlayfairDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */; };
 		903AB414217DAD49004683DF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB413217DAD49004683DF /* Weather.swift */; };
@@ -30,8 +34,24 @@
 		90F7E67F217F2EA4002904F5 /* ConvertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F7E67E217F2EA4002904F5 /* ConvertService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		901335DE218F407F004F6599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90D3A4102179B9F80096C895 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90D3A4172179B9F80096C895;
+			remoteInfo = "Le Baluchon";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		900454D12184A86900D2ACFA /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
+		901335D9218F407F004F6599 /* Le BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		901335DD218F407F004F6599 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		901335E3218F40F7004F6599 /* ConvertTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTestCase.swift; sourceTree = "<group>"; };
+		901335E5218F4208004F6599 /* fixer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fixer.json; sourceTree = "<group>"; };
+		901335E7218F4A3E004F6599 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		901335E9218F4D8C004F6599 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		903084902179D4EE008C6853 /* mplus-1c-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-light.ttf"; sourceTree = "<group>"; };
 		903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.otf"; sourceTree = "<group>"; };
 		903AB413217DAD49004683DF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -57,6 +77,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		901335D6218F407F004F6599 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90D3A4152179B9F80096C895 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,6 +94,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		901335DA218F407F004F6599 /* Le BaluchonTests */ = {
+			isa = PBXGroup;
+			children = (
+				901335DD218F407F004F6599 /* Info.plist */,
+				901335E3218F40F7004F6599 /* ConvertTestCase.swift */,
+				901335E5218F4208004F6599 /* fixer.json */,
+				901335E7218F4A3E004F6599 /* FakeResponseData.swift */,
+				901335E9218F4D8C004F6599 /* URLSessionFake.swift */,
+			);
+			path = "Le BaluchonTests";
+			sourceTree = "<group>";
+		};
 		903AB412217DAD2D004683DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				90D3A41A2179B9F80096C895 /* Le Baluchon */,
+				901335DA218F407F004F6599 /* Le BaluchonTests */,
 				90D3A4192179B9F80096C895 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				90D3A4182179B9F80096C895 /* Le Baluchon.app */,
+				901335D9218F407F004F6599 /* Le BaluchonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +196,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		901335D8218F407F004F6599 /* Le BaluchonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 901335E2218F407F004F6599 /* Build configuration list for PBXNativeTarget "Le BaluchonTests" */;
+			buildPhases = (
+				901335D5218F407F004F6599 /* Sources */,
+				901335D6218F407F004F6599 /* Frameworks */,
+				901335D7218F407F004F6599 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				901335DF218F407F004F6599 /* PBXTargetDependency */,
+			);
+			name = "Le BaluchonTests";
+			productName = "Le BaluchonTests";
+			productReference = 901335D9218F407F004F6599 /* Le BaluchonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		90D3A4172179B9F80096C895 /* Le Baluchon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90D3A42A2179B9F90096C895 /* Build configuration list for PBXNativeTarget "Le Baluchon" */;
@@ -178,10 +237,15 @@
 		90D3A4102179B9F80096C895 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Morgan;
 				TargetAttributes = {
+					901335D8218F407F004F6599 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+						TestTargetID = 90D3A4172179B9F80096C895;
+					};
 					90D3A4172179B9F80096C895 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -201,11 +265,20 @@
 			projectRoot = "";
 			targets = (
 				90D3A4172179B9F80096C895 /* Le Baluchon */,
+				901335D8218F407F004F6599 /* Le BaluchonTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		901335D7218F407F004F6599 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				901335E6218F4208004F6599 /* fixer.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90D3A4162179B9F80096C895 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -221,6 +294,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		901335D5218F407F004F6599 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				901335E4218F40F7004F6599 /* ConvertTestCase.swift in Sources */,
+				901335EA218F4D8C004F6599 /* URLSessionFake.swift in Sources */,
+				901335E8218F4A3E004F6599 /* FakeResponseData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90D3A4142179B9F80096C895 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +329,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		901335DF218F407F004F6599 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90D3A4172179B9F80096C895 /* Le Baluchon */;
+			targetProxy = 901335DE218F407F004F6599 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		90D3A41F2179B9F80096C895 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -266,6 +357,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		901335E0218F407F004F6599 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9T22T3H63N;
+				INFOPLIST_FILE = "Le BaluchonTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.t8lv4.Le-BaluchonTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Le Baluchon.app/Le Baluchon";
+			};
+			name = Debug;
+		};
+		901335E1218F407F004F6599 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9T22T3H63N;
+				INFOPLIST_FILE = "Le BaluchonTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.t8lv4.Le-BaluchonTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Le Baluchon.app/Le Baluchon";
+			};
+			name = Release;
+		};
 		90D3A4282179B9F90096C895 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -423,6 +559,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		901335E2218F407F004F6599 /* Build configuration list for PBXNativeTarget "Le BaluchonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				901335E0218F407F004F6599 /* Debug */,
+				901335E1218F407F004F6599 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		90D3A4132179B9F80096C895 /* Build configuration list for PBXProject "Le Baluchon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
