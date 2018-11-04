@@ -80,7 +80,7 @@ struct Weather {
      Weather condition code
      - Note:
         - This code is provided by YahooWeather
-        - Mapped in `getWeatherIcon(condition:) -> String`
+        - It's Mapped in `getWeatherIcon(condition:) -> String`
      */
     var code: String
     /// Temperature in °C (cf YahooWeather request parameters)
