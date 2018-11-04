@@ -109,7 +109,7 @@
 				901335E7218F4A3E004F6599 /* FakeResponseData.swift */,
 				901335E9218F4D8C004F6599 /* URLSessionFake.swift */,
 				901335EB218F7799004F6599 /* ConvertTest */,
-				901335EC218F77BA004F6599 /* translateTest */,
+				901335EC218F77BA004F6599 /* TranslateTest */,
 				901335F1218F7F62004F6599 /* Weather */,
 			);
 			path = "Le BaluchonTests";
@@ -124,13 +124,13 @@
 			path = ConvertTest;
 			sourceTree = "<group>";
 		};
-		901335EC218F77BA004F6599 /* translateTest */ = {
+		901335EC218F77BA004F6599 /* TranslateTest */ = {
 			isa = PBXGroup;
 			children = (
 				901335EF218F7828004F6599 /* TranslateTestCase.swift */,
 				901335ED218F77DE004F6599 /* googleTranslate.json */,
 			);
-			path = translateTest;
+			path = TranslateTest;
 			sourceTree = "<group>";
 		};
 		901335F1218F7F62004F6599 /* Weather */ = {
