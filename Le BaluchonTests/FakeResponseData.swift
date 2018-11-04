@@ -26,7 +26,7 @@ class FakeResponseData {
      */
     static var ConvertCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "fixer.json", withExtension: "json")!
+        let url = bundle.url(forResource: "fixer", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
 }

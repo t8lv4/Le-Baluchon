@@ -19,6 +19,11 @@ class ConvertService {
     private init() {}
 
     private var task: URLSessionDataTask?
+    
+    private var session = URLSession(configuration: .default)
+    init(session: URLSession) {
+        self.session = session
+    }
 
 }
 
@@ -36,7 +41,6 @@ extension ConvertService {
         task?.cancel()
 
         let request = createRequest(with: url)
-        let session = URLSession(configuration: .default)
         
         task = session.dataTask(with: request) {(data, response, error) in
             DispatchQueue.main.async {
