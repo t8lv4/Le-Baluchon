@@ -57,7 +57,7 @@ class ConvertServiceTests: XCTestCase {
         // Given
         let convertService = ConvertService(
             session: URLSessionFake(
-                data: FakeResponseData.ConvertCorrectData,
+                data: FakeResponseData.convertCorrectData,
                 response: FakeResponseData.responseKO,
                 error: nil))
 
@@ -97,7 +97,7 @@ class ConvertServiceTests: XCTestCase {
         // Given
         let convertService = ConvertService(
             session: URLSessionFake(
-                data: FakeResponseData.ConvertCorrectData,
+                data: FakeResponseData.convertCorrectData,
                 response: FakeResponseData.responseOK,
                 error: nil))
 
@@ -118,4 +118,19 @@ class ConvertServiceTests: XCTestCase {
 
         wait(for: [expectation], timeout: 0.01)
     }
+}
+
+// test currency conversion
+extension ConvertServiceTests {
+
+    func testValue3Rate3ConvertShouldReturn1() {
+        //given
+        let value = 3.0
+        let rate = 3.0
+        //when
+        let result = Convert.convert(value, with: rate)
+        //then
+        XCTAssertEqual(result, "1.00")
+    }
+    
 }

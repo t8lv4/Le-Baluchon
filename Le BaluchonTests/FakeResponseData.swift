@@ -24,9 +24,21 @@ class FakeResponseData {
 
      Create a variable per model's service to test
      */
-    static var ConvertCorrectData: Data? {
+    static var convertCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "fixer", withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+
+    static var translateCorrectData: Data? {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "googleTranslate", withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+
+    static var weatherCorrectData: Data? {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "yahooWeather", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
 }

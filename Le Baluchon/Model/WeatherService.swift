@@ -20,6 +20,11 @@ class WeatherService {
 
     private var task: URLSessionDataTask?
 
+    private var session = URLSession(configuration: .default)
+    init(session: URLSession) {
+        self.session = session
+    }
+
 }
 
 // MARK: - Request
@@ -35,7 +40,6 @@ extension WeatherService {
     func request(for city: String, callback: @escaping Callback) {
 
         let request = createRequest(for: city)
-        let session = URLSession(configuration: .default)
 
         task = session.dataTask(with: request) {(data, response, error) in
             DispatchQueue.main.async {

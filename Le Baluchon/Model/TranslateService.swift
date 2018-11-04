@@ -19,6 +19,11 @@ class TranslateService {
     private init() {}
 
     private var task: URLSessionDataTask?
+
+    private var session = URLSession(configuration: .default)
+    init(session: URLSession) {
+        self.session = session
+    }
 }
 
 extension TranslateService {
@@ -34,7 +39,6 @@ extension TranslateService {
         task?.cancel()
 
         let request = createRequest(with: url, for: text)
-        let session = URLSession(configuration: .default)
 
         task = session.dataTask(with: request) {(data, response, error) in
             DispatchQueue.main.async {
