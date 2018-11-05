@@ -123,7 +123,7 @@ class ConvertServiceTests: XCTestCase {
 // test currency conversion
 extension ConvertServiceTests {
 
-    func testValue3Rate3ConvertShouldReturn1() {
+    func testGivenValue3Rate3ConvertShouldReturn1() {
         //given
         let value = 3.0
         let rate = 3.0

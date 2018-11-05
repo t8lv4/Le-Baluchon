@@ -16,7 +16,6 @@ struct Convert: Decodable {
 }
 
 extension Convert {
-
     /**
      Convert a value according to a given rate
 

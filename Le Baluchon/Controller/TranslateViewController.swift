@@ -10,7 +10,8 @@ import UIKit
 
 class TranslateViewController: UIViewController {
 
-    // MARK: Properties
+    // MARK: Outlets
+
     /// Link to Traduire label.
     @IBOutlet weak var traduireLabel: UILabel!
     /// Hold the words to be translated.
@@ -18,6 +19,7 @@ class TranslateViewController: UIViewController {
     @IBOutlet weak public var activityIndicator: UIActivityIndicatorView!
 
     // MARK: Methods
+
     /// Dismiss keyboard and update UI after tapping the view.
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         translateTextField.resignFirstResponder()
@@ -28,7 +30,7 @@ class TranslateViewController: UIViewController {
 
 // MARK: -
 
-/// Set up UITextFieldDelegate
+// Set up UITextFieldDelegate
 extension TranslateViewController: UITextFieldDelegate {
 
     override func viewDidLoad() {

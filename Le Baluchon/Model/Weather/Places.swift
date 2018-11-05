@@ -11,7 +11,7 @@ import Foundation
 /// Define places to query wheather conditions
 struct Places {
     /**
-     A dictionnary of cities.
+     A dictionnary of cities
 
      Values are either coordinates as (lat, long), litteral names, or WOEID (cf YahooWeather API)
      - Note:
@@ -23,9 +23,11 @@ struct Places {
 
 extension Places {
     /**
-     Add the entry "currentLocation" to the `cities` dictionnary.
+     Add the entry "currentLocation" to the `cities` dictionnary
      - Parameters:
         - coordinates: latitude and longitude
+     - Note:
+        Parameters types could also be litteral names or WEOID, as long as they conform to the YahooWeather YQL
      */
     static func addCurrentLocation(_ coordinates: (Double, Double)) {
         Places.cities["currentLocation"] = coordinates

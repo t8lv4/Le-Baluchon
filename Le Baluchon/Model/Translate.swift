@@ -26,6 +26,7 @@ JSON structure from Google Translate
  Reflect the Google Translate JSON structure to decode Google response.
 */
 struct Translate: Codable {
+
     let data: Translations
 
     struct Translations: Codable {
@@ -35,4 +36,5 @@ struct Translate: Codable {
             var translatedText: String
         }
     }
+    
 }
