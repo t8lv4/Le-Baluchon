@@ -90,7 +90,7 @@ extension WeatherViewController {
             toggleActivityIndicator(activityIndicator, shown: true)
         }
 
-        WeatherService.shared.request(for: city) { (success, weatherCondition) in
+        WeatherService.shared.query(for: city) { (success, weatherCondition) in
             if success, let weatherCondition = weatherCondition {
                 self.display(weatherCondition)
             } else {

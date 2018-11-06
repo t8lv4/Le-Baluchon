@@ -19,7 +19,7 @@ class WeatherServiceTests: XCTestCase {
 
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        weatherService.request(for: "Paris") { (success, weatherCondition) in
+        weatherService.query(for: "Paris") { (success, weatherCondition) in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(weatherCondition)
@@ -36,7 +36,7 @@ class WeatherServiceTests: XCTestCase {
         
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        weatherService.request(for: "Paris") { (success, weatherCondition) in
+        weatherService.query(for: "Paris") { (success, weatherCondition) in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(weatherCondition)
@@ -56,7 +56,7 @@ class WeatherServiceTests: XCTestCase {
 
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        weatherService.request(for: "Paris") { (success, weatherCondition) in
+        weatherService.query(for: "Paris") { (success, weatherCondition) in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(weatherCondition)
@@ -76,7 +76,7 @@ class WeatherServiceTests: XCTestCase {
 
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        weatherService.request(for: "Paris") { (success, weatherCondition) in
+        weatherService.query(for: "Paris") { (success, weatherCondition) in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(weatherCondition)
@@ -96,7 +96,7 @@ class WeatherServiceTests: XCTestCase {
 
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        weatherService.request(for: "Paris") { (success, weatherCondition) in
+        weatherService.query(for: "Paris") { (success, weatherCondition) in
             // Then
             XCTAssertTrue(success)
             XCTAssertNotNil(weatherCondition)

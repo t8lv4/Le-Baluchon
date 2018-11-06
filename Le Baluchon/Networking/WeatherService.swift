@@ -37,7 +37,7 @@ extension WeatherService {
         - city: A YQL query format to get the weather forecast for said city
         - callback: A closure to provide the state of a network call
      */
-    func request(for city: String, callback: @escaping Callback) {
+    func query(for city: String, callback: @escaping Callback) {
 
         let request = createRequest(for: city)
 
