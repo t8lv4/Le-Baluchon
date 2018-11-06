@@ -13,13 +13,12 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-default_platform(:ios)
+# fastlane_version "2.24.0"
 
-platform :ios do
+default_platform :ios
 
 platform :ios do
    lane :tests do
-      run_tests(scheme: "Le Baluchon")
+      run_tests(scheme: "Le BaluchonTests")
    end
 end
-
