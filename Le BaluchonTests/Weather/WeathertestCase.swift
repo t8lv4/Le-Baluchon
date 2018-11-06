@@ -116,3 +116,29 @@ class WeatherServiceTests: XCTestCase {
     }
 
 }
+
+// test Places and Weather methods
+extension WeatherServiceTests {
+
+    func testCoordinatesAddingCoordinatesToCitiesNewEntryIsAdded() {
+        //given
+        let coordinates = (48.856614, 2.3522219)
+        //when
+        Places.addCurrentLocation(coordinates)
+        let newEntry = Places.cities["currentLocation"] as? (Double, Double)
+        //then
+        XCTAssertEqual(Places.cities.count, 2)
+        XCTAssertEqual(newEntry?.0, 48.856614)
+        XCTAssertEqual(newEntry?.1, 2.3522219)
+    }
+
+    func testCodeGetWeatherIconReturnNameOfIcon() {
+    //given
+    let code = 0
+    //when
+    let condition = Weather.getWeatherIcon(condition: code)
+    //then
+    XCTAssertEqual(condition, "tornade")
+    }
+
+}
