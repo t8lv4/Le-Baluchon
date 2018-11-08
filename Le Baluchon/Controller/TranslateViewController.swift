@@ -90,7 +90,7 @@ extension TranslateViewController {
                 self.translateTextField.text = translatedText
             } else {
                 self.toggleActivityIndicator(self.activityIndicator, shown: false)
-                self.presentVCAlert(with: alertTitle.requestFailure.rawValue,
+                self.presentVCAlert(with: alertTitle.failure.rawValue,
                                     and: alertMessage.translateRequest.rawValue)
             }
         }

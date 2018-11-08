@@ -102,7 +102,7 @@ extension Weather {
     /**
      Return a weatherIcon name according to a YahooWeather condition code.
      - parameters:
-        - condition: The code provided by YahooWeather
+        - condition: The integer code provided by YahooWeather
      - returns: The name of a weather icon
      - note: As of October 2018, YahooWeather code are provided at `https://developer.yahoo.com/weather/documentation.html`.
      */

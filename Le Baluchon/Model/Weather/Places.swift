@@ -8,7 +8,7 @@
 
 import Foundation
 
-///
+/// List Places dictionary keys
 enum dictionaryKeys {
     case NewYork
     case currentLocation

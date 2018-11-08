@@ -10,16 +10,19 @@ import Foundation
 
 /// List strings to display as an alert pop-up title
 enum alertTitle: String {
-    case requestFailure = "😕"
+
+    case failure = "😕"
 
     case convertInputValidity = "🤓"
     case translateInputValidity = "😉"
     case weatherRequest = "🙃"
     case locationAuth = "✅"
+
 }
 
 /// List strings to display as an alert pop-up message
 enum alertMessage: String {
+
     case convertInputValidity = "Ceci n'est pas convertible en $..."
     case convertRequest = "Les données ne sont pas disponibles."
 
@@ -31,4 +34,5 @@ enum alertMessage: String {
                         Autorisez le Baluchon à vous localiser :
                         vous recevrez les prévisions météo pour votre ville !
                         """
+    
 }

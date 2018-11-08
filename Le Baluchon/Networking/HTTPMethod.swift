@@ -9,6 +9,8 @@
 import Foundation
 
 /// List HTTP method
-public enum HTTPMethod: String {
+enum HTTPMethod: String {
+
     case post = "POST", get = "GET"
+    
 }

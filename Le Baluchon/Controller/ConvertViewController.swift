@@ -135,7 +135,7 @@ extension ConvertViewController {
             if success, let rate = rate {
                 self.updateDisplay(with: amount, and: rate)
             } else {
-                self.presentVCAlert(with: alertTitle.requestFailure.rawValue,
+                self.presentVCAlert(with: alertTitle.failure.rawValue,
                                     and: alertMessage.convertRequest.rawValue)
             }
         }
