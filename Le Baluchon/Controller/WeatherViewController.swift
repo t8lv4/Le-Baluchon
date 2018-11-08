@@ -150,7 +150,8 @@ extension WeatherViewController {
         for activityIndicator in activityIndicators {
             toggleActivityIndicator(activityIndicator, shown: false)
         }
-        presentVCAlert(with: "🙃", and: "Un problème est survenu...")
+        presentVCAlert(with: alertTitle.weatherRequest.rawValue,
+                       and: alertTitle.weatherRequest.rawValue)
     }
 
     /**
@@ -161,11 +162,8 @@ extension WeatherViewController {
         for activityIndicator in activityIndicators {
             toggleActivityIndicator(activityIndicator, shown: false)
         }
-        presentVCAlert(with: "✅",
-                       and: """
-                            Autorisez le Baluchon à vous localiser :
-                            vous recevrez les prévisions météo pour votre ville !
-                            """)
+        presentVCAlert(with: alertTitle.locationAuth.rawValue,
+                       and: alertMessage.locationAuth.rawValue)
     }
 
 }

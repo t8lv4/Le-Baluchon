@@ -67,7 +67,8 @@ extension TranslateViewController {
      */
     private func checkInputValidity(input: String) {
         if translateTextField.text == "" {
-            presentVCAlert(with: "😉", and: "Le traducteur demande un texte !")
+            presentVCAlert(with: alertTitle.translateInputValidity.rawValue,
+                           and: alertMessage.translateInputValidity.rawValue)
         } else {
             translateRequest(for: input)
         }
@@ -89,7 +90,8 @@ extension TranslateViewController {
                 self.translateTextField.text = translatedText
             } else {
                 self.toggleActivityIndicator(self.activityIndicator, shown: false)
-                self.presentVCAlert(with: "😕", and: "La traduction n'est pas disponible")
+                self.presentVCAlert(with: alertTitle.requestFailure.rawValue,
+                                    and: alertMessage.translateRequest.rawValue)
             }
         }
     }
