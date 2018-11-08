@@ -40,6 +40,7 @@ extension ConvertService {
     func query(to url: String,  callback: @escaping Callback) {
         task?.cancel()
 
+        // switch pour request avec les bons param selon les services
         let request = createRequest(with: url)
         
         task = session.dataTask(with: request) {(data, response, error) in
@@ -64,6 +65,15 @@ extension ConvertService {
                     callback(false, nil)
                     return
                 }
+
+//                switch typeduservice { // pour parser -> data
+//                case meteo:
+//                    call method A
+//                case trad.:
+//                    call B
+//                case convert:
+//                    call C
+//                }
                 
                 callback(true, rate)
             }

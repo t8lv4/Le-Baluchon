@@ -8,6 +8,12 @@
 
 import Foundation
 
+///
+enum dictionaryKeys {
+    case NewYork
+    case currentLocation
+}
+
 /// Define places to query wheather conditions
 struct Places {
     /**
@@ -17,7 +23,7 @@ struct Places {
      - Note:
      If using a litteral name, it must conform to the YahooWeather YQL query format
     */
-    static var cities: [String: Any] = ["New York": "new-york, ny"]
+    static var cities: [dictionaryKeys: Any] = [dictionaryKeys.NewYork: "new-york, ny"]
 
 }
 
@@ -30,7 +36,7 @@ extension Places {
         Parameters types could also be litteral names or WEOID, as long as they conform to the YahooWeather YQL
      */
     static func addCurrentLocation(_ coordinates: (Double, Double)) {
-        Places.cities["currentLocation"] = coordinates
+        Places.cities[dictionaryKeys.currentLocation] = coordinates
     }
 
 }

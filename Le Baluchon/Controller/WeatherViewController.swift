@@ -94,7 +94,7 @@ extension WeatherViewController {
             if success, let weatherCondition = weatherCondition {
                 self.display(weatherCondition)
             } else {
-                self.handleRequestFailure(weatherCondition)
+                self.handleRequestFailure(weatherCondition) // add city, puis switch
             }
         }
     }

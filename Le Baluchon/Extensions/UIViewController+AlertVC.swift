@@ -17,8 +17,8 @@ extension UIViewController {
      - The user dismiss the alert by clicking a "OK" button
 
      - Parameters:
-     - title: The alert's title
-     - message: The error message to be displayed
+        - title: The alert's title
+        - message: The error message to be displayed
      */
     func presentVCAlert(with title: String, and message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)

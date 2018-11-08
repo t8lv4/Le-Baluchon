@@ -101,19 +101,19 @@ extension ConvertViewController {
     }
 
     /**
-     Check if the user input a number to convert.
+     Check if the user input a number to convert
 
      - parameter input: the input to validate
+        - If input is empty, present an alert
+        - If not, call `conversionRequest(for:)`
 
-     - If valid, call `conversionRequest(for:)`
-     - If not, present an alert
+     The method will replace a comma by a point to adress the european numeric keypad.
      */
     private func checkInputValidity(input: String) {
-        if let number = Double(input) {
-            conversionRequest(for: number)
-        } else {
-            presentVCAlert(with: "🤓", and: "Ceci n'est pas convertible en $...")
-        }
+        if input == "" { presentVCAlert(with: "🤓", and: "Ceci n'est pas convertible en $...") }
+        // change comma to point for european numeric keypads
+        guard let number = Double(input.replacingOccurrences(of: ",", with: ".")) else { return }
+        conversionRequest(for: number)
     }
 
     /**
