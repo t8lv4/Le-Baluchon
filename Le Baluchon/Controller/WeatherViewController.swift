@@ -57,7 +57,7 @@ extension WeatherViewController {
 
         if CLLocationManager.authorizationStatus() != .denied {
             setUpDisplay()
-            if Places.cities.count != 1 { callService() }
+            if Places.cities.count != 1 { callService() } else { return }
         } else {
             locationAuthorizationAlert()
         }
@@ -68,7 +68,6 @@ extension WeatherViewController {
 // MARK: - Request Weather resources
 
 extension WeatherViewController {
-
     /**
      Call `requestService` for each city in `Places.cities[String: Any]`
      */
@@ -104,9 +103,8 @@ extension WeatherViewController {
 // MARK: - Update display
 
 extension WeatherViewController {
-
     /**
-     Set up UI for a blank state
+     Set up UI with a blank state
 
      Called inside viewWillAppear().
      */
@@ -115,7 +113,6 @@ extension WeatherViewController {
             placeLabels[index].text = ""
             tempLabels[index].text = ""
             weatherIconViews[index].image = nil
-
         }
     }
 

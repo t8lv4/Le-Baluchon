@@ -8,9 +8,10 @@
 
 import Foundation
 
-enum WebService: String {
+/// A list of weabservices used by Le Baluchon
+enum WebService {
 
-    case Fixer = "Fixer", GoogleTranslate = "GoogleTranslate", YahooWeather = "YahooWeather"
+    case Fixer, GoogleTranslate, YahooWeather
     
 }
 

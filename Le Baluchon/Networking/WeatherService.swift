@@ -10,20 +10,12 @@ import Foundation
 
 /// Request weather conditions.
 class WeatherService {
-
     /// A closure to provide the state of a network call to the WeatherViewController.
     typealias Callback = (Bool, Weather?) -> Void
 
-    /// A singleton to call WheatherService methods and properties.
-    static var shared = WeatherService()
-    private init() {}
-
 }
 
-// MARK: - Parse
-
 extension WeatherService {
-
     /**
      Decode an API response and return the requested resource
      - Parameters:
@@ -43,10 +35,7 @@ extension WeatherService {
 
 }
 
-// MARK: - Create request
-
 extension WeatherService {
-
     /**
      Build a URL to access YahooWeather API
      */

@@ -82,7 +82,6 @@ extension ConvertViewController {
 // MARK: - Request service
 
 extension ConvertViewController {
-
     /**
      Launch the request process.
      - enable keyboard
@@ -101,10 +100,10 @@ extension ConvertViewController {
     }
 
     /**
-     Check if the user input a number to convert
+     Check if the user input valid number
 
      - parameter input: the input to validate
-        - If input is empty, present an alert
+        - If input is invalid, present an alert and empty text field
         - If not, call `conversionRequest(for:)`
 
      The method will replace a comma by a point to adress the european numeric keypad.

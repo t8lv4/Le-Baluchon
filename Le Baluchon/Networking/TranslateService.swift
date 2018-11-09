@@ -10,20 +10,12 @@ import Foundation
 
 /// Request a word translation
 class TranslateService {
-
     /// A closure to provide the state of a network call to the TranslateViewController.
     typealias Callback = (Bool, String?) -> Void
 
-    /// A singleton to call TranslateService's methods and properties.
-    static var shared = TranslateService()
-    private init() {}
-
 }
 
-// MARK: - Parse
-
 extension TranslateService {
-
     /**
      Decode an API response and return the requested resource
      - Parameters:
@@ -43,7 +35,6 @@ extension TranslateService {
 }
 
 extension TranslateService {
-
     /**
      Create request with a URL and a user input text
      - Parameters:

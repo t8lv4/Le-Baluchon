@@ -14,13 +14,7 @@ class ConvertService {
     /// A closure to provide the state of a network call to the ConvertViewController.
     typealias Callback = (Bool, Double?) -> Void
 
-    /// A singleton to call CurrencyConverterService's methods and properties.
-    static var shared = ConvertService()
-    private init() {}
-
 }
-
-// MARK: - Parse
 
 extension ConvertService {
 

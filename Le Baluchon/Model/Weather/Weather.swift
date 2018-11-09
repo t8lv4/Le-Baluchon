@@ -155,8 +155,6 @@ extension Weather {
 
         default:
             return "?"
-
-
         }
     }
 

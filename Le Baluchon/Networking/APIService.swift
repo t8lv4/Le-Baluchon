@@ -8,10 +8,12 @@
 
 import Foundation
 
+/// Perform API requests
 class APIService {
 
     typealias Callback = (Bool, Any?) -> Void
     var request: URLRequest?
+    /// Decoded data from an API
     var resource: Any?
 
     static var shared = APIService()
@@ -29,10 +31,17 @@ class APIService {
 
 extension APIService {
 
+    /**
+     Perform a session dataTask with URLRequest from different APIs
+
+     - Parameters:
+        - API: APIs used by Le Baluchon
+        - input: Any value input by the user and used by the API to provide the expected resource
+        - callback: Provides the state of the session and returns decoded data to the VCs
+     */
     func query(API: WebService, input: Any, callback: @escaping Callback) {
         if API != .YahooWeather { task?.cancel() }
 
-        // build ulr
         switch API {
         case .Fixer:
             request = ConvertService.createRequest(with: Fixer.url)
