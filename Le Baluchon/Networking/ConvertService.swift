@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Convert currency.
+/// Convert currency
 class ConvertService {
 
     /// A closure to provide the state of a network call to the ConvertViewController.
@@ -18,67 +18,31 @@ class ConvertService {
     static var shared = ConvertService()
     private init() {}
 
-    private var task: URLSessionDataTask?
-    
-    private var session = URLSession(configuration: .default)
-    init(session: URLSession) {
-        self.session = session
-    }
-
 }
 
+// MARK: - Parse
+
 extension ConvertService {
-    
+
     /**
-     Call an API to provide a resource.
-
+     Decode an API response and return the requested resource
      - Parameters:
-        - value: The resource to process
-        - url: The location of the resources
-        - callback: A closure to provide the state of a network call
+        - data: The data to decode
+        - decoder: The JSON decoder
+        - callback: A closure of type `(Bool, Double?) -> Void`
      */
-    func query(to url: String,  callback: @escaping Callback) {
-        task?.cancel()
-
-        // switch pour request avec les bons param selon les services
-        let request = createRequest(with: url)
-        
-        task = session.dataTask(with: request) {(data, response, error) in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    callback(false, nil)
-                    return
-                }
-
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(false, nil)
-                    return
-                }
-
-                let decoder = JSONDecoder()
-                guard let resource = try? decoder.decode(Convert.self, from: data) else {
-                    callback(false, nil)
-                    return
-                }
-
-                guard let rate = resource.rates["USD"] else {
-                    callback(false, nil)
-                    return
-                }
-
-//                switch typeduservice { // pour parser -> data
-//                case meteo:
-//                    call method A
-//                case trad.:
-//                    call B
-//                case convert:
-//                    call C
-//                }
-                
-                callback(true, rate)
-            }
+    static func parse(_ data: Data, with decoder: JSONDecoder, callback: Callback) -> Any {
+        guard let json = try? decoder.decode(Convert.self, from: data) else {
+            callback(false, nil)
+            return (-1)
         }
-        task?.resume()
+
+        guard let resource = json.rates["USD"] else {
+            callback(false, nil)
+            return (-1)
+        }
+
+        return resource
     }
 
 }
@@ -89,7 +53,7 @@ extension ConvertService {
      - Parameters:
         - url: The resource location
      */
-    private func createRequest(with url: String) -> URLRequest {
+    static func createRequest(with url: String) -> URLRequest {
         let url = URL(string: url)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = HTTPMethod.get.rawValue

@@ -18,54 +18,29 @@ class WeatherService {
     static var shared = WeatherService()
     private init() {}
 
-    private var task: URLSessionDataTask?
-
-    private var session = URLSession(configuration: .default)
-    init(session: URLSession) {
-        self.session = session
-    }
-
 }
 
-// MARK: - Request
+// MARK: - Parse
 
 extension WeatherService {
 
     /**
-     Request weather condition from YahooWeather service.
+     Decode an API response and return the requested resource
      - Parameters:
-        - city: A YQL query format to get the weather forecast for said city
-        - callback: A closure to provide the state of a network call
+     - data: The data to decode
+     - decoder: The JSON decoder
+     - callback: A closure of type `(Bool, Double?) -> Void`
      */
-    func query(for city: String, callback: @escaping Callback) {
-
-        let request = createRequest(for: city)
-
-        task = session.dataTask(with: request) {(data, response, error) in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    callback(false, nil)
-                    return
-                }
-
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(false, nil)
-                    return
-                }
-
-                let decoder = JSONDecoder()
-                guard let resource = try? decoder.decode(WeatherJSON.self, from: data) else {
-                    callback(false, nil)
-                    return
-                }
-
-                let weatherCondition = Weather(from: resource)
-
-                callback(true, weatherCondition)
-            }
+    static func parse(_ data: Data, with decoder: JSONDecoder, callback: Callback) -> Any {
+        guard let json = try? decoder.decode(WeatherJSON.self, from: data) else {
+            callback(false, nil)
+            return (-1)
         }
-        task?.resume()
+
+        let resource = Weather(from: json)
+        return resource
     }
+
 }
 
 // MARK: - Create request
@@ -75,7 +50,7 @@ extension WeatherService {
     /**
      Build a URL to access YahooWeather API
      */
-    private func createRequest(for city: String) -> URLRequest {
+    static func createRequest(for city: String) -> URLRequest {
         let query = YahooWeather.query + city + YahooWeather.parameters
 
         let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!

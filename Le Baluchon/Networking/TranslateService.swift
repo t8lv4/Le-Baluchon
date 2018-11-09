@@ -18,70 +18,46 @@ class TranslateService {
     static var shared = TranslateService()
     private init() {}
 
-    private var task: URLSessionDataTask?
-
-    private var session = URLSession(configuration: .default)
-    init(session: URLSession) {
-        self.session = session
-    }
 }
 
-extension TranslateService {
-    /**
-     Call an API to provide a resource.
+// MARK: - Parse
 
+extension TranslateService {
+
+    /**
+     Decode an API response and return the requested resource
      - Parameters:
-        - url: The location of the resources
-        - text: The text to translate
-        - callback: A closure to provide the state of a network call
+     - data: The data to decode
+     - decoder: The JSON decoder
+     - callback: A closure of type `(Bool, Double?) -> Void`
      */
-    func query(to url: String, with text: String,  callback: @escaping Callback) {
-        task?.cancel()
-
-        let request = createRequest(with: url, for: text)
-
-        task = session.dataTask(with: request) {(data, response, error) in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    callback(false, nil)
-                    return
-                }
-
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(false, nil)
-                    return
-                }
-
-                let decoder = JSONDecoder()
-                guard let resource = try? decoder.decode(Translate.self, from: data) else {
-                    callback(false, nil)
-                    return
-                }
-                let translatedText = resource.data.translations[0].translatedText
-
-                callback(true, translatedText)
-            }
+    static func parse(_ data: Data, with decoder: JSONDecoder, callback: Callback) -> Any {
+        guard let json = try? decoder.decode(Translate.self, from: data) else {
+            callback(false, nil)
+            return (-1)
         }
-        task?.resume()
+        let resource = json.data.translations[0].translatedText
+        return resource
     }
-
+    
 }
 
 extension TranslateService {
 
     /**
-     Create request with a URL and a user input text.
+     Create request with a URL and a user input text
      - Parameters:
         - url: The resource location
         - text: The text input by the user
      - Returns: a request
      */
-    private func createRequest(with url: String, for text: String) -> URLRequest {
+    static func createRequest(with url: String, for text: String) -> URLRequest {
+        print("create request")
         let encodedText = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = url + encodedText!
 
-        let url = URL(string: completeURL)
-        var request = URLRequest(url: url!)
+        let url = URL(string: completeURL)!
+        var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.post.rawValue
 
         return request

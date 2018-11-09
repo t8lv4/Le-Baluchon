@@ -42,6 +42,7 @@ extension TranslateViewController: UITextFieldDelegate {
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("''''''''''''''")
         traduireLabel.isEnabled = false
     }
 
@@ -54,7 +55,7 @@ extension TranslateViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         translateTextField.becomeFirstResponder()
 
-        guard let text = translateTextField.text else { return false }
+        guard let text = translateTextField.text else { print("input"); return false }
         checkInputValidity(input: text)
         
         return true
@@ -70,6 +71,7 @@ extension TranslateViewController {
             presentVCAlert(with: alertTitle.translateInputValidity.rawValue,
                            and: alertMessage.translateInputValidity.rawValue)
         } else {
+            print("check")
             translateRequest(for: input)
         }
     }
@@ -81,11 +83,11 @@ extension TranslateViewController {
 
      If the request fail, present an alert
      */
-    private func translateRequest(for text: String) {
+    private func translateRequest(for input: String) {
         self.toggleActivityIndicator(activityIndicator,shown: true)
 
-        TranslateService.shared.query(to: GoogleTranslation.url, with: text) { (success, translatedText) in
-            if success, let translatedText = translatedText {
+        APIService.shared.query(API: .GoogleTranslate, input: input) { (success, resource) in
+            if success, let translatedText = resource as? String {
                 self.toggleActivityIndicator(self.activityIndicator, shown: false)
                 self.translateTextField.text = translatedText
             } else {

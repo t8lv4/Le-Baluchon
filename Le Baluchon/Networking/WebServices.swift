@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum WebService: String {
+
+    case Fixer = "Fixer", GoogleTranslate = "GoogleTranslate", YahooWeather = "YahooWeather"
+    
+}
+
 // MARK: - Fixer
 
 /// Hold access to Fixer API resources

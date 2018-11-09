@@ -129,10 +129,10 @@ extension ConvertViewController {
     private func conversionRequest(for amount: Double) {
         toggleActivityIndicator(activityIndicator,shown: true)
 
-        ConvertService.shared.query(to: Fixer.url) { (success, rate) in
+        APIService.shared.query(API: .Fixer, input: amount) { (success, resource) in
             self.toggleActivityIndicator(self.activityIndicator, shown: false)
 
-            if success, let rate = rate {
+            if success, let rate = resource as? Double {
                 self.updateDisplay(with: amount, and: rate)
             } else {
                 self.presentVCAlert(with: alertTitle.failure.rawValue,
