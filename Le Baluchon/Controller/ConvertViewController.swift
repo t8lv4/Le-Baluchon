@@ -110,14 +110,14 @@ extension ConvertViewController {
      The method will replace a comma by a point to adress the european numeric keypad.
      */
     private func checkInputValidity(input: String) {
-        if Double(input) == nil {
+        // change comma to point for european numeric keypads
+        if let number = Double(input.replacingOccurrences(of: ",", with: ".")) {
+            requestConversion(for: number)
+        } else {
             presentVCAlert(with: alertTitle.convertInputValidity.rawValue,
                            and: alertMessage.convertInputValidity.rawValue)
             convertTextField.text = ""
         }
-        // change comma to point for european numeric keypads
-        guard let number = Double(input.replacingOccurrences(of: ",", with: ".")) else { return }
-        conversionRequest(for: number)
     }
 
     /**
@@ -126,7 +126,7 @@ extension ConvertViewController {
      - update display
      - display an alert if the resource is not available
      */
-    private func conversionRequest(for amount: Double) {
+    private func requestConversion(for amount: Double) {
         toggleActivityIndicator(activityIndicator,shown: true)
 
         APIService.shared.query(API: .Fixer, input: amount) { (success, resource) in

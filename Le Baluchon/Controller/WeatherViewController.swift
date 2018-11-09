@@ -76,7 +76,7 @@ extension WeatherViewController {
         for cities in Places.cities.values {
             let forecast = YahooWeather(city: cities)
             let city = forecast.place
-            requestService(for: city)
+            requestWeather(for: city)
         }
     }
 
@@ -85,7 +85,7 @@ extension WeatherViewController {
      - If available, call `display(_:)` to update UI
      - If not, call `presentVCAlert(with title:and message:)`
      */
-    private func requestService(for city: String) {
+    private func requestWeather(for city: String) {
         for activityIndicator in activityIndicators {
             toggleActivityIndicator(activityIndicator, shown: true)
         }

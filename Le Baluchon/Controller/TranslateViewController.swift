@@ -72,7 +72,7 @@ extension TranslateViewController {
                            and: alertMessage.translateInputValidity.rawValue)
         } else {
             print("check")
-            translateRequest(for: input)
+            requestTranslation(for: input)
         }
     }
 
@@ -83,7 +83,7 @@ extension TranslateViewController {
 
      If the request fail, present an alert
      */
-    private func translateRequest(for input: String) {
+    private func requestTranslation(for input: String) {
         self.toggleActivityIndicator(activityIndicator,shown: true)
 
         APIService.shared.query(API: .GoogleTranslate, input: input) { (success, resource) in
