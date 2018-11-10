@@ -23,7 +23,7 @@ extension WeatherService {
      - decoder: The JSON decoder
      - callback: A closure of type `(Bool, Double?) -> Void`
      */
-    static func parse(_ data: Data, with decoder: JSONDecoder, callback: Callback) -> Any {
+    static func parse(_ data: Data, with decoder: JSONDecoder, callback: @escaping Callback) -> Any {
         guard let json = try? decoder.decode(WeatherJSON.self, from: data) else {
             callback(false, nil)
             return (-1)

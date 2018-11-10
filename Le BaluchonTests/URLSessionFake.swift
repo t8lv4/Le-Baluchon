@@ -8,7 +8,14 @@
 
 import Foundation
 
-/// double URLSession to adress dataTask(with url:...) and dataTask(with request:...) tests
+/**
+ Simulate a server response,
+ double URLSession to adress dataTask(with url:...)
+ and dataTask(with request:...) tests
+
+ The structure follows (`data, response, error`) of the URLSession completion handler closure (
+ cf in the API service file : `task = session.dataTask(with: request) { (data, response, error) in`).
+ */
 class URLSessionFake: URLSession {
     //completion handler properties
     var data: Data?

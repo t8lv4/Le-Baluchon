@@ -27,6 +27,7 @@
 		904C77BF2187530A000762A6 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904C77BE2187530A000762A6 /* Places.swift */; };
 		9062DBC42194870F006320A7 /* AlertVCMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062DBC32194870F006320A7 /* AlertVCMessages.swift */; };
 		9062DBC621955D0E006320A7 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062DBC521955D0E006320A7 /* APIService.swift */; };
+		9077322F219725B500419DCA /* APIServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077322E219725B500419DCA /* APIServiceTestCase.swift */; };
 		908DFEF621830DF6001E88EC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908DFEF521830DF6001E88EC /* HTTPMethod.swift */; };
 		909B85252181EF4C00A09F57 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85242181EF4C00A09F57 /* WeatherViewController.swift */; };
 		909B85272181EF6F00A09F57 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85262181EF6F00A09F57 /* TranslateViewController.swift */; };
@@ -73,6 +74,7 @@
 		904C77BE2187530A000762A6 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		9062DBC32194870F006320A7 /* AlertVCMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVCMessages.swift; sourceTree = "<group>"; };
 		9062DBC521955D0E006320A7 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9077322E219725B500419DCA /* APIServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTestCase.swift; sourceTree = "<group>"; };
 		908DFEF521830DF6001E88EC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		909B85242181EF4C00A09F57 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		909B85262181EF6F00A09F57 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				901335DD218F407F004F6599 /* Info.plist */,
 				901335E7218F4A3E004F6599 /* FakeResponseData.swift */,
 				901335E9218F4D8C004F6599 /* URLSessionFake.swift */,
+				9077322E219725B500419DCA /* APIServiceTestCase.swift */,
 				901335EB218F7799004F6599 /* ConvertTest */,
 				901335EC218F77BA004F6599 /* TranslateTest */,
 				901335F1218F7F62004F6599 /* Weather */,
@@ -360,6 +363,7 @@
 			files = (
 				901335F0218F7828004F6599 /* TranslateTestCase.swift in Sources */,
 				901335E4218F40F7004F6599 /* ConvertTestCase.swift in Sources */,
+				9077322F219725B500419DCA /* APIServiceTestCase.swift in Sources */,
 				901335EA218F4D8C004F6599 /* URLSessionFake.swift in Sources */,
 				901335F3218F7F82004F6599 /* WeathertestCase.swift in Sources */,
 				901335E8218F4A3E004F6599 /* FakeResponseData.swift in Sources */,

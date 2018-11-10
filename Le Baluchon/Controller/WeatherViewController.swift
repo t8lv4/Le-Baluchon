@@ -89,7 +89,7 @@ extension WeatherViewController {
             toggleActivityIndicator(activityIndicator, shown: true)
         }
 
-        APIService.shared.query(API: .YahooWeather, input: city) { (success, resource) in
+        APIService.shared.query(API: .YahooWeather, input: city as AnyObject) { (success, resource) in
             if success, let weatherCondition = resource as? Weather {
                 self.display(weatherCondition)
             } else {

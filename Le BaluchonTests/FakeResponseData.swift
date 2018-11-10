@@ -8,22 +8,17 @@
 
 import Foundation
 
-import Foundation
-
 // MARK: - Data
 
 /**
- Simulate a server response
+ Fake a server response
 
- The structure follows (`data, response, error`) of the URLSession completion handler closure :
- cf in the model service file : `task = session.dataTask(with: request) { (data, response, error) in`.
+ The returned object is valid data from a .json file bundled in the application.
+ - Note:
+ Create a `myModelCorrectData` variable per model's service to test.
  */
 class FakeResponseData {
-    /**
-     Get valid data from a .json
 
-     Create a variable per model's service to test
-     */
     static var convertCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "fixer", withExtension: "json")!
@@ -41,16 +36,19 @@ class FakeResponseData {
         let url = bundle.url(forResource: "yahooWeather", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
+    
 }
 
 // MARK: - HTTP status code
 
 extension FakeResponseData {
 
+    /// HTTP status code is 200
     static let responseOK = HTTPURLResponse(
         url: URL(string: "https://openclassrooms.com")!,
         statusCode: 200, httpVersion: nil, headerFields: [:])!
 
+    /// HTTP status code is 500
     static let responseKO = HTTPURLResponse(
         url: URL(string: "https://openclassrooms.com")!,
         statusCode: 500, httpVersion: nil, headerFields: [:])!
@@ -61,7 +59,7 @@ extension FakeResponseData {
 
 extension FakeResponseData {
 
-    static let IncorrectData = "erreur".data(using: .utf8)!
+    static let IncorrectData = "erreur".data(using: .utf16)!
 
 }
 

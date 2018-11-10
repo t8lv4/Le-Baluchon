@@ -25,15 +25,16 @@ extension ConvertService {
         - decoder: The JSON decoder
         - callback: A closure of type `(Bool, Double?) -> Void`
      */
-    static func parse(_ data: Data, with decoder: JSONDecoder, callback: Callback) -> Any {
+    static func parse(_ data: Data, with decoder: JSONDecoder, callback: @escaping Callback) -> Any {
         guard let json = try? decoder.decode(Convert.self, from: data) else {
             callback(false, nil)
+            print(callback)
             return (-1)
         }
 
         guard let resource = json.rates["USD"] else {
             callback(false, nil)
-            return (-1)
+            return (-2)
         }
 
         return resource

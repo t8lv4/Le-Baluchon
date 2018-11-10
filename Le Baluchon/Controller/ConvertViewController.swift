@@ -128,7 +128,7 @@ extension ConvertViewController {
     private func requestConversion(for amount: Double) {
         toggleActivityIndicator(activityIndicator,shown: true)
 
-        APIService.shared.query(API: .Fixer, input: amount) { (success, resource) in
+        APIService.shared.query(API: .Fixer, input: amount as AnyObject) { (success, resource) in
             self.toggleActivityIndicator(self.activityIndicator, shown: false)
 
             if success, let rate = resource as? Double {

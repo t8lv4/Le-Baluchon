@@ -11,6 +11,7 @@ import Foundation
 /// Perform API requests
 class APIService {
 
+    /// A closure to provide the state of a network call to the ConvertViewController.
     typealias Callback = (Bool, Any?) -> Void
     var request: URLRequest?
     /// Decoded data from an API
@@ -39,14 +40,13 @@ extension APIService {
         - input: Any value input by the user and used by the API to provide the expected resource
         - callback: Provides the state of the session and returns decoded data to the VCs
      */
-    func query(API: WebService, input: Any, callback: @escaping Callback) {
+    func query(API: WebService, input: AnyObject, callback: @escaping Callback) {
         if API != .YahooWeather { task?.cancel() }
 
         switch API {
         case .Fixer:
             request = ConvertService.createRequest(with: Fixer.url)
         case .GoogleTranslate:
-            print("switch request")
             request = TranslateService.createRequest(with: GoogleTranslation.url, for: input as! String)
         case .YahooWeather:
             request = WeatherService.createRequest(for: input as! String)
@@ -80,7 +80,6 @@ extension APIService {
             }
         }
         task?.resume()
-
     }
 
 }
