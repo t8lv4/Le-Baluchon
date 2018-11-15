@@ -53,7 +53,7 @@ extension WeatherViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
+        super.viewWillAppear(animated)
 
         if CLLocationManager.authorizationStatus() != .denied {
             setUpDisplay()

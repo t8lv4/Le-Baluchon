@@ -28,7 +28,6 @@ extension ConvertService {
     static func parse(_ data: Data, with decoder: JSONDecoder, callback: @escaping Callback) -> Any {
         guard let json = try? decoder.decode(Convert.self, from: data) else {
             callback(false, nil)
-            print(callback)
             return (-1)
         }
 

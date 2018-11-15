@@ -53,7 +53,6 @@ extension APIService {
         }
 
         guard let request = request else { print("Unable to create request"); return }
-        // call
         task = session.dataTask(with: request) { [weak self] (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
@@ -69,6 +68,7 @@ extension APIService {
                 let decoder = JSONDecoder()
                 switch API {
                 case .Fixer:
+                    // trouve -1 => retourner callback(false, nil) else
                     self?.resource = ConvertService.parse(data, with: decoder, callback: callback)
                 case .GoogleTranslate:
                     self?.resource = TranslateService.parse(data, with: decoder, callback: callback)

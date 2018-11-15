@@ -42,7 +42,6 @@ extension TranslateViewController: UITextFieldDelegate {
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("''''''''''''''")
         traduireLabel.isEnabled = false
     }
 
@@ -55,7 +54,7 @@ extension TranslateViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         translateTextField.becomeFirstResponder()
 
-        guard let text = translateTextField.text else { print("input"); return false }
+        guard let text = translateTextField.text else { return false }
         checkInputValidity(input: text)
         
         return true
@@ -71,7 +70,6 @@ extension TranslateViewController {
             presentVCAlert(with: alertTitle.translateInputValidity.rawValue,
                            and: alertMessage.translateInputValidity.rawValue)
         } else {
-            print("check")
             requestTranslation(for: input)
         }
     }

@@ -43,7 +43,6 @@ extension TranslateService {
      - Returns: a request
      */
     static func createRequest(with url: String, for text: String) -> URLRequest {
-        print("create request")
         let encodedText = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = url + encodedText!
 

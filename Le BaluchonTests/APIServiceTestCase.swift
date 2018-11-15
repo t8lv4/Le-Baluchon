@@ -12,8 +12,8 @@ import XCTest
 
 class APIServiceTests: XCTestCase {
 
-    let webService: WebService = .Fixer
-    let input: String = "input"
+    let webService: WebService = .GoogleTranslate
+    let input: String = "Hello World!"
 
 func testQueryShouldPostFailedCallbackIfError() {
     // Given
@@ -71,50 +71,53 @@ func testQueryShouldPostFailedCallbackIfError() {
         wait(for: [expectation], timeout: 0.01)
     }
 
-//    func testQueryShouldPostFailedCallbackIfIncorrectData() {
-//        // Given
-//        let apiService = APIService(
-//            session: URLSessionFake(
-//                data: FakeResponseData.IncorrectData,
-//                response: FakeResponseData.responseOK,
-//                error: nil))
-//
-//        // When
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        apiService.query(API: webService, input: input as AnyObject) { (success, resource) in
-//            // Then
-//            XCTAssertFalse(success)
-//            XCTAssertNil(resource)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 0.01)
-//    }
+    func testQueryShouldPostFailedCallbackIfIncorrectData() {
+        // Given
+        let apiService = APIService(
+            session: URLSessionFake(
+                data: FakeResponseData.IncorrectData,
+                response: FakeResponseData.responseOK,
+                error: nil))
 
-//    func testQueryShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-//        // Given
-//        let apiService = APIService(
-//            session: URLSessionFake(
-//                data: FakeResponseData.convertCorrectData,
-//                response: FakeResponseData.responseOK,
-//                error: nil))
-//
-//        // When
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        apiService.query(API: webService, input: input as AnyObject) { (success, resource) in
-//            // Then
-//            XCTAssertTrue(success)
-//            XCTAssertNotNil(resource)
-//
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        apiService.query(API: webService, input: input as AnyObject) { (success, resource) in
+            // Then
+            XCTAssertTrue(success)
+            XCTAssertNil(resource)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testQueryShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
+        // Given
+        let apiService = APIService(
+            session: URLSessionFake(
+                data: FakeResponseData.convertCorrectData,
+                response: FakeResponseData.responseOK,
+                error: nil))
+
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        apiService.query(API: webService, input: input as AnyObject) { (success, resource) in
+            // Then
+            XCTAssertTrue(success)
+            XCTAssertNotNil(resource)
+
+            let translatedText = "Bonjour Monde!"
+            XCTAssertEqual(translatedText, resource as! String)
+
+
 //            let rates = ["USD": 1.138064]
-//
 //            XCTAssertEqual(rates["USD"], resource as? Double)
-//            // create as many asserts as constants
-//
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 0.01)
-//    }
+            // create as many asserts as constants
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
 
 }
