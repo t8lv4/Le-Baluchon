@@ -199,7 +199,6 @@
 		90D3A41A2179B9F80096C895 /* Le Baluchon */ = {
 			isa = PBXGroup;
 			children = (
-				90D3A4272179B9F90096C895 /* Info.plist */,
 				903AB412217DAD2D004683DF /* Model */,
 				90D3A4322179C7650096C895 /* View */,
 				90A14C14217EE7B7005F26B6 /* Controller */,
@@ -213,6 +212,7 @@
 		90D3A42D2179C58A0096C895 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				90D3A4272179B9F90096C895 /* Info.plist */,
 				90D3A41B2179B9F80096C895 /* AppDelegate.swift */,
 				909B852E2181F9DB00A09F57 /* APIKeys.swift */,
 				9062DBC32194870F006320A7 /* AlertVCMessages.swift */,
@@ -592,7 +592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9T22T3H63N;
-				INFOPLIST_FILE = "Le Baluchon/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Le Baluchon/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -611,7 +611,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9T22T3H63N;
-				INFOPLIST_FILE = "Le Baluchon/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Le Baluchon/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
