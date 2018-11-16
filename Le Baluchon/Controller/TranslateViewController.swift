@@ -84,7 +84,7 @@ extension TranslateViewController {
     private func requestTranslation(for input: String) {
         self.toggleActivityIndicator(activityIndicator,shown: true)
 
-        APIService.shared.query(API: .GoogleTranslate, input: input as AnyObject) { (success, resource) in
+        APIService.shared.query(API: .GoogleTranslate, input: input) { (success, resource) in
             if success, let translatedText = resource as? String {
                 self.toggleActivityIndicator(self.activityIndicator, shown: false)
                 self.translateTextField.text = translatedText

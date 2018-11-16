@@ -8,11 +8,31 @@
 
 import Foundation
 
+/*
+ JSON structure from Fixer
+ {
+    "success": true,
+    "timestamp": 1540538946,
+    "base": "EUR",
+    "date": "2018-10-26",
+    "rates": {
+        "USD": 1.138064
+    }
+ }
+ */
+
+/// List targeted conversion rates
+enum conversionRates: String {
+
+    case USD = "USD"
+
+}
+
 /// Convert from Euro to US Dollar
 struct Convert: Decodable {
 
     let rates: [String: Double]
-    
+
 }
 
 extension Convert {

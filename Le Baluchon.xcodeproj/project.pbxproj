@@ -16,6 +16,7 @@
 		901335F0218F7828004F6599 /* TranslateTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335EF218F7828004F6599 /* TranslateTestCase.swift */; };
 		901335F3218F7F82004F6599 /* WeathertestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335F2218F7F82004F6599 /* WeathertestCase.swift */; };
 		901335F5218F7F96004F6599 /* yahooWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = 901335F4218F7F96004F6599 /* yahooWeather.json */; };
+		90143807219F1CB4005AA2A2 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90143806219F1CB4005AA2A2 /* ServiceProtocol.swift */; };
 		903084922179D4EE008C6853 /* mplus-1c-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 903084902179D4EE008C6853 /* mplus-1c-light.ttf */; };
 		903084932179D4EE008C6853 /* PlayfairDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */; };
 		903AB414217DAD49004683DF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903AB413217DAD49004683DF /* Weather.swift */; };
@@ -28,7 +29,6 @@
 		9062DBC42194870F006320A7 /* AlertVCMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062DBC32194870F006320A7 /* AlertVCMessages.swift */; };
 		9062DBC621955D0E006320A7 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062DBC521955D0E006320A7 /* APIService.swift */; };
 		9077322F219725B500419DCA /* APIServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077322E219725B500419DCA /* APIServiceTestCase.swift */; };
-		908DFEF621830DF6001E88EC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908DFEF521830DF6001E88EC /* HTTPMethod.swift */; };
 		909B85252181EF4C00A09F57 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85242181EF4C00A09F57 /* WeatherViewController.swift */; };
 		909B85272181EF6F00A09F57 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85262181EF6F00A09F57 /* TranslateViewController.swift */; };
 		909B85292181F0AD00A09F57 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B85282181F0AD00A09F57 /* Translate.swift */; };
@@ -63,6 +63,7 @@
 		901335EF218F7828004F6599 /* TranslateTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTestCase.swift; sourceTree = "<group>"; };
 		901335F2218F7F82004F6599 /* WeathertestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeathertestCase.swift; sourceTree = "<group>"; };
 		901335F4218F7F96004F6599 /* yahooWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yahooWeather.json; sourceTree = "<group>"; };
+		90143806219F1CB4005AA2A2 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		903084902179D4EE008C6853 /* mplus-1c-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-light.ttf"; sourceTree = "<group>"; };
 		903084912179D4EE008C6853 /* PlayfairDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.otf"; sourceTree = "<group>"; };
 		903AB413217DAD49004683DF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		9062DBC32194870F006320A7 /* AlertVCMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVCMessages.swift; sourceTree = "<group>"; };
 		9062DBC521955D0E006320A7 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9077322E219725B500419DCA /* APIServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTestCase.swift; sourceTree = "<group>"; };
-		908DFEF521830DF6001E88EC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		909B85242181EF4C00A09F57 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		909B85262181EF6F00A09F57 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		909B85282181F0AD00A09F57 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
@@ -235,12 +235,12 @@
 		90FA78EA21902BF0007ECDE9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				908DFEF521830DF6001E88EC /* HTTPMethod.swift */,
 				903AB41A217DB789004683DF /* WebServices.swift */,
 				9062DBC521955D0E006320A7 /* APIService.swift */,
 				90F7E67E217F2EA4002904F5 /* ConvertService.swift */,
 				900454D12184A86900D2ACFA /* TranslateService.swift */,
 				904C77BC21874769000762A6 /* WeatherService.swift */,
+				90143806219F1CB4005AA2A2 /* ServiceProtocol.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -379,7 +379,6 @@
 				900454D22184A86900D2ACFA /* TranslateService.swift in Sources */,
 				909B85252181EF4C00A09F57 /* WeatherViewController.swift in Sources */,
 				903AB414217DAD49004683DF /* Weather.swift in Sources */,
-				908DFEF621830DF6001E88EC /* HTTPMethod.swift in Sources */,
 				90F1F444217F8A6000ABFFC6 /* ConvertViewController.swift in Sources */,
 				904C77BA21872D1D000762A6 /* UIViewController+ActivityIndicator.swift in Sources */,
 				90F7E67F217F2EA4002904F5 /* ConvertService.swift in Sources */,
@@ -390,6 +389,7 @@
 				909B85272181EF6F00A09F57 /* TranslateViewController.swift in Sources */,
 				904C77B821872AD4000762A6 /* UIViewController+AlertVC.swift in Sources */,
 				90D3A41C2179B9F80096C895 /* AppDelegate.swift in Sources */,
+				90143807219F1CB4005AA2A2 /* ServiceProtocol.swift in Sources */,
 				9062DBC621955D0E006320A7 /* APIService.swift in Sources */,
 				904C77BF2187530A000762A6 /* Places.swift in Sources */,
 			);

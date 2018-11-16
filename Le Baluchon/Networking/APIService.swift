@@ -39,20 +39,18 @@ extension APIService {
         - API: APIs used by Le Baluchon
         - input: Any value input by the user and used by the API to provide the expected resource
         - callback: Provides the state of the session and returns decoded data to the VCs
+
+     - Note:
+        As of november 2018, any API involved takes a String as an input type
      */
-    func query(API: WebService, input: AnyObject, callback: @escaping Callback) {
+    func query(API: WebService, input: String = "", callback: @escaping Callback) {
         if API != .YahooWeather { task?.cancel() }
 
-        switch API {
-        case .Fixer:
-            request = ConvertService.createRequest(with: Fixer.url)
-        case .GoogleTranslate:
-            request = TranslateService.createRequest(with: GoogleTranslation.url, for: input as! String)
-        case .YahooWeather:
-            request = WeatherService.createRequest(for: input as! String)
+        guard let request = getRequest(API: API, for: input) else {
+            print("Unable to create request")
+            return
         }
 
-        guard let request = request else { print("Unable to create request"); return }
         task = session.dataTask(with: request) { [weak self] (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
@@ -68,18 +66,55 @@ extension APIService {
                 let decoder = JSONDecoder()
                 switch API {
                 case .Fixer:
-                    // trouve -1 => retourner callback(false, nil) else
-                    self?.resource = ConvertService.parse(data, with: decoder, callback: callback)
+                    if ConvertService.parse(data, with: decoder) as? Int == -1 ||
+                        ConvertService.parse(data, with: decoder) as? Int == -2 {
+                        callback(false, nil)
+                        return
+                    }
+                    self?.resource = ConvertService.parse(data, with: decoder)
+
                 case .GoogleTranslate:
-                    self?.resource = TranslateService.parse(data, with: decoder, callback: callback)
+                    if TranslateService.parse(data, with: decoder) as? Int == -1 {
+                        callback(false, nil)
+                        return
+                    }
+                    self?.resource = TranslateService.parse(data, with: decoder)
+                    
                 case .YahooWeather:
-                    self?.resource = WeatherService.parse(data, with: decoder, callback: callback)
+                    if WeatherService.parse(data, with: decoder) as? Int == -1 {
+                        callback(false, nil)
+                        return
+                    }
+                    self?.resource = WeatherService.parse(data, with: decoder)
                 }
 
                 callback(true, self?.resource)
             }
         }
         task?.resume()
+    }
+
+}
+
+extension APIService {
+    /**
+     Call `createRequest` for each API
+
+     - Parameters:
+        - API: APIs used by Le Baluchon
+        - input: Any value input by the user and used by the API to provide the expected resource
+     */
+    private func getRequest(API: WebService, for input: String = "") -> URLRequest? {
+        switch API {
+        case .Fixer:
+            request = ConvertService.createRequest()
+        case .GoogleTranslate:
+            request = TranslateService.createRequest(for: input)
+        case .YahooWeather:
+            request = WeatherService.createRequest(for: input)
+        }
+
+        return request
     }
 
 }

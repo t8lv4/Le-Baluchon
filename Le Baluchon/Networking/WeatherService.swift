@@ -8,36 +8,13 @@
 
 import Foundation
 
-/// Request weather conditions.
-class WeatherService {
-    /// A closure to provide the state of a network call to the WeatherViewController.
-    typealias Callback = (Bool, Weather?) -> Void
-
-}
-
-extension WeatherService {
-    /**
-     Decode an API response and return the requested resource
-     - Parameters:
-     - data: The data to decode
-     - decoder: The JSON decoder
-     - callback: A closure of type `(Bool, Double?) -> Void`
-     */
-    static func parse(_ data: Data, with decoder: JSONDecoder, callback: @escaping Callback) -> Any {
-        guard let json = try? decoder.decode(WeatherJSON.self, from: data) else {
-            callback(false, nil)
-            return (-1)
-        }
-
-        let resource = Weather(from: json)
-        return resource
-    }
-
-}
-
-extension WeatherService {
+/// Build a URLRequest and parse JSON response
+struct WeatherService {
     /**
      Build a URL to access YahooWeather API
+
+     - Parameters:
+        - city: The user current location
      */
     static func createRequest(for city: String) -> URLRequest {
         let query = YahooWeather.query + city + YahooWeather.parameters
@@ -50,6 +27,19 @@ extension WeatherService {
         request.httpMethod = HTTPMethod.get.rawValue
 
         return request
+    }
+
+}
+
+extension WeatherService: ServiceProtocol {
+
+    static func parse(_ data: Data, with decoder: JSONDecoder) -> Any {
+        guard let json = try? decoder.decode(WeatherJSON.self, from: data) else {
+            return (-1)
+        }
+
+        let resource = Weather(from: json)
+        return resource
     }
 
 }

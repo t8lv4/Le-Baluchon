@@ -8,6 +8,13 @@
 
 import Foundation
 
+/// List HTTP methods
+enum HTTPMethod: String {
+
+    case post = "POST", get = "GET"
+
+}
+
 /// A list of weabservices used by Le Baluchon
 enum WebService {
 
