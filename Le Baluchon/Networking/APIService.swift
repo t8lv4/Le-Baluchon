@@ -11,7 +11,7 @@ import Foundation
 /// Perform API requests
 class APIService {
 
-    /// A closure to provide the state of a network call to the ConvertViewController.
+    /// A closure to provide the state of a network call to the ViewControllers
     typealias Callback = (Bool, Any?) -> Void
     var request: URLRequest?
     /// Decoded data from an API
@@ -41,13 +41,15 @@ extension APIService {
         - callback: Provides the state of the session and returns decoded data to the VCs
 
      - Note:
-        As of november 2018, any API involved takes a String as an input type
+     As of november 2018, any API involved in Le Balluchon takes a String as an input type.
+     To allow flexibility when calling `query` and avoid passing dummy value to the `input` parameter,
+     `input` default value is an empty string.
      */
     func query(API: WebService, input: String = "", callback: @escaping Callback) {
         if API != .YahooWeather { task?.cancel() }
 
         guard let request = getRequest(API: API, for: input) else {
-            print("Unable to create request")
+            callback(false, nil)
             return
         }
 
@@ -103,6 +105,11 @@ extension APIService {
      - Parameters:
         - API: APIs used by Le Baluchon
         - input: Any value input by the user and used by the API to provide the expected resource
+
+     - Note:
+     As of november 2018, any API involved in Le Balluchon takes a String as an input type.
+     To allow flexibility when calling `query` and avoid passing dummy value to the `input` parameter,
+     `input` default value is an empty string.
      */
     private func getRequest(API: WebService, for input: String = "") -> URLRequest? {
         switch API {

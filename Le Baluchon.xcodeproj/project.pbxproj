@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90005D2C21A07D8800EEC6AE /* WebServicesTestcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90005D2B21A07D8800EEC6AE /* WebServicesTestcase.swift */; };
 		900454D22184A86900D2ACFA /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900454D12184A86900D2ACFA /* TranslateService.swift */; };
 		901335E4218F40F7004F6599 /* ConvertTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335E3218F40F7004F6599 /* ConvertTestCase.swift */; };
 		901335E6218F4208004F6599 /* fixer.json in Resources */ = {isa = PBXBuildFile; fileRef = 901335E5218F4208004F6599 /* fixer.json */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90005D2B21A07D8800EEC6AE /* WebServicesTestcase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicesTestcase.swift; sourceTree = "<group>"; };
 		900454D12184A86900D2ACFA /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
 		901335D9218F407F004F6599 /* Le BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		901335DD218F407F004F6599 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				901335E7218F4A3E004F6599 /* FakeResponseData.swift */,
 				901335E9218F4D8C004F6599 /* URLSessionFake.swift */,
 				9077322E219725B500419DCA /* APIServiceTestCase.swift */,
+				90005D2B21A07D8800EEC6AE /* WebServicesTestcase.swift */,
 				901335EB218F7799004F6599 /* ConvertTest */,
 				901335EC218F77BA004F6599 /* TranslateTest */,
 				901335F1218F7F62004F6599 /* Weather */,
@@ -366,6 +369,7 @@
 				9077322F219725B500419DCA /* APIServiceTestCase.swift in Sources */,
 				901335EA218F4D8C004F6599 /* URLSessionFake.swift in Sources */,
 				901335F3218F7F82004F6599 /* WeathertestCase.swift in Sources */,
+				90005D2C21A07D8800EEC6AE /* WebServicesTestcase.swift in Sources */,
 				901335E8218F4A3E004F6599 /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

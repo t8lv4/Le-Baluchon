@@ -11,7 +11,7 @@ import Foundation
 /// Build a URLRequest and parse JSON response
 struct ConvertService {
     /**
-     Create request with a URL.
+     Build a URL to access Fixer API
      */
     static func createRequest() -> URLRequest {
         let url = URL(string: Fixer.url)!

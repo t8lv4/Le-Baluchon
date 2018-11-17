@@ -11,7 +11,8 @@ import Foundation
 /// Build a URLRequest and parse JSON response
 struct TranslateService {
     /**
-     Create request with a URL and a user input text
+     Build a URL to access Google Translate API
+     
      - Parameters:
         - text: The text input by the user
      - Returns: a request

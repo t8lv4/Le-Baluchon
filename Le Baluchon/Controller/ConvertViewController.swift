@@ -141,7 +141,7 @@ extension ConvertViewController {
     }
 
     /**
-     Use the rate value from the API request to display a converted currency.
+     Update display with a requested currency conversion.
      - Parameters:
         - amount: The user input value
         - rate: The rate provided by Fixer.io

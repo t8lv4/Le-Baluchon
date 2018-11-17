@@ -21,7 +21,7 @@ struct Places {
 
      Values are either coordinates as (lat, long), litteral names, or WOEID (cf YahooWeather API)
      - Note:
-     If using a litteral name, it must conform to the YahooWeather YQL query format
+     If using a litteral name, it must conforms to the YahooWeather YQL query format
     */
     static var cities: [dictionaryKeys: Any] = [dictionaryKeys.NewYork: "new-york, ny"]
 

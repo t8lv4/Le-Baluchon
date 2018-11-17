@@ -72,7 +72,7 @@ import XCTest
 //                data: FakeResponseData.IncorrectData,
 //                response: FakeResponseData.responseOK,
 //                error: nil))
-//        
+//
 //        // When
 //        let expectation = XCTestExpectation(description: "Wait for queue change.")
 //        translateService.query(to: GoogleTranslation.url, with: "Hello, World!") { (success, translatedText) in
@@ -81,10 +81,10 @@ import XCTest
 //            XCTAssertNil(translatedText)
 //            expectation.fulfill()
 //        }
-//        
+//
 //        wait(for: [expectation], timeout: 0.01)
 //    }
-//
+////
 //    func testQueryShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
 //        // Given
 //        let translateService = TranslateService(
