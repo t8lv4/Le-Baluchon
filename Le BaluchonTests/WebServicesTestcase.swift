@@ -19,4 +19,5 @@ class WebServicesTest: XCTestCase {
 
         XCTAssertNotNil(city)
     }
+    
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 /// List strings to display as an alert pop-up title
-enum alertTitle: String {
+enum AlertTitle: String {
 
     case failure = "😕"
 
@@ -21,7 +21,7 @@ enum alertTitle: String {
 }
 
 /// List strings to display as an alert pop-up message
-enum alertMessage: String {
+enum AlertMessage: String {
 
     case convertInputValidity = "Ceci n'est pas convertible en $..."
     case convertRequest = "Les données ne sont pas disponibles."

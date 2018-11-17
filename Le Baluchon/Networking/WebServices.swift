@@ -18,7 +18,7 @@ enum HTTPMethod: String {
 /// A list of weabservices used by Le Baluchon
 enum WebService {
 
-    case Fixer, GoogleTranslate, YahooWeather
+    case fixer, googleTranslate, yahooWeather
     
 }
 

@@ -22,7 +22,7 @@ import Foundation
  */
 
 /// List targeted conversion rates
-enum conversionRates: String {
+enum ConversionRates: String {
 
     case USD = "USD"
 

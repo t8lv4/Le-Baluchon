@@ -30,7 +30,7 @@ extension ConvertService: ServiceProtocol {
             return -1
         }
 
-        guard let resource = json.rates[conversionRates.USD.rawValue] else {
+        guard let resource = json.rates[ConversionRates.USD.rawValue] else {
             return -2
         }
 

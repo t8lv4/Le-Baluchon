@@ -12,7 +12,7 @@ import XCTest
 
 class APIServiceTests: XCTestCase {
 
-    let webServices: [WebService] = [.Fixer, .GoogleTranslate, .YahooWeather]
+    let webServices: [WebService] = [.fixer, .googleTranslate, .yahooWeather]
 
     // MARK: - Test query handler failure
 
@@ -20,9 +20,9 @@ class APIServiceTests: XCTestCase {
         for webservice in webServices {
             var input: String
             switch webservice {
-            case .Fixer: input = ""
-            case .GoogleTranslate: input = "Hello World!"
-            case .YahooWeather: input = "Paris"
+            case .fixer: input = ""
+            case .googleTranslate: input = "Hello World!"
+            case .yahooWeather: input = "Paris"
             }
 
             testQueryShouldPostFailedCallbackIfError(webservice, input)
@@ -170,7 +170,7 @@ class APIServiceTests: XCTestCase {
 
             let translatedText = "Bonjour Monde!"
 
-            XCTAssertEqual(translatedText, resource as! String)
+            XCTAssertEqual(translatedText, resource as? String)
             // create as many asserts as constants
 
             expectation.fulfill()
@@ -214,7 +214,7 @@ class APIServiceTests: XCTestCase {
         weatherService.query(API: webServices[2], input: "Paris") { (success, resource) in
             // Then
             XCTAssertTrue(success)
-            XCTAssertNotNil(resource as? Weather)
+            XCTAssertNotNil(resource as! Weather)
 
             let weatherCondition = resource as! Weather
             let city = "Paris"

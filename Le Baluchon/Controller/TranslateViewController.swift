@@ -67,8 +67,8 @@ extension TranslateViewController {
      */
     private func checkInputValidity(input: String) {
         if translateTextField.text == "" {
-            presentVCAlert(with: alertTitle.translateInputValidity.rawValue,
-                           and: alertMessage.translateInputValidity.rawValue)
+            presentVCAlert(with: AlertTitle.translateInputValidity.rawValue,
+                           and: AlertMessage.translateInputValidity.rawValue)
         } else {
             requestTranslation(for: input)
         }
@@ -84,14 +84,14 @@ extension TranslateViewController {
     private func requestTranslation(for input: String) {
         self.toggleActivityIndicator(activityIndicator,shown: true)
 
-        APIService.shared.query(API: .GoogleTranslate, input: input) { (success, resource) in
+        APIService.shared.query(API: .googleTranslate, input: input) { (success, resource) in
             if success, let translatedText = resource as? String {
                 self.toggleActivityIndicator(self.activityIndicator, shown: false)
                 self.translateTextField.text = translatedText
             } else {
                 self.toggleActivityIndicator(self.activityIndicator, shown: false)
-                self.presentVCAlert(with: alertTitle.failure.rawValue,
-                                    and: alertMessage.translateRequest.rawValue)
+                self.presentVCAlert(with: AlertTitle.failure.rawValue,
+                                    and: AlertMessage.translateRequest.rawValue)
             }
         }
     }

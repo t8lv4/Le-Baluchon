@@ -17,7 +17,7 @@ class WeatherServiceTests: XCTestCase {
         let coordinates = (48.856614, 2.3522219)
         //when
         Places.addCurrentLocation(coordinates)
-        let newEntry = Places.cities[dictionaryKeys.currentLocation] as! (Double, Double)
+        let newEntry = Places.cities[DictionaryKeys.currentLocation] as! (Double, Double)
         //then
         XCTAssertEqual(Places.cities.count, 2)
         XCTAssertEqual(newEntry.0, 48.856614)

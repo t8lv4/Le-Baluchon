@@ -9,8 +9,8 @@
 import Foundation
 
 /// List Places dictionary keys
-enum dictionaryKeys {
-    case NewYork
+enum DictionaryKeys {
+    case newYork
     case currentLocation
 }
 
@@ -23,7 +23,7 @@ struct Places {
      - Note:
      If using a litteral name, it must conforms to the YahooWeather YQL query format
     */
-    static var cities: [dictionaryKeys: Any] = [dictionaryKeys.NewYork: "new-york, ny"]
+    static var cities: [DictionaryKeys: Any] = [DictionaryKeys.newYork: "new-york, ny"]
 
 }
 
@@ -36,7 +36,7 @@ extension Places {
         Parameters types could also be litteral names or WEOID, as long as they conform to the YahooWeather YQL
      */
     static func addCurrentLocation(_ coordinates: (Double, Double)) {
-        Places.cities[dictionaryKeys.currentLocation] = coordinates
+        Places.cities[DictionaryKeys.currentLocation] = coordinates
     }
 
 }

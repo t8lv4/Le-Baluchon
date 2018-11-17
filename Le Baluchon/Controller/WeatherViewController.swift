@@ -89,11 +89,11 @@ extension WeatherViewController {
             toggleActivityIndicator(activityIndicator, shown: true)
         }
 
-        APIService.shared.query(API: .YahooWeather, input: city) { (success, resource) in
+        APIService.shared.query(API: .yahooWeather, input: city) { (success, resource) in
             if success, let weatherCondition = resource as? Weather {
                 self.display(weatherCondition)
             } else {
-                self.handleRequestFailure(resource as? Weather) // add city, puis switch
+                self.handleRequestFailure(resource as? Weather)
             }
         }
     }
@@ -147,8 +147,8 @@ extension WeatherViewController {
         for activityIndicator in activityIndicators {
             toggleActivityIndicator(activityIndicator, shown: false)
         }
-        presentVCAlert(with: alertTitle.weatherRequest.rawValue,
-                       and: alertTitle.weatherRequest.rawValue)
+        presentVCAlert(with: AlertTitle.weatherRequest.rawValue,
+                       and: AlertTitle.weatherRequest.rawValue)
     }
 
     /**
@@ -159,8 +159,8 @@ extension WeatherViewController {
         for activityIndicator in activityIndicators {
             toggleActivityIndicator(activityIndicator, shown: false)
         }
-        presentVCAlert(with: alertTitle.locationAuth.rawValue,
-                       and: alertMessage.locationAuth.rawValue)
+        presentVCAlert(with: AlertTitle.locationAuth.rawValue,
+                       and: AlertMessage.locationAuth.rawValue)
     }
 
 }

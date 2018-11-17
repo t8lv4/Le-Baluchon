@@ -113,8 +113,8 @@ extension ConvertViewController {
         if let number = Double(input.replacingOccurrences(of: ",", with: ".")) {
             requestConversion(for: number)
         } else {
-            presentVCAlert(with: alertTitle.convertInputValidity.rawValue,
-                           and: alertMessage.convertInputValidity.rawValue)
+            presentVCAlert(with: AlertTitle.convertInputValidity.rawValue,
+                           and: AlertMessage.convertInputValidity.rawValue)
             convertTextField.text = ""
         }
     }
@@ -128,14 +128,14 @@ extension ConvertViewController {
     private func requestConversion(for amount: Double) {
         toggleActivityIndicator(activityIndicator,shown: true)
 
-        APIService.shared.query(API: .Fixer) { (success, resource) in
+        APIService.shared.query(API: .fixer) { (success, resource) in
             self.toggleActivityIndicator(self.activityIndicator, shown: false)
 
             if success, let rate = resource as? Double {
                 self.updateDisplay(with: amount, and: rate)
             } else {
-                self.presentVCAlert(with: alertTitle.failure.rawValue,
-                                    and: alertMessage.convertRequest.rawValue)
+                self.presentVCAlert(with: AlertTitle.failure.rawValue,
+                                    and: AlertMessage.convertRequest.rawValue)
             }
         }
     }

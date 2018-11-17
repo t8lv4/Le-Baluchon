@@ -46,7 +46,7 @@ extension APIService {
      `input` default value is an empty string.
      */
     func query(API: WebService, input: String = "", callback: @escaping Callback) {
-        if API != .YahooWeather { task?.cancel() }
+        if API != .yahooWeather { task?.cancel() }
 
         guard let request = getRequest(API: API, for: input) else {
             callback(false, nil)
@@ -67,7 +67,7 @@ extension APIService {
 
                 let decoder = JSONDecoder()
                 switch API {
-                case .Fixer:
+                case .fixer:
                     if ConvertService.parse(data, with: decoder) as? Int == -1 ||
                         ConvertService.parse(data, with: decoder) as? Int == -2 {
                         callback(false, nil)
@@ -75,14 +75,14 @@ extension APIService {
                     }
                     self?.resource = ConvertService.parse(data, with: decoder)
 
-                case .GoogleTranslate:
+                case .googleTranslate:
                     if TranslateService.parse(data, with: decoder) as? Int == -1 {
                         callback(false, nil)
                         return
                     }
                     self?.resource = TranslateService.parse(data, with: decoder)
                     
-                case .YahooWeather:
+                case .yahooWeather:
                     if WeatherService.parse(data, with: decoder) as? Int == -1 {
                         callback(false, nil)
                         return
@@ -113,11 +113,11 @@ extension APIService {
      */
     private func getRequest(API: WebService, for input: String = "") -> URLRequest? {
         switch API {
-        case .Fixer:
+        case .fixer:
             request = ConvertService.createRequest()
-        case .GoogleTranslate:
+        case .googleTranslate:
             request = TranslateService.createRequest(for: input)
-        case .YahooWeather:
+        case .yahooWeather:
             request = WeatherService.createRequest(for: input)
         }
 
