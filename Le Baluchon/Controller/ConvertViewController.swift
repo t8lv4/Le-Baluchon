@@ -9,7 +9,6 @@
 import UIKit
 
 class ConvertViewController: UIViewController {
-
     // MARK: Outlets
     
     /// Link to "Convertir" label.
@@ -35,13 +34,11 @@ class ConvertViewController: UIViewController {
         currencyLabel.isEnabled = false
         calculerButton.isHidden = true
     }
-
 }
 
 // MARK: - Set up delegate
 
 extension ConvertViewController: UITextFieldDelegate {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,7 +63,6 @@ extension ConvertViewController: UITextFieldDelegate {
         currencyLabel.isEnabled = true
         calculerButton.isHidden = false
     }
-
 }
 
 // MARK: - Clear text field
@@ -83,7 +79,7 @@ extension ConvertViewController {
 
 extension ConvertViewController {
     /**
-     Launch the request process.
+     Launch the request process
      - enable keyboard
      - call `checkInputValidity(input:)`
      - update the state of UI objects
@@ -120,7 +116,7 @@ extension ConvertViewController {
     }
 
     /**
-     Call several methods to display a converted currency.
+     Call several methods to display a converted currency
      - get conversion rate from Fixer
      - update display
      - display an alert if the resource is not available
@@ -141,7 +137,7 @@ extension ConvertViewController {
     }
 
     /**
-     Update display with a requested currency conversion.
+     Update display with a requested currency conversion
      - Parameters:
         - amount: The user input value
         - rate: The rate provided by Fixer.io
@@ -150,5 +146,4 @@ extension ConvertViewController {
         convertTextField.text = Convert.convert(amount, with: rate)
         currencyLabel.text = "$"
     }
-
 }

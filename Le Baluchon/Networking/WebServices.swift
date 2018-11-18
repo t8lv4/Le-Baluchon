@@ -10,37 +10,30 @@ import Foundation
 
 /// List HTTP methods
 enum HTTPMethod: String {
-
     case post = "POST", get = "GET"
-
 }
 
 /// A list of weabservices used by Le Baluchon
 enum WebService {
-
     case fixer, googleTranslate, yahooWeather
-    
 }
 
 // MARK: - Fixer
 
 /// Hold access to Fixer API resources
 struct Fixer {
-
     static private let endpoint = "http://data.fixer.io/api/latest"
     static private let accessKey = "?access_key=\(APIKeys.Fixer)"
     static private let parameters = "&symbols=USD"
 
     /// return Fixer resources location
     static var url: String { return Fixer.endpoint + Fixer.accessKey + Fixer.parameters }
-
 }
 
 // MARK: - Google Translation
 
 /// Hold access to Google Translation API resources
 struct GoogleTranslation {
-
     static private let endpoint = "https://translation.googleapis.com/language/translate/v2"
     static private let accessKey = "?key=\(APIKeys.GoogleTranslation)"
     static private let parameters = "&source=fr&target=en&format=text&q="
@@ -49,14 +42,12 @@ struct GoogleTranslation {
     static var url: String {
         return GoogleTranslation.endpoint + GoogleTranslation.accessKey + GoogleTranslation.parameters
     }
-
 }
 
 // MARK: - Yahoo Weather
 
-/// Hold access to Yahoo Weather API resources.
+/// Hold access to Yahoo Weather API resources
 struct YahooWeather {
-
     /// The place where we want weather forecast resources, express in a YQL format
     var place: String
 
@@ -66,7 +57,6 @@ struct YahooWeather {
     static let query = "q=select location.city, item.condition.temp, item.condition.code from weather.forecast "
     /// Get temperature value in Celsius and response as JSON
     static let parameters = "and u='c'&format=json"
-
 }
 
 extension YahooWeather {

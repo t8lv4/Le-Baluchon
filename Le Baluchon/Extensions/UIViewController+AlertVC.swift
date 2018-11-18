@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-
     /**
      Define a UIAlertController called by the ViewController
      - A message is displayed according to the input
@@ -25,5 +24,4 @@ extension UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
-    
 }

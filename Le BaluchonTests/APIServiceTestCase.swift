@@ -11,7 +11,6 @@ import XCTest
 @testable import Le_Baluchon
 
 class APIServiceTests: XCTestCase {
-
     let webServices: [WebService] = [.fixer, .googleTranslate, .yahooWeather]
 
     // MARK: - Test query handler failure
@@ -171,7 +170,6 @@ class APIServiceTests: XCTestCase {
             let translatedText = "Bonjour Monde!"
 
             XCTAssertEqual(translatedText, resource as? String)
-            // create as many asserts as constants
 
             expectation.fulfill()
         }
@@ -230,7 +228,4 @@ class APIServiceTests: XCTestCase {
 
         wait(for: [expectation], timeout: 0.01)
     }
-
-
-
 }

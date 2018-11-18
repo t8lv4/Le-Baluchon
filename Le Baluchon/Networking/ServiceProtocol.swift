@@ -17,5 +17,4 @@ protocol ServiceProtocol {
         - decoder: JSON decoder
      */
     static func parse(_ data: Data, with decoder: JSONDecoder) -> Any
-
 }

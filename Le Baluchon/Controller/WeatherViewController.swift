@@ -10,7 +10,6 @@ import UIKit
 import CoreLocation
 
 class WeatherViewController: UIViewController, CLLocationManagerDelegate {
-
     // MARK: Properties
 
     let locationManager = CLLocationManager()
@@ -32,16 +31,13 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         - [1] = display NY weather condition icon
      */
     @IBOutlet var weatherIconViews: [UIImageView]!
-
     /// Link to activity indicators (outlet collection)
     @IBOutlet var activityIndicators: [UIActivityIndicatorView]!
-
 }
 
 // MARK: - Methods
 
 extension WeatherViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,7 +58,6 @@ extension WeatherViewController {
             locationAuthorizationAlert()
         }
     }
-
 }
 
 // MARK: - Request Weather resources
@@ -80,7 +75,7 @@ extension WeatherViewController {
     }
 
     /**
-     Request weather data from YahooWeather.
+     Request weather data from YahooWeather
      - If available, call `display(_:)` to update UI
      - If not, call `presentVCAlert(with title:and message:)`
      */
@@ -97,7 +92,6 @@ extension WeatherViewController {
             }
         }
     }
-
 }
 
 // MARK: - Update display
@@ -106,7 +100,7 @@ extension WeatherViewController {
     /**
      Set up UI with a blank state
 
-     Called inside viewWillAppear().
+     Called inside viewWillAppear()
      */
     private func setUpDisplay() {
         for index in 0...1 {
@@ -141,7 +135,7 @@ extension WeatherViewController {
     }
 
     /**
-     Present an alert and empty UI.
+     Present an alert and empty UI
      */
     func handleRequestFailure(_ weatherCondition: Weather?) {
         for activityIndicator in activityIndicators {
@@ -162,16 +156,14 @@ extension WeatherViewController {
         presentVCAlert(with: AlertTitle.locationAuth.rawValue,
                        and: AlertMessage.locationAuth.rawValue)
     }
-
 }
 
 // MARK: User Location
 
 extension WeatherViewController {
-
     private func startReceivingLocationChanges() {
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        locationManager.distanceFilter = 1000.0  // In meters.
+        locationManager.distanceFilter = 1000.0  // In meters
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
     }
@@ -207,5 +199,4 @@ extension WeatherViewController {
             break
         }
     }
-
 }

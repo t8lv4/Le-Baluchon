@@ -6,19 +6,10 @@
 //  Copyright © 2018 Morgan. All rights reserved.
 //
 
-//override func setUp() {
-//    // Put setup code here. This method is called before the invocation of each test method in the class.
-//}
-//
-//override func tearDown() {
-//    // Put teardown code here. This method is called after the invocation of each test method in the class.
-//}
-
 import XCTest
 @testable import Le_Baluchon
 
 class ConvertServiceTests: XCTestCase {
-
     func testGivenValue3Rate3ConvertShouldReturn1() {
         //given
         let value = 3.0
@@ -28,5 +19,4 @@ class ConvertServiceTests: XCTestCase {
         //then
         XCTAssertEqual(result, "1.00")
     }
-
 }

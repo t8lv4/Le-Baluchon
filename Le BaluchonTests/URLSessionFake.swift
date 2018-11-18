@@ -32,7 +32,6 @@ class URLSessionFake: URLSession {
 }
 
 extension URLSessionFake {
-
     override func dataTask(with url: URL, completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
         let task = URLSessionDataTaskFake()
         task.completionHandler = completionHandler
@@ -50,7 +49,6 @@ extension URLSessionFake {
         task.responseError = error
         return task
     }
-
 }
 
 

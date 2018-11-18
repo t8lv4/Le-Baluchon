@@ -9,18 +9,17 @@
 import UIKit
 
 class TranslateViewController: UIViewController {
-
     // MARK: Outlets
 
-    /// Link to Traduire label.
+    /// Link to Traduire label
     @IBOutlet weak var traduireLabel: UILabel!
-    /// Hold the words to be translated.
+    /// Hold the words to be translated
     @IBOutlet weak var translateTextField: UITextField!
     @IBOutlet weak public var activityIndicator: UIActivityIndicatorView!
 
     // MARK: Methods
 
-    /// Dismiss keyboard and update UI after tapping the view.
+    /// Dismiss keyboard and update UI after tapping the view
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         translateTextField.resignFirstResponder()
         traduireLabel.isEnabled = true
@@ -32,7 +31,6 @@ class TranslateViewController: UIViewController {
 
 // Set up UITextFieldDelegate
 extension TranslateViewController: UITextFieldDelegate {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,13 +42,11 @@ extension TranslateViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         traduireLabel.isEnabled = false
     }
-
 }
 
 // MARK: - Request
 
 extension TranslateViewController {
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         translateTextField.becomeFirstResponder()
 
@@ -61,7 +57,7 @@ extension TranslateViewController {
     }
 
     /**
-     Check if the text input is an empty string.
+     Check if the text input is an empty string
         - if so: Present an alert
         - if not: Perform a translate request
      */
@@ -75,7 +71,7 @@ extension TranslateViewController {
     }
 
     /**
-     Perform a translate request. If it succeed, update UI.
+     Perform a translate request. If it succeed, update UI
      - Parameters:
         - text: The user input
 
@@ -95,5 +91,4 @@ extension TranslateViewController {
             }
         }
     }
-
 }

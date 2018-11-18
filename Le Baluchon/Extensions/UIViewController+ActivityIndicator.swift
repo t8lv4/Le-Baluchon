@@ -9,10 +9,8 @@
 import UIKit
 
 extension UIViewController {
-
     /// Toggle an activity indicator
     func toggleActivityIndicator(_ indicator: UIActivityIndicatorView, shown: Bool) {
         indicator.isHidden = !shown
     }
-
 }

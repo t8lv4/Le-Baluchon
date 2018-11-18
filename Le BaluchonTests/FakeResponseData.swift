@@ -18,7 +18,6 @@ import Foundation
  Create a `myModelCorrectData` variable per model's service to test.
  */
 class FakeResponseData {
-
     static var convertCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "fixer", withExtension: "json")!
@@ -36,13 +35,11 @@ class FakeResponseData {
         let url = bundle.url(forResource: "yahooWeather", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
-    
 }
 
 // MARK: - HTTP status code
 
 extension FakeResponseData {
-
     /// HTTP status code is 200
     static let responseOK = HTTPURLResponse(
         url: URL(string: "https://openclassrooms.com")!,
@@ -52,22 +49,17 @@ extension FakeResponseData {
     static let responseKO = HTTPURLResponse(
         url: URL(string: "https://openclassrooms.com")!,
         statusCode: 500, httpVersion: nil, headerFields: [:])!
-
 }
 
 // MARK: - Invalid data
 
 extension FakeResponseData {
-
     static let IncorrectData = "erreur".data(using: .utf16)!
-
 }
 
 // MARK: - Error
 
 extension FakeResponseData {
-
     class AnyError: Error {}
     static let error = AnyError()
-
 }

@@ -10,7 +10,6 @@ import Foundation
 
 /// Perform API requests
 class APIService {
-
     /// A closure to provide the state of a network call to the ViewControllers
     typealias Callback = (Bool, Any?) -> Void
     var request: URLRequest?
@@ -27,11 +26,9 @@ class APIService {
     init(session: URLSession) {
         self.session = session
     }
-
 }
 
 extension APIService {
-
     /**
      Perform a session dataTask with URLRequest from different APIs
 
@@ -95,7 +92,6 @@ extension APIService {
         }
         task?.resume()
     }
-
 }
 
 extension APIService {
@@ -123,5 +119,4 @@ extension APIService {
 
         return request
     }
-
 }

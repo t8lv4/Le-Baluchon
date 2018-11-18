@@ -20,11 +20,9 @@ struct ConvertService {
 
         return urlRequest
     }
-
 }
 
 extension ConvertService: ServiceProtocol {
-
     static func parse(_ data: Data, with decoder: JSONDecoder) -> Any {
         guard let json = try? decoder.decode(Convert.self, from: data) else {
             return -1
@@ -36,5 +34,4 @@ extension ConvertService: ServiceProtocol {
 
         return resource
     }
-
 }

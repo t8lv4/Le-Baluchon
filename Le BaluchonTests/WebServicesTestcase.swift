@@ -11,7 +11,6 @@ import XCTest
 @testable import Le_Baluchon
 
 class WebServicesTest: XCTestCase {
-
     func testInitYahooWeatherNotNil() {
         let forecast = YahooWeather(city: "Berlin")
 
@@ -19,5 +18,4 @@ class WebServicesTest: XCTestCase {
 
         XCTAssertNotNil(city)
     }
-    
 }

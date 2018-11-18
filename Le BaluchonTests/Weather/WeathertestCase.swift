@@ -11,7 +11,6 @@ import XCTest
 @testable import Le_Baluchon
 
 class WeatherServiceTests: XCTestCase {
-
     func testCoordinatesAddingCoordinatesToCitiesNewEntryIsAdded() {
         //given
         let coordinates = (48.856614, 2.3522219)
@@ -23,13 +22,6 @@ class WeatherServiceTests: XCTestCase {
         XCTAssertEqual(newEntry.0, 48.856614)
         XCTAssertEqual(newEntry.1, 2.3522219)
     }
-
-//    func testInitPlaceIsNotNil() {
-//        let city = YahooWeather.init(city: "Berlin")
-//
-//        let city = Berlin.place
-//
-//    }
 
     func testAnyValidConditionCodeGetWeatherNotNil() {
         // YahooWeather condition code goes up to 47
@@ -65,5 +57,4 @@ class WeatherServiceTests: XCTestCase {
     //then
     XCTAssertEqual(condition, "tornade")
     }
-
 }

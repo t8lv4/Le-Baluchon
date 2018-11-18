@@ -14,7 +14,6 @@
 		901335E8218F4A3E004F6599 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335E7218F4A3E004F6599 /* FakeResponseData.swift */; };
 		901335EA218F4D8C004F6599 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335E9218F4D8C004F6599 /* URLSessionFake.swift */; };
 		901335EE218F77DE004F6599 /* googleTranslate.json in Resources */ = {isa = PBXBuildFile; fileRef = 901335ED218F77DE004F6599 /* googleTranslate.json */; };
-		901335F0218F7828004F6599 /* TranslateTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335EF218F7828004F6599 /* TranslateTestCase.swift */; };
 		901335F3218F7F82004F6599 /* WeathertestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901335F2218F7F82004F6599 /* WeathertestCase.swift */; };
 		901335F5218F7F96004F6599 /* yahooWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = 901335F4218F7F96004F6599 /* yahooWeather.json */; };
 		90143807219F1CB4005AA2A2 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90143806219F1CB4005AA2A2 /* ServiceProtocol.swift */; };
@@ -62,7 +61,6 @@
 		901335E7218F4A3E004F6599 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		901335E9218F4D8C004F6599 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		901335ED218F77DE004F6599 /* googleTranslate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = googleTranslate.json; sourceTree = "<group>"; };
-		901335EF218F7828004F6599 /* TranslateTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTestCase.swift; sourceTree = "<group>"; };
 		901335F2218F7F82004F6599 /* WeathertestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeathertestCase.swift; sourceTree = "<group>"; };
 		901335F4218F7F96004F6599 /* yahooWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yahooWeather.json; sourceTree = "<group>"; };
 		90143806219F1CB4005AA2A2 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 		901335EC218F77BA004F6599 /* TranslateTest */ = {
 			isa = PBXGroup;
 			children = (
-				901335EF218F7828004F6599 /* TranslateTestCase.swift */,
 				901335ED218F77DE004F6599 /* googleTranslate.json */,
 			);
 			path = TranslateTest;
@@ -364,7 +361,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				901335F0218F7828004F6599 /* TranslateTestCase.swift in Sources */,
 				901335E4218F40F7004F6599 /* ConvertTestCase.swift in Sources */,
 				9077322F219725B500419DCA /* APIServiceTestCase.swift in Sources */,
 				901335EA218F4D8C004F6599 /* URLSessionFake.swift in Sources */,
