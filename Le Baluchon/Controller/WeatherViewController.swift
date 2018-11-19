@@ -121,7 +121,7 @@ extension WeatherViewController {
             placeLabels[1].text = "New York"
             tempLabels[1].text = weatherCondition.temp + "°"
             let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
-            weatherIconViews[1].image = UIImage(named: iconName)
+            weatherIconViews[1].image = UIImage(named: iconName.rawValue)
 
         // user current location
         default:
@@ -130,7 +130,7 @@ extension WeatherViewController {
             placeLabels[0].text = weatherCondition.city
             tempLabels[0].text = weatherCondition.temp + "°"
             let iconName = Weather.getWeatherIcon(condition: Int(weatherCondition.code)!)
-            weatherIconViews[0].image = UIImage(named: iconName)
+            weatherIconViews[0].image = UIImage(named: iconName.rawValue)
         }
     }
 

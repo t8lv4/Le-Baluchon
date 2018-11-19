@@ -8,6 +8,15 @@
 
 import Foundation
 
+enum Icon: String {
+case tornade = "tornade", orage = "orage", averseNeige = "averseNeige",
+    pluie = "pluie", averse = "averse", neige = "neige",
+    brouillard = "brouillard", ventFort = "ventFort",
+    couvert = "couvert", nuageuxNuit = "nuageuxNuit",
+    nuageuxJour = "nuageuxJour", nuitClaire = "nuitClaire",
+    jourClair = "jourClair", orageux = "orageux", quetionMark = "?"
+}
+
 /**
 JSON structure from YahooWeather
 {
@@ -106,55 +115,55 @@ extension Weather {
      - returns: The name of a weather icon
      - note: As of October 2018, YahooWeather code are provided at `https://developer.yahoo.com/weather/documentation.html`.
      */
-    static func getWeatherIcon(condition: Int) -> String {
+    static func getWeatherIcon(condition: Int) -> Icon {
         switch condition {
         case 0...2, 19:
-            return "tornade"
+            return Icon.tornade
 
         case 3, 4, 45, 47:
-            return "orage"
+            return Icon.orage
 
         case 5...7, 13, 14, 18, 41...43:
-            return "averseNeige"
+            return Icon.averseNeige
 
         case 8...10, 17:
-            return "pluie"
+            return Icon.pluie
 
         case 11, 12, 35, 40:
-            return "averse"
+            return Icon.averse
 
         case 15, 16:
-            return "neige"
+            return Icon.neige
 
         case 20...22:
-            return "brouillard"
+            return Icon.brouillard
 
         case 23, 24:
-            return "ventFort"
+            return Icon.ventFort
 
         case 26:
-            return "couvert"
+            return Icon.couvert
 
         case 27, 29:
-            return "nuageuxNuit"
+            return Icon.nuageuxNuit
 
         case 28, 30, 44:
-            return "nuageuxJour"
+            return Icon.nuageuxJour
 
         case 31, 33:
-            return "nuitClaire"
+            return Icon.nuitClaire
 
         case 32, 34:
-            return "jourClair"
+            return Icon.jourClair
 
         case 37...39:
-            return "orageux"
+            return Icon.orageux
 
         case 3200:
-            return "?"
+            return Icon.quetionMark
 
         default:
-            return "?"
+            return Icon.quetionMark
         }
     }
 

@@ -38,7 +38,7 @@ class WeatherServiceTests: XCTestCase {
 
         let condition = Weather.getWeatherIcon(condition: code)
 
-        XCTAssertEqual(condition, "?")
+        XCTAssertEqual(condition, Icon.quetionMark)
     }
 
     func testConditionCodeDefaultCaseGetWeatherReturnQuestionMark() {
@@ -46,7 +46,7 @@ class WeatherServiceTests: XCTestCase {
 
         let condition = Weather.getWeatherIcon(condition: code)
 
-        XCTAssertEqual(condition, "?")
+        XCTAssertEqual(condition, Icon.quetionMark)
     }
 
     func testConditionCodeGetWeatherIconReturnNameOfIcon() {
@@ -55,6 +55,6 @@ class WeatherServiceTests: XCTestCase {
     //when
     let condition = Weather.getWeatherIcon(condition: code)
     //then
-    XCTAssertEqual(condition, "tornade")
+    XCTAssertEqual(condition, Icon.tornade)
     }
 }
