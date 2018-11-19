@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// List Places dictionary keys
+/// List `cities` dictionary keys
 enum DictionaryKeys {
     case newYork
     case currentLocation
@@ -38,5 +38,4 @@ extension Places {
     static func addCurrentLocation(_ coordinates: (Double, Double)) {
         Places.cities[DictionaryKeys.currentLocation] = coordinates
     }
-
 }

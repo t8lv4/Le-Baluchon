@@ -13,7 +13,7 @@ enum HTTPMethod: String {
     case post = "POST", get = "GET"
 }
 
-/// A list of weabservices used by Le Baluchon
+/// A list of webservices used by Le Baluchon
 enum WebService {
     case fixer, googleTranslate, yahooWeather
 }

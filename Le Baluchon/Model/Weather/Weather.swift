@@ -8,8 +8,9 @@
 
 import Foundation
 
+/// Hold WeatherIcon image names (cf assets folder)
 enum Icon: String {
-case tornade = "tornade", orage = "orage", averseNeige = "averseNeige",
+    case tornade = "tornade", orage = "orage", averseNeige = "averseNeige",
     pluie = "pluie", averse = "averse", neige = "neige",
     brouillard = "brouillard", ventFort = "ventFort",
     couvert = "couvert", nuageuxNuit = "nuageuxNuit",
@@ -44,8 +45,9 @@ JSON structure from YahooWeather
 // MARK: Intermediate type
 
 /**
- Mirror the YahooWeather JSON response.
- Intermediate structure to further get the resources.
+ Mirror the YahooWeather JSON response
+
+ Intermediate structure to further get the resources
  */
 struct WeatherJSON: Decodable {
     let query: Query
@@ -83,7 +85,6 @@ struct WeatherJSON: Decodable {
  Define the weather model data structure
  */
 struct Weather {
-
     var city: String
     /**
      Weather condition code
@@ -94,17 +95,14 @@ struct Weather {
     var code: String
     /// Temperature in °C (cf YahooWeather request parameters)
     var temp: String
-
 }
 
 extension Weather {
-
     init(from service: WeatherJSON) {
         city = service.query.results.channel.location.city
         code = service.query.results.channel.item.condition.code
         temp = service.query.results.channel.item.condition.temp
     }
-
 }
 
 extension Weather {
@@ -166,5 +164,4 @@ extension Weather {
             return Icon.quetionMark
         }
     }
-
 }

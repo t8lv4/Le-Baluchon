@@ -14,9 +14,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
 
-    /** Link to place labels (outlet collection)
-    - [0] = display the name of the current user location
-    - [1] = display NY name
+    /**
+     Link to places labels (outlet collection)
+        - [0] = display the name of the current user location
+        - [1] = display NY name
      */
     @IBOutlet var placeLabels: [UILabel]!
     /**

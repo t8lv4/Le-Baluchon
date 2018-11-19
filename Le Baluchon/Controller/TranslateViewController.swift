@@ -36,7 +36,6 @@ extension TranslateViewController: UITextFieldDelegate {
 
         self.translateTextField.delegate = self
         toggleActivityIndicator(activityIndicator, shown: false)
-
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -71,11 +70,11 @@ extension TranslateViewController {
     }
 
     /**
-     Perform a translate request. If it succeed, update UI
+     Perform a translate request
      - Parameters:
         - text: The user input
 
-     If the request fail, present an alert
+     If the request succeeds, update UI; if it fails, present an alert.
      */
     private func requestTranslation(for input: String) {
         self.toggleActivityIndicator(activityIndicator,shown: true)

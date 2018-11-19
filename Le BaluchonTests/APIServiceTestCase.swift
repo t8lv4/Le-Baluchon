@@ -15,6 +15,7 @@ class APIServiceTests: XCTestCase {
 
     // MARK: - Test query handler failure
 
+    // test query completion handler failure for each webservice
     func testQueryCompletionHandlerFailure() {
         for webservice in webServices {
             var input: String
