@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Hold WeatherIcon image names (cf assets folder)
+/// List weatherIcon names (cf assets folder)
 enum Icon: String {
     case tornade = "tornade", orage = "orage", averseNeige = "averseNeige",
     pluie = "pluie", averse = "averse", neige = "neige",

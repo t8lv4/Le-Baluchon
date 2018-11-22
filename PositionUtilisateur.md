@@ -71,8 +71,6 @@ override func viewWillAppear(_ animated: Bool) {
 
 8. Présentation d'une fenêtre pour informer l'utilisateur que sans son autorisation, les conditions météorologiques pour la ville dans laquelle il se trouve ne seront pas présentées.
 
-   
-
 
 
 + Création d'une extension au ViewController :
@@ -94,7 +92,7 @@ extension WeatherViewController {
         Places.addCurrentLocation((lastLocation.coordinate.latitude, lastLocation.coordinate.longitude))
 
         callService()
-        }
+     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {

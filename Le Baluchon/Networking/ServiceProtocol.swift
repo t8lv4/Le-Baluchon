@@ -12,6 +12,9 @@ import Foundation
 protocol ServiceProtocol {
     /**
      Decode an API response and return the requested resource
+
+     - Attention: Webservices _must_ implemement this protocol
+
      - Parameters:
         - data: data to decode
         - decoder: JSON decoder
