@@ -30,7 +30,7 @@ class APIService {
 
 extension APIService {
     /**
-     Perform a session dataTask with URLRequest from different APIs
+     Perform a session dataTask with URLRequest to different APIs
 
      - Parameters:
         - API: APIs used by Le Baluchon
@@ -38,7 +38,7 @@ extension APIService {
         - callback: Provides the state of the session and returns decoded data to the VCs
 
      - Note:
-     As of november 2018, any API involved in Le Balluchon takes a String as an input type.
+     As of november 2018, any API involved in Le Baluchon takes a String as an input type.
      To allow flexibility when calling `query` and avoid passing dummy value to the `input` parameter,
      `input` default value is an empty string.
      */
@@ -103,8 +103,8 @@ extension APIService {
         - input: Any value input by the user and used by the API to provide the expected resource
 
      - Note:
-     As of november 2018, any API involved in Le Balluchon takes a String as an input type.
-     To allow flexibility when calling `query` and avoid passing dummy value to the `input` parameter,
+     As of november 2018, any API involved in Le Baluchon takes a String as an input type.
+     To allow flexibility when calling `query` and avoid passing dummy values to the `input` parameter,
      `input` default value is an empty string.
      */
     private func getRequest(API: WebService, for input: String = "") -> URLRequest? {
